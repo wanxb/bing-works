@@ -6,6 +6,7 @@
 
 - Home: `index.html`
 - Online root after deploy: `/`
+- Favicon: `favicon.svg`
 
 ## Projects
 
