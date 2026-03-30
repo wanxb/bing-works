@@ -2,6 +2,11 @@
 
 三个风格各异、可直接静态部署的小作品合集。
 
+## Gallery
+
+- Home: `index.html`
+- Online root after deploy: `/`
+
 ## Projects
 
 ### 1. Memory Garden / 记忆花园
