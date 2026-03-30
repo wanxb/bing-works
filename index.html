@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mini Works Gallery | 小作品展厅</title>
-  <meta name="description" content="三个风格迥异的静态网页小作品：记忆花园、禅石排布、旧信号博物馆。" />
+  <meta name="description" content="三个风格迥异、可单独部署也可作为合集浏览的静态网页作品：记忆花园、禅石排布、旧信号博物馆。" />
   <style>
     :root {
       --bg: #0b0e14;
@@ -13,12 +13,9 @@
       --line: rgba(255,255,255,.12);
       --text: #f4f7fb;
       --muted: rgba(244,247,251,.68);
-      --cyan: #76e7ff;
-      --pink: #ff9fd2;
-      --gold: #ffcf76;
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; color: var(--text); background: linear-gradient(180deg, var(--bg2), var(--bg)); }
+    html, body { margin: 0; min-height: 100%; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; color: var(--text); }
     body {
       background:
         radial-gradient(circle at 18% 12%, rgba(118,231,255,.12), transparent 24%),
@@ -32,61 +29,25 @@
     }
     .eyebrow { display: inline-flex; gap: 8px; align-items: center; color: var(--muted); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
     h1 { margin: 14px 0 14px; font-size: clamp(34px, 7vw, 72px); line-height: 1.02; }
-    .hero p { max-width: 780px; margin: 0; color: var(--muted); line-height: 1.9; font-size: 16px; }
+    .hero p { max-width: 860px; margin: 0; color: var(--muted); line-height: 1.9; font-size: 16px; }
     .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
-    .btn {
-      padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.06); transition: .2s ease;
-    }
+    .btn { padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.06); transition: .2s ease; }
     .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.1); }
     .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
-    .card {
-      position: relative; overflow: hidden; min-height: 360px; border-radius: 28px; border: 1px solid var(--line); background: var(--card); box-shadow: 0 24px 60px rgba(0,0,0,.2);
-    }
-    .card::before {
-      content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(255,255,255,.12), transparent 30%); pointer-events: none;
-    }
-    .preview {
-      height: 190px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .preview.garden {
-      background: radial-gradient(circle at 20% 20%, rgba(118,231,255,.25), transparent 24%), linear-gradient(180deg, #193257, #08111d 70%, #07100d);
-    }
-    .preview.garden::after {
-      content: ""; position: absolute; left: 18%; bottom: 18px; width: 180px; height: 120px; background:
-      radial-gradient(circle at 50% 35%, rgba(255,240,210,.9) 0 12px, transparent 13px),
-      radial-gradient(circle at 22% 44%, rgba(124,240,198,.85) 0 18px, transparent 19px),
-      radial-gradient(circle at 78% 44%, rgba(255,159,210,.85) 0 18px, transparent 19px),
-      linear-gradient(90deg, transparent 48%, rgba(124,240,198,.8) 49% 51%, transparent 52%);
-      filter: drop-shadow(0 0 18px rgba(118,231,255,.35));
-    }
-    .preview.zen {
-      background:
-        repeating-radial-gradient(circle at 50% 45%, rgba(44,41,37,.08) 0 2px, transparent 2px 18px),
-        linear-gradient(180deg, #f1e8d7, #eadfcb);
-    }
-    .preview.zen::after {
-      content: ""; position: absolute; left: 18%; top: 48px; width: 240px; height: 90px; background:
-      radial-gradient(ellipse at 20% 55%, rgba(50,47,44,.82) 0 26px, transparent 28px),
-      radial-gradient(ellipse at 52% 48%, rgba(50,47,44,.74) 0 34px, transparent 36px),
-      radial-gradient(ellipse at 83% 58%, rgba(50,47,44,.86) 0 22px, transparent 24px);
-    }
-    .preview.signal {
-      background: linear-gradient(180deg, #0a0d11, #110f14 55%, #09090c);
-    }
-    .preview.signal::after {
-      content: ""; position: absolute; inset: 20px; border-radius: 18px; background:
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
-        repeating-linear-gradient(180deg, rgba(255,255,255,.06) 0 1px, transparent 1px 4px),
-        radial-gradient(circle at 70% 36%, rgba(118,231,255,.18), transparent 24%),
-        linear-gradient(90deg, transparent 0 10%, rgba(245,180,90,.65) 10% 11%, transparent 11% 18%, rgba(255,142,194,.72) 18% 19%, transparent 19% 26%, rgba(118,231,255,.72) 26% 27%, transparent 27% 100%);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-    }
+    .card { position: relative; overflow: hidden; min-height: 390px; border-radius: 28px; border: 1px solid var(--line); background: var(--card); box-shadow: 0 24px 60px rgba(0,0,0,.2); }
+    .card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(255,255,255,.12), transparent 30%); pointer-events: none; }
+    .preview { height: 210px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .preview.garden { background: radial-gradient(circle at 20% 20%, rgba(118,231,255,.25), transparent 24%), linear-gradient(180deg, #193257, #08111d 70%, #07100d); }
+    .preview.garden::after { content: ""; position: absolute; left: 14%; bottom: 16px; width: 220px; height: 132px; background: radial-gradient(circle at 50% 35%, rgba(255,240,210,.9) 0 12px, transparent 13px), radial-gradient(circle at 22% 44%, rgba(124,240,198,.85) 0 18px, transparent 19px), radial-gradient(circle at 78% 44%, rgba(255,159,210,.85) 0 18px, transparent 19px), linear-gradient(90deg, transparent 48%, rgba(124,240,198,.8) 49% 51%, transparent 52%); filter: drop-shadow(0 0 18px rgba(118,231,255,.35)); }
+    .preview.zen { background: repeating-radial-gradient(circle at 50% 45%, rgba(44,41,37,.08) 0 2px, transparent 2px 18px), linear-gradient(180deg, #f1e8d7, #eadfcb); }
+    .preview.zen::after { content: ""; position: absolute; left: 14%; top: 54px; width: 260px; height: 96px; background: radial-gradient(ellipse at 20% 55%, rgba(50,47,44,.82) 0 26px, transparent 28px), radial-gradient(ellipse at 52% 48%, rgba(50,47,44,.74) 0 34px, transparent 36px), radial-gradient(ellipse at 83% 58%, rgba(50,47,44,.86) 0 22px, transparent 24px); }
+    .preview.signal { background: linear-gradient(180deg, #0a0d11, #110f14 55%, #09090c); }
+    .preview.signal::after { content: ""; position: absolute; inset: 20px; border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)), repeating-linear-gradient(180deg, rgba(255,255,255,.06) 0 1px, transparent 1px 4px), radial-gradient(circle at 70% 36%, rgba(118,231,255,.18), transparent 24%), linear-gradient(90deg, transparent 0 10%, rgba(245,180,90,.65) 10% 11%, transparent 11% 18%, rgba(255,142,194,.72) 18% 19%, transparent 19% 26%, rgba(118,231,255,.72) 26% 27%, transparent 27% 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
     .content { padding: 18px; }
     .meta { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
     .content h2 { margin: 8px 0 10px; font-size: 26px; }
     .content p { margin: 0; color: var(--muted); line-height: 1.8; min-height: 88px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-    .tag { padding: 6px 10px; font-size: 12px; color: var(--muted); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; }
+    .list { margin: 14px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.8; }
     .card-actions { display: flex; gap: 10px; margin-top: 18px; }
     .footer { margin-top: 28px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } .card { min-height: auto; } }
@@ -98,8 +59,8 @@
       <div class="eyebrow">Mini Works Gallery · xunbing</div>
       <h1>小作品展厅</h1>
       <p>
-        这里不是工具列表，而是一组打开就能感受到气质的小网页：有的偏情绪，有的偏构图，有的偏媒介怀旧。
-        它们都足够轻，静态部署就能直接访问。
+        这里不是简单的链接集合，而是一组可以单独部署、也可以作为合集浏览的静态网页作品。
+        每个页面都有自己的独立定位：一个偏情绪互动，一个偏东方构图玩具，一个偏复古媒介展馆。
       </p>
       <div class="actions">
         <a class="btn" href="https://github.com/wanxb/mini-works" target="_blank" rel="noopener noreferrer">查看 GitHub 仓库</a>
@@ -113,15 +74,13 @@
         <div class="content">
           <div class="meta">Interactive Poetry Object</div>
           <h2>记忆花园</h2>
-          <p>点击夜空，种下一句会发光的话。每一句都会长成一株带着微光的植物，像把情绪埋进网页里。</p>
-          <div class="tags">
-            <span class="tag">诗意互动</span>
-            <span class="tag">夜景氛围</span>
-            <span class="tag">情绪装置</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="./memory-garden/">打开作品</a>
-          </div>
+          <p>点击夜空，种下一句会发光的话。每一句都会长成一株微光植物，适合单独作为情绪类艺术页发布。</p>
+          <ul class="list">
+            <li>支持随机落种、手动落种、流星雨</li>
+            <li>支持复制句子、下载画面</li>
+            <li>适合作为独立沉浸页</li>
+          </ul>
+          <div class="card-actions"><a class="btn" href="./memory-garden/">打开作品</a></div>
         </div>
       </article>
 
@@ -130,15 +89,13 @@
         <div class="content">
           <div class="meta">Visual Toy / Calm Composition</div>
           <h2>禅石排布</h2>
-          <p>在电子白砂上拖动石头，让自动生成的耙纹围绕它们流动。像玩具，也像一张会呼吸的极简海报。</p>
-          <div class="tags">
-            <span class="tag">东方极简</span>
-            <span class="tag">拖拽交互</span>
-            <span class="tag">解压构图</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="./zen-stones/">打开作品</a>
-          </div>
+          <p>在电子白砂上拖动石头，让自动生成的耙纹围绕它们流动。更像可互动海报，而不是传统小游戏。</p>
+          <ul class="list">
+            <li>支持拖拽排布、双击落石</li>
+            <li>支持构图状态统计、空格隐藏 UI</li>
+            <li>支持导出当前画面</li>
+          </ul>
+          <div class="card-actions"><a class="btn" href="./zen-stones/">打开作品</a></div>
         </div>
       </article>
 
@@ -147,21 +104,19 @@
         <div class="content">
           <div class="meta">Retro Media Exhibition</div>
           <h2>旧信号博物馆</h2>
-          <p>收集拨号音、CRT 扫描线、磁带峰值和伪未来雷达，把已经过时的媒介信号变成一个可以被浏览的展馆。</p>
-          <div class="tags">
-            <span class="tag">复古科技</span>
-            <span class="tag">展馆感</span>
-            <span class="tag">视觉装置</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="./signal-museum/">打开作品</a>
-          </div>
+          <p>把拨号音、CRT 扫描线、磁带峰值和伪未来雷达做成一座小型视觉展馆，单独部署时也完全成立。</p>
+          <ul class="list">
+            <li>新增更多展品与轮播巡馆</li>
+            <li>支持随机展品与保存画面</li>
+            <li>适合做个人作品集里的氛围页</li>
+          </ul>
+          <div class="card-actions"><a class="btn" href="./signal-museum/">打开作品</a></div>
         </div>
       </article>
     </section>
 
     <div class="footer">
-      <span>静态部署友好 · 适合 Vercel / Netlify / GitHub Pages</span>
+      <span>每个项目都可单独部署；合集首页只是额外入口，不是依赖项</span>
       <span>Made by xunbingClaw</span>
     </div>
   </div>

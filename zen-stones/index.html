@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>禅石排布</title>
+  <title>禅石排布 | Zen Stones</title>
+  <meta name="description" content="在电子白砂上拖动石头，让耙纹围绕它们流动。一个可独立部署的东方极简互动网页。" />
+  <meta name="theme-color" content="#efe5d4" />
   <style>
     :root {
       --bg: #f3ecde;
@@ -18,32 +20,38 @@
     html, body { margin: 0; height: 100%; font-family: "Noto Serif SC", "Songti SC", serif; background: var(--bg); color: var(--ink); }
     body { overflow: hidden; }
     canvas { position: fixed; inset: 0; }
-    .ui {
-      position: relative; z-index: 2; min-height: 100%; display: grid; grid-template-rows: auto 1fr; padding: 22px;
-    }
-    .top {
-      display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap;
-    }
+    .ui { position: relative; z-index: 2; min-height: 100%; display: grid; grid-template-rows: auto 1fr auto; padding: 22px; }
+    .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; }
     .title {
-      max-width: 560px; padding: 18px 20px; border: 1px solid rgba(44,41,37,.08); background: var(--panel); border-radius: 24px; backdrop-filter: blur(8px);
+      max-width: 620px; padding: 18px 20px; border: 1px solid rgba(44,41,37,.08); background: var(--panel); border-radius: 24px; backdrop-filter: blur(8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.06);
     }
-    .title h1 { margin: 0; font-size: 28px; letter-spacing: .08em; }
-    .title p { margin: 10px 0 0; line-height: 1.8; color: var(--muted); }
+    .kicker { color: rgba(44,41,37,.45); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+    .title h1 { margin: 8px 0 10px; font-size: 32px; letter-spacing: .08em; }
+    .title p { margin: 0; line-height: 1.8; color: var(--muted); }
     .controls {
-      display: grid; gap: 12px; min-width: min(360px, 100%);
-      padding: 16px; border-radius: 24px; background: var(--panel); border: 1px solid rgba(44,41,37,.08);
+      display: grid; gap: 12px; min-width: min(420px, 100%); padding: 16px; border-radius: 24px; background: var(--panel); border: 1px solid rgba(44,41,37,.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,.05);
     }
     .row { display: flex; gap: 10px; flex-wrap: wrap; }
     button {
-      border: 1px solid rgba(44,41,37,.1); background: rgba(255,255,255,.72); color: var(--ink); padding: 10px 14px; border-radius: 999px; cursor: pointer;
+      border: 1px solid rgba(44,41,37,.1); background: rgba(255,255,255,.72); color: var(--ink); padding: 10px 14px; border-radius: 999px; cursor: pointer; transition: .18s ease;
     }
-    button:hover { background: white; }
-    .tip { color: var(--muted); font-size: 13px; line-height: 1.7; }
+    button:hover { background: white; transform: translateY(-1px); }
+    .tip, .footer { color: var(--muted); font-size: 13px; line-height: 1.7; }
     .badge { color: var(--accent); }
+    .stats {
+      align-self: end; width: min(380px, calc(100vw - 44px)); padding: 16px; border-radius: 22px; background: rgba(255,255,255,.48); border: 1px solid rgba(44,41,37,.08);
+      backdrop-filter: blur(8px);
+    }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+    .stat { padding: 10px; border-radius: 16px; background: rgba(255,255,255,.46); }
+    .stat strong { display: block; font-size: 20px; }
     @media (max-width: 760px) {
       .ui { padding: 14px; }
-      .title h1 { font-size: 24px; }
-      .controls { min-width: 100%; }
+      .title h1 { font-size: 26px; }
+      .controls, .stats { min-width: 100%; width: 100%; }
+      .stat-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -52,19 +60,29 @@
   <div class="ui">
     <div class="top">
       <div class="title">
+        <div class="kicker">Visual Toy / Calm Composition</div>
         <h1>禅石排布</h1>
-        <p>在一片电子白砂上，拖动石头，耙出纹路。它像游戏，又像一张会呼吸的海报。</p>
+        <p>在一片电子白砂上，拖动石头，耙出纹路。它像游戏，又像一张会呼吸的海报。没有任务，但有秩序；没有通关，却很适合发呆。</p>
       </div>
       <div class="controls">
         <div class="row">
-          <a href="../index.html" style="display:inline-flex;align-items:center;border:1px solid rgba(44,41,37,.1);background:rgba(255,255,255,.72);color:#2c2925;padding:10px 14px;border-radius:999px;cursor:pointer;text-decoration:none;">← 返回展厅</a>
           <button id="shuffleBtn">换一组石头</button>
           <button id="rakeBtn">自动耙纹</button>
           <button id="calmBtn">归于平静</button>
+          <button id="exportBtn">保存画面</button>
         </div>
         <div class="tip">
-          <span class="badge">玩法：</span>拖拽石头改变构图；双击空白处落下一颗小石；自动生成的线条会围绕石头流动。
+          <span class="badge">玩法：</span>拖拽石头改变构图；双击空白处落下一颗小石；自动生成的线条会围绕石头流动；按空格可隐藏浮层看纯画面。
         </div>
+      </div>
+    </div>
+    <div></div>
+    <div class="stats" id="statsPanel">
+      <div class="footer">你现在在摆一座电子枯山水。</div>
+      <div class="stat-grid">
+        <div class="stat"><span>石头</span><strong id="stoneCount">0</strong></div>
+        <div class="stat"><span>构图密度</span><strong id="density">低</strong></div>
+        <div class="stat"><span>状态</span><strong id="mood">平静</strong></div>
       </div>
     </div>
   </div>
@@ -76,6 +94,19 @@
     let dragged = null;
     let hoverX = 0, hoverY = 0;
     let ripple = 0;
+    let showUI = true;
+
+    const stoneCountEl = document.getElementById('stoneCount');
+    const densityEl = document.getElementById('density');
+    const moodEl = document.getElementById('mood');
+    const statsPanel = document.getElementById('statsPanel');
+
+    function updateStats() {
+      stoneCountEl.textContent = stones.length;
+      densityEl.textContent = stones.length <= 4 ? '低' : stones.length <= 7 ? '中' : '高';
+      const avg = stones.reduce((sum, s) => sum + s.r, 0) / Math.max(stones.length, 1);
+      moodEl.textContent = avg > 42 ? '沉稳' : avg > 30 ? '平静' : '轻盈';
+    }
 
     function resize() {
       canvas.width = innerWidth * devicePixelRatio;
@@ -83,7 +114,7 @@
       canvas.style.width = innerWidth + 'px';
       canvas.style.height = innerHeight + 'px';
       ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-      seedLayout();
+      if (!stones.length) seedLayout();
     }
 
     function seedLayout() {
@@ -99,15 +130,22 @@
           shade: 28 + Math.random() * 22
         });
       }
+      updateStats();
     }
 
-    function drawBackground() {
+    function drawBackground(t) {
       ctx.fillStyle = '#f3ecde';
       ctx.fillRect(0, 0, innerWidth, innerHeight);
-      ctx.fillStyle = 'rgba(0,0,0,.018)';
-      for (let i = 0; i < 1400; i++) {
-        ctx.fillRect(Math.random() * innerWidth, Math.random() * innerHeight, 1, 1);
+      ctx.fillStyle = 'rgba(0,0,0,.016)';
+      for (let i = 0; i < 420; i++) {
+        ctx.fillRect((i * 59) % innerWidth, (i * 97) % innerHeight, 1, 1);
       }
+      ctx.strokeStyle = `rgba(183,129,82,${0.04 + Math.sin(t * 0.0015) * 0.02})`;
+      ctx.beginPath();
+      ctx.moveTo(0, innerHeight * 0.78);
+      ctx.quadraticCurveTo(innerWidth * 0.25, innerHeight * 0.74, innerWidth * 0.5, innerHeight * 0.82);
+      ctx.quadraticCurveTo(innerWidth * 0.72, innerHeight * 0.88, innerWidth, innerHeight * 0.76);
+      ctx.stroke();
     }
 
     function drawRakeLines(t) {
@@ -115,13 +153,13 @@
       for (let y = 80; y < innerHeight - 40; y += 18) {
         ctx.beginPath();
         for (let x = 0; x <= innerWidth; x += 8) {
-          let offset = Math.sin(x * 0.008 + t * 0.001 + y * 0.01) * 3;
+          let offset = Math.sin(x * 0.008 + t * 0.001 + y * 0.01) * 2.8;
           stones.forEach(s => {
             const dx = x - s.x;
             const dy = y - s.y;
             const d = Math.hypot(dx, dy);
-            const influence = Math.max(0, 1 - d / (s.r * 3.6));
-            offset += Math.sin(d * 0.05 - t * 0.003) * influence * 18;
+            const influence = Math.max(0, 1 - d / (s.r * 3.7));
+            offset += Math.sin(d * 0.05 - t * 0.003) * influence * 17;
           });
           if (x === 0) ctx.moveTo(x, y + offset);
           else ctx.lineTo(x, y + offset);
@@ -157,7 +195,7 @@
     }
 
     function render(t) {
-      drawBackground();
+      drawBackground(t);
       drawRakeLines(t);
       stones.forEach(drawStone);
       drawHover();
@@ -190,16 +228,38 @@
       }
     });
 
-    addEventListener('pointerup', () => dragged = null);
+    addEventListener('pointerup', () => {
+      dragged = null;
+      updateStats();
+    });
 
     canvas.addEventListener('dblclick', e => {
       const p = pointerPos(e);
       stones.push({ x: p.x, y: p.y, r: 16 + Math.random() * 16, stretch: 0.7 + Math.random() * 0.4, rot: Math.random() * Math.PI, shade: 26 + Math.random() * 16 });
+      updateStats();
     });
 
-    document.getElementById('shuffleBtn').onclick = seedLayout;
-    document.getElementById('rakeBtn').onclick = () => { stones.forEach(s => s.rot += (Math.random() - .5) * 0.8); };
+    document.getElementById('shuffleBtn').onclick = () => {
+      seedLayout();
+      stones.forEach(s => s.rot += (Math.random() - .5) * 0.8);
+    };
+    document.getElementById('rakeBtn').onclick = () => { stones.forEach(s => s.rot += (Math.random() - .5) * 0.8); updateStats(); };
     document.getElementById('calmBtn').onclick = () => { stones.splice(0, stones.length); seedLayout(); };
+    document.getElementById('exportBtn').onclick = () => {
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = 'zen-stones-composition.png';
+      a.click();
+    };
+
+    addEventListener('keydown', e => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        showUI = !showUI;
+        document.querySelector('.top').style.display = showUI ? 'flex' : 'none';
+        statsPanel.style.display = showUI ? 'block' : 'none';
+      }
+    });
 
     addEventListener('resize', resize);
     resize();

@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>旧信号博物馆</title>
+  <title>旧信号博物馆 | Signal Museum</title>
+  <meta name="description" content="把拨号音、CRT 扫描线、磁带峰值、伪未来雷达做成一座可独立部署的互动视觉展馆。" />
+  <meta name="theme-color" content="#120f14" />
   <style>
     :root {
       --bg: #120f14;
@@ -26,37 +28,33 @@
         radial-gradient(circle at 85% 10%, rgba(119,231,255,.12), transparent 20%),
         linear-gradient(180deg, #1b1720, #120f14 45%, #0b0a0d);
     }
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px; }
-    .hero {
-      display: flex; justify-content: space-between; gap: 20px; align-items: end; flex-wrap: wrap; margin-bottom: 22px;
-    }
-    .hero h1 { margin: 0; font-size: clamp(32px, 6vw, 64px); letter-spacing: .03em; }
-    .hero p { margin: 10px 0 0; max-width: 760px; color: var(--muted); line-height: 1.8; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 28px; }
+    .hero { display: flex; justify-content: space-between; gap: 20px; align-items: end; flex-wrap: wrap; margin-bottom: 22px; }
+    .hero h1 { margin: 8px 0 0; font-size: clamp(34px, 6vw, 68px); letter-spacing: .03em; }
+    .eyebrow { color: rgba(244,239,232,.5); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+    .hero p { margin: 10px 0 0; max-width: 760px; color: var(--muted); line-height: 1.85; }
     .panel {
-      border: 1px solid var(--line); background: var(--panel); border-radius: 26px; backdrop-filter: blur(14px);
-      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+      border: 1px solid var(--line); background: var(--panel); border-radius: 26px; backdrop-filter: blur(14px); box-shadow: 0 24px 60px rgba(0,0,0,.28);
     }
-    .grid {
-      display: grid; grid-template-columns: 340px 1fr; gap: 18px;
-    }
+    .grid { display: grid; grid-template-columns: 340px 1fr; gap: 18px; }
     .list { padding: 16px; display: grid; gap: 10px; align-content: start; }
     .item {
-      padding: 14px 16px; border-radius: 18px; border: 1px solid transparent; background: rgba(255,255,255,.03); cursor: pointer;
-      transition: .2s ease;
+      padding: 14px 16px; border-radius: 18px; border: 1px solid transparent; background: rgba(255,255,255,.03); cursor: pointer; transition: .2s ease;
     }
     .item:hover, .item.active { border-color: var(--line); background: rgba(255,255,255,.08); transform: translateX(4px); }
     .item .meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
     .viewer { padding: 18px; display: grid; gap: 16px; }
     canvas { width: 100%; height: 320px; border-radius: 20px; border: 1px solid var(--line); background: #08090c; }
-    .desc {
-      padding: 16px; border-radius: 20px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); line-height: 1.8;
-    }
+    .desc { padding: 16px; border-radius: 20px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); line-height: 1.8; }
     .desc h2 { margin: 0 0 10px; }
     .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-    .tag {
-      padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: var(--muted); font-size: 12px;
+    .tag { padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: var(--muted); font-size: 12px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; }
+    button {
+      border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); color: var(--text); padding: 10px 14px; border-radius: 999px; cursor: pointer; transition: .2s ease;
     }
-    .hint { color: var(--muted); font-size: 13px; }
+    button:hover { transform: translateY(-1px); background: rgba(255,255,255,.09); }
+    .note { color: var(--muted); font-size: 13px; }
     @media (max-width: 900px) {
       .wrap { padding: 16px; }
       .grid { grid-template-columns: 1fr; }
@@ -67,16 +65,22 @@
   <div class="wrap">
     <div class="hero">
       <div>
+        <div class="eyebrow">Retro Media Exhibition</div>
         <h1>旧信号博物馆</h1>
         <p>把拨号音、扫描线、磁带峰值、CRT 余辉这些老媒介的气味，做成一座可互动的微型展馆。比工具更像展品，比展品更像情绪按钮。</p>
       </div>
-      <div class="hint"><a href="../index.html" style="color:inherit;text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.05);display:inline-flex;align-items:center;">← 返回展厅</a></div>
+      <div class="note">点左侧切换展品，点“自动巡馆”让它自己轮播。</div>
     </div>
 
     <div class="grid">
       <div class="panel list" id="list"></div>
       <div class="panel viewer">
         <canvas id="screen" width="900" height="320"></canvas>
+        <div class="toolbar">
+          <button id="playBtn">自动巡馆</button>
+          <button id="captureBtn">保存一帧</button>
+          <button id="shuffleBtn">随机展品</button>
+        </div>
         <div class="desc">
           <h2 id="title"></h2>
           <div class="tags" id="tags"></div>
@@ -89,8 +93,7 @@
   <script>
     const exhibits = [
       {
-        name: '拨号前夜', year: '1998 / 电话线噪声',
-        tags: ['音画装置', '拨号感', '琥珀色'],
+        name: '拨号前夜', year: '1998 / 电话线噪声', tags: ['音画装置', '拨号感', '琥珀色'],
         desc: '像上网前那一段谁都听不懂、但一听就知道即将连上另一个世界的杂音。画面会跳动出不安却兴奋的频谱。',
         draw(ctx, w, h, t) {
           ctx.fillStyle = '#08090c'; ctx.fillRect(0,0,w,h);
@@ -109,28 +112,19 @@
         }
       },
       {
-        name: 'CRT 深夜新闻', year: '2003 / 扫描线与余辉',
-        tags: ['复古屏幕', '扫描线', '蓝绿色'],
+        name: 'CRT 深夜新闻', year: '2003 / 扫描线与余辉', tags: ['复古屏幕', '扫描线', '蓝绿色'],
         desc: '旧电视不是清晰，而是有一种“正在发生”的颗粒感。这里没有节目，只有那种年代本身。',
         draw(ctx, w, h, t) {
-          const g = ctx.createLinearGradient(0,0,0,h);
-          g.addColorStop(0, '#03161a'); g.addColorStop(1, '#0c2730');
+          const g = ctx.createLinearGradient(0,0,0,h); g.addColorStop(0, '#03161a'); g.addColorStop(1, '#0c2730');
           ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
-          for (let y = 0; y < h; y += 4) {
-            ctx.fillStyle = `rgba(255,255,255,${0.02 + Math.sin(y*0.05+t*0.01)*0.01})`;
-            ctx.fillRect(0, y, w, 1);
-          }
+          for (let y = 0; y < h; y += 4) { ctx.fillStyle = `rgba(255,255,255,${0.02 + Math.sin(y*0.05+t*0.01)*0.01})`; ctx.fillRect(0, y, w, 1); }
           const lineY = (t * 0.18) % h;
-          ctx.fillStyle = 'rgba(119,231,255,.25)';
-          ctx.fillRect(0, lineY, w, 10);
-          ctx.fillStyle = 'rgba(119,231,255,.9)';
-          ctx.font = 'bold 56px monospace';
-          ctx.fillText('NO SIGNAL', w*0.28 + Math.sin(t*0.003)*8, h*0.56);
+          ctx.fillStyle = 'rgba(119,231,255,.25)'; ctx.fillRect(0, lineY, w, 10);
+          ctx.fillStyle = 'rgba(119,231,255,.9)'; ctx.font = 'bold 56px monospace'; ctx.fillText('NO SIGNAL', w*0.28 + Math.sin(t*0.003)*8, h*0.56);
         }
       },
       {
-        name: '磁带回声', year: '1989 / 模拟录音峰值',
-        tags: ['磁带', '峰值表', '粉色噪声'],
+        name: '磁带回声', year: '1989 / 模拟录音峰值', tags: ['磁带', '峰值表', '粉色噪声'],
         desc: '两边跳动的电平柱，像是某段录下来的心情。即使没有声音，也能看见节奏。',
         draw(ctx, w, h, t) {
           ctx.fillStyle = '#0d0a11'; ctx.fillRect(0,0,w,h);
@@ -140,41 +134,45 @@
             const height = (0.2 + Math.abs(v) * 0.8) * h * 0.65;
             const x = 70 + i * ((w-140)/bars);
             const hue = i > bars*0.72 ? 18 : 330 - i*2;
-            ctx.fillStyle = `hsla(${hue}, 95%, 68%, .88)`;
-            ctx.fillRect(x, h - 46 - height, 12, height);
+            ctx.fillStyle = `hsla(${hue}, 95%, 68%, .88)`; ctx.fillRect(x, h - 46 - height, 12, height);
           }
         }
       },
       {
-        name: '空间站信标', year: '2077 / 伪未来怀旧',
-        tags: ['科幻', '雷达', '青蓝色'],
+        name: '空间站信标', year: '2077 / 伪未来怀旧', tags: ['科幻', '雷达', '青蓝色'],
         desc: '不是硬核科幻，是那种旧时代想象出来的未来：圆形扫描、跳点信号、轻微失真。挺浪漫。',
         draw(ctx, w, h, t) {
           ctx.fillStyle = '#05090d'; ctx.fillRect(0,0,w,h);
           const cx = w/2, cy = h/2;
           ctx.strokeStyle = 'rgba(119,231,255,.2)';
-          for (let r = 50; r < 150; r += 30) {
-            ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.stroke();
-          }
-          for (let a = 0; a < Math.PI*2; a += Math.PI/6) {
-            ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx+Math.cos(a)*160, cy+Math.sin(a)*160); ctx.stroke();
-          }
+          for (let r = 50; r < 150; r += 30) { ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.stroke(); }
+          for (let a = 0; a < Math.PI*2; a += Math.PI/6) { ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx+Math.cos(a)*160, cy+Math.sin(a)*160); ctx.stroke(); }
           const sweep = t*0.002;
-          const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 180);
-          grad.addColorStop(0, 'rgba(119,231,255,.25)');
-          grad.addColorStop(1, 'rgba(119,231,255,0)');
-          ctx.fillStyle = grad;
-          ctx.beginPath();
-          ctx.moveTo(cx, cy);
-          ctx.arc(cx, cy, 180, sweep-0.22, sweep+0.08);
-          ctx.closePath();
-          ctx.fill();
+          const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 180); grad.addColorStop(0, 'rgba(119,231,255,.25)'); grad.addColorStop(1, 'rgba(119,231,255,0)');
+          ctx.fillStyle = grad; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, 180, sweep-0.22, sweep+0.08); ctx.closePath(); ctx.fill();
           for (let i = 0; i < 7; i++) {
-            const a = i * 0.9 + 0.7;
-            const r = 40 + ((i*53 + t*0.04) % 110);
-            ctx.fillStyle = 'rgba(119,231,255,.88)';
-            ctx.beginPath(); ctx.arc(cx+Math.cos(a)*r, cy+Math.sin(a)*r, 3 + (i%3), 0, Math.PI*2); ctx.fill();
+            const a = i * 0.9 + 0.7; const r = 40 + ((i*53 + t*0.04) % 110);
+            ctx.fillStyle = 'rgba(119,231,255,.88)'; ctx.beginPath(); ctx.arc(cx+Math.cos(a)*r, cy+Math.sin(a)*r, 3 + (i%3), 0, Math.PI*2); ctx.fill();
           }
+        }
+      },
+      {
+        name: '模拟心电图', year: '1994 / 仪表监控屏', tags: ['监视器', '生命信号', '荧光绿'],
+        desc: '像某个设备室里永远亮着的一块屏，心跳、噪点、警觉感混在一起。没有故事，但很有情境。',
+        draw(ctx, w, h, t) {
+          ctx.fillStyle = '#050806'; ctx.fillRect(0,0,w,h);
+          ctx.strokeStyle = 'rgba(120,255,180,.18)';
+          for (let y = 24; y < h; y += 24) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+          for (let x = 24; x < w; x += 24) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+          ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(120,255,180,.92)'; ctx.beginPath();
+          let started = false;
+          for (let x = 0; x < w; x += 6) {
+            const wave = Math.sin(x * 0.016 + t * 0.01) * 12;
+            const spike = ((x + t * 0.45) % 220 > 106 && (x + t * 0.45) % 220 < 126) ? -70 + Math.abs(((x + t * 0.45) % 220) - 116) * 8 : 0;
+            const y = h * 0.55 + wave + spike;
+            if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
         }
       }
     ];
@@ -185,7 +183,12 @@
     const tagsEl = document.getElementById('tags');
     const canvas = document.getElementById('screen');
     const ctx = canvas.getContext('2d');
+    const playBtn = document.getElementById('playBtn');
+    const captureBtn = document.getElementById('captureBtn');
+    const shuffleBtn = document.getElementById('shuffleBtn');
     let current = 0;
+    let autoplay = false;
+    let lastSwitch = 0;
 
     function renderList() {
       list.innerHTML = '';
@@ -205,8 +208,32 @@
       tagsEl.innerHTML = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
     }
 
+    playBtn.onclick = () => {
+      autoplay = !autoplay;
+      playBtn.textContent = autoplay ? '停止巡馆' : '自动巡馆';
+    };
+
+    captureBtn.onclick = () => {
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = `signal-museum-${current + 1}.png`;
+      a.click();
+    };
+
+    shuffleBtn.onclick = () => {
+      current = (Math.random() * exhibits.length) | 0;
+      renderList();
+      syncText();
+    };
+
     function loop(t) {
       exhibits[current].draw(ctx, canvas.width, canvas.height, t);
+      if (autoplay && t - lastSwitch > 4800) {
+        current = (current + 1) % exhibits.length;
+        renderList();
+        syncText();
+        lastSwitch = t;
+      }
       requestAnimationFrame(loop);
     }
 
