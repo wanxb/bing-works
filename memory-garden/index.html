@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>记忆花园</title>
+  <style>
+    :root {
+      --bg1: #07111f;
+      --bg2: #102845;
+      --glow: #8ee7ff;
+      --leaf: #7cf0c6;
+      --pink: #ffc2de;
+      --text: #ecf7ff;
+      --muted: rgba(236,247,255,.72);
+      --card: rgba(255,255,255,.08);
+      --border: rgba(255,255,255,.16);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; overflow: hidden; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    body {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(142,231,255,.18), transparent 22%),
+        radial-gradient(circle at 80% 10%, rgba(255,194,222,.16), transparent 20%),
+        linear-gradient(180deg, var(--bg2), var(--bg1) 56%, #04070d);
+      color: var(--text);
+    }
+    canvas { position: fixed; inset: 0; }
+    .ui {
+      position: relative;
+      z-index: 2;
+      min-height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 22px;
+      pointer-events: none;
+    }
+    .topbar, .panel, .footer { pointer-events: auto; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      background: rgba(5,12,24,.35);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    }
+    .brand h1 { margin: 0; font-size: 18px; }
+    .brand p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    button {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    button:hover { transform: translateY(-1px); background: rgba(255,255,255,.14); }
+    .panel {
+      align-self: end;
+      width: min(420px, calc(100vw - 44px));
+      padding: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(10,20,35,.62), rgba(7,11,22,.48));
+      backdrop-filter: blur(18px);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+    .panel h2 { margin: 0 0 8px; font-size: 22px; }
+    .panel p { margin: 0 0 14px; line-height: 1.6; color: var(--muted); }
+    .quote {
+      min-height: 74px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      line-height: 1.7;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: rgba(236,247,255,.55);
+      font-size: 12px;
+      padding-top: 14px;
+    }
+    @media (max-width: 720px) {
+      .topbar, .footer { flex-direction: column; align-items: stretch; }
+      .controls { justify-content: flex-start; }
+      .panel { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="garden"></canvas>
+  <div class="ui">
+    <div class="topbar">
+      <div class="brand">
+        <h1>记忆花园</h1>
+        <p>点击夜空，种下一句会发光的话。</p>
+      </div>
+      <div class="controls">
+        <button id="randomBtn">随机一句</button>
+        <button id="clearBtn">清空花园</button>
+      </div>
+    </div>
+
+    <div></div>
+
+    <div class="panel">
+      <h2>把一句话种进夜里</h2>
+      <p>每次点击，都会长出一株带着句子的微光植物。它不实用，但挺动人——这就够了。</p>
+      <div class="quote" id="quoteBox">试试点击任意位置，或者先点“随机一句”。</div>
+      <div class="footer">
+        <span>适合做成纯静态页，零后端。</span>
+        <span id="count">已种下 0 株</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('garden');
+    const ctx = canvas.getContext('2d');
+    const quoteBox = document.getElementById('quoteBox');
+    const countEl = document.getElementById('count');
+    const randomBtn = document.getElementById('randomBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    const seeds = [];
+    const fireflies = [];
+    const quotes = [
+      '慢一点，灵感会追上来。',
+      '不是所有空白都需要被填满。',
+      '你在认真做的小东西，会替你发光。',
+      '世界很吵，作品要有自己的呼吸。',
+      '温柔不是弱，是稳定输出的力量。',
+      '有些创作，不为解决问题，只为让人停一下。',
+      '先把种子埋下，春天会自己处理后面的事。',
+      '极简不是少，是只留下必要的浪漫。'
+    ];
+
+    function resize() {
+      canvas.width = innerWidth * devicePixelRatio;
+      canvas.height = innerHeight * devicePixelRatio;
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    }
+    addEventListener('resize', resize);
+    resize();
+
+    function addSeed(x, y, text) {
+      const hue = 170 + Math.random() * 70;
+      seeds.push({
+        x, y, text,
+        age: 0,
+        stem: 40 + Math.random() * 90,
+        sway: Math.random() * Math.PI * 2,
+        bloom: 12 + Math.random() * 18,
+        hue,
+        life: 1
+      });
+      quoteBox.textContent = text;
+      countEl.textContent = `已种下 ${seeds.length} 株`;
+      for (let i = 0; i < 8; i++) {
+        fireflies.push({
+          x, y,
+          vx: (Math.random() - 0.5) * 1.6,
+          vy: -Math.random() * 1.8 - 0.5,
+          size: 1 + Math.random() * 3,
+          life: 1,
+          hue
+        });
+      }
+    }
+
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const text = prompt('种一句话进花园：', quotes[(Math.random() * quotes.length) | 0]);
+      if (text === null) return;
+      const value = text.trim() || '今夜也有微光。';
+      addSeed(e.clientX - rect.left, e.clientY - rect.top, value);
+    });
+
+    randomBtn.addEventListener('click', () => {
+      addSeed(120 + Math.random() * (innerWidth - 240), innerHeight * (0.52 + Math.random() * 0.28), quotes[(Math.random() * quotes.length) | 0]);
+    });
+
+    clearBtn.addEventListener('click', () => {
+      seeds.length = 0;
+      fireflies.length = 0;
+      quoteBox.textContent = '花园重新安静了。再点一次，重新种。';
+      countEl.textContent = '已种下 0 株';
+    });
+
+    function drawBackground(t) {
+      const g = ctx.createLinearGradient(0, 0, 0, innerHeight);
+      g.addColorStop(0, '#102845');
+      g.addColorStop(.58, '#07111f');
+      g.addColorStop(1, '#04070d');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+
+      for (let i = 0; i < 80; i++) {
+        const x = (i * 173) % innerWidth;
+        const y = (i * 97) % (innerHeight * 0.7);
+        const tw = 0.4 + 0.6 * Math.sin(t * 0.001 + i);
+        ctx.fillStyle = `rgba(255,255,255,${0.1 + tw * 0.25})`;
+        ctx.fillRect(x, y, 1.5, 1.5);
+      }
+
+      ctx.fillStyle = 'rgba(15,35,30,.9)';
+      ctx.beginPath();
+      ctx.moveTo(0, innerHeight);
+      ctx.lineTo(0, innerHeight * 0.72);
+      ctx.quadraticCurveTo(innerWidth * 0.2, innerHeight * 0.64, innerWidth * 0.42, innerHeight * 0.77);
+      ctx.quadraticCurveTo(innerWidth * 0.62, innerHeight * 0.87, innerWidth, innerHeight * 0.7);
+      ctx.lineTo(innerWidth, innerHeight);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawSeed(seed, t) {
+      seed.age += 0.012;
+      const growth = Math.min(seed.age, 1);
+      const stemTopY = seed.y - seed.stem * growth;
+      const sway = Math.sin(t * 0.0018 + seed.sway) * 12 * growth;
+
+      ctx.strokeStyle = `hsla(${seed.hue}, 70%, 68%, .9)`;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(seed.x, seed.y);
+      ctx.quadraticCurveTo(seed.x + sway * 0.35, seed.y - seed.stem * 0.45, seed.x + sway, stemTopY);
+      ctx.stroke();
+
+      for (let i = 0; i < 3; i++) {
+        const p = (i + 1) / 4;
+        const lx = seed.x + sway * p;
+        const ly = seed.y - seed.stem * p;
+        ctx.fillStyle = 'rgba(124,240,198,.26)';
+        ctx.beginPath();
+        ctx.ellipse(lx - 8, ly, 14 * growth, 7 * growth, -0.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(lx + 8, ly, 14 * growth, 7 * growth, 0.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      const bloom = seed.bloom * (0.65 + 0.35 * Math.sin(t * 0.003 + seed.sway));
+      ctx.shadowBlur = 24;
+      ctx.shadowColor = `hsla(${seed.hue}, 95%, 70%, .8)`;
+      ctx.fillStyle = `hsla(${seed.hue}, 95%, 75%, .95)`;
+      for (let i = 0; i < 6; i++) {
+        const a = (Math.PI * 2 / 6) * i + t * 0.0004;
+        ctx.beginPath();
+        ctx.ellipse(seed.x + sway + Math.cos(a) * bloom * 0.7, stemTopY + Math.sin(a) * bloom * 0.7, bloom * 0.7, bloom * 0.35, a, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(255,250,236,.96)';
+      ctx.arc(seed.x + sway, stemTopY, bloom * 0.42, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      ctx.fillStyle = 'rgba(236,247,255,.78)';
+      ctx.font = '12px Inter, sans-serif';
+      ctx.fillText(seed.text.slice(0, 18), seed.x + sway + 14, stemTopY - 8);
+    }
+
+    function drawFirefly(f) {
+      f.x += f.vx;
+      f.y += f.vy;
+      f.life -= 0.015;
+      ctx.fillStyle = `hsla(${f.hue}, 100%, 72%, ${Math.max(f.life,0)})`;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function loop(t) {
+      drawBackground(t);
+      seeds.forEach(seed => drawSeed(seed, t));
+      for (let i = fireflies.length - 1; i >= 0; i--) {
+        drawFirefly(fireflies[i]);
+        if (fireflies[i].life <= 0) fireflies.splice(i, 1);
+      }
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
