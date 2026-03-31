@@ -13,635 +13,7 @@
   <meta property="og:description" content="一个克制、清晰、可直接访问的小作品目录。" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <style>
-    :root {
-      --radius-xxl: 36px;
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --max: 1440px;
-      --bg: #f3f4f6;
-      --bg-top: #fbfbfc;
-      --surface: rgba(255, 255, 255, 0.82);
-      --surface-strong: rgba(255, 255, 255, 0.94);
-      --surface-soft: rgba(255, 255, 255, 0.68);
-      --line: rgba(15, 23, 42, 0.08);
-      --line-strong: rgba(15, 23, 42, 0.14);
-      --text: #171a20;
-      --muted: rgba(23, 26, 32, 0.68);
-      --muted-soft: rgba(23, 26, 32, 0.46);
-      --button: #4b5563;
-      --button-text: #ffffff;
-      --button-hover: #3f4854;
-      --shadow: 0 18px 52px rgba(15, 23, 42, 0.08);
-      --shadow-hover: 0 22px 60px rgba(15, 23, 42, 0.12);
-      --chip-bg: rgba(255,255,255,.72);
-      --chip-hover: rgba(255,255,255,.94);
-      --visual-base: #eceef2;
-      --visual-memory-1: #f0f5fa;
-      --visual-memory-2: #dce5ef;
-      --visual-zen-1: #f6f0e7;
-      --visual-zen-2: #ece1d1;
-      --visual-signal-1: #edf0f4;
-      --visual-signal-2: #dadfe6;
-      --visual-clock-1: #eff3f8;
-      --visual-clock-2: #dde6f0;
-      --visual-timeline-1: #f4f0f4;
-      --visual-timeline-2: #e5dfe7;
-      --visual-map-1: #eef3f4;
-      --visual-map-2: #dfe9ea;
-      --visual-ocean-1: #eff5f7;
-      --visual-ocean-2: #dfe9ef;
-      --visual-eye-1: #edf2f8;
-      --visual-eye-2: #dce5ef;
-    }
-
-    html[data-theme="dark"] {
-      --bg: #0e1117;
-      --bg-top: #11151d;
-      --surface: rgba(20, 24, 32, 0.84);
-      --surface-strong: rgba(22, 27, 36, 0.94);
-      --surface-soft: rgba(22, 27, 36, 0.72);
-      --line: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.14);
-      --text: #f3f5f8;
-      --muted: rgba(243, 245, 248, 0.68);
-      --muted-soft: rgba(243, 245, 248, 0.46);
-      --button: #f3f5f8;
-      --button-text: #10141b;
-      --button-hover: #ffffff;
-      --shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
-      --shadow-hover: 0 26px 70px rgba(0, 0, 0, 0.34);
-      --chip-bg: rgba(28,33,44,.82);
-      --chip-hover: rgba(34,40,52,.96);
-      --visual-base: #1c2230;
-      --visual-memory-1: #202a3a;
-      --visual-memory-2: #18212d;
-      --visual-zen-1: #2b2924;
-      --visual-zen-2: #1f1d19;
-      --visual-signal-1: #1f2430;
-      --visual-signal-2: #171c25;
-      --visual-clock-1: #1d2430;
-      --visual-clock-2: #131923;
-      --visual-timeline-1: #251f2b;
-      --visual-timeline-2: #17131a;
-      --visual-map-1: #1b2830;
-      --visual-map-2: #121c22;
-      --visual-ocean-1: #172634;
-      --visual-ocean-2: #0f1823;
-      --visual-eye-1: #1d2632;
-      --visual-eye-2: #121922;
-    }
-
-    * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "SF Pro Display", "SF Pro Text", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, var(--bg-top), var(--bg) 58%),
-        linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 100%);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      transition: background .25s ease, color .25s ease;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-      padding: 28px 0 72px;
-    }
-
-    .topbar,
-    .topbar-actions,
-    .filters,
-    .card-footer,
-    .footer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .topbar {
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 28px;
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: .02em;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .brand-mark {
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: color-mix(in srgb, var(--text) 7%, transparent);
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .topbar-actions {
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .top-link,
-    .theme-toggle,
-    .filter-chip,
-    .tag,
-    .chip-author,
-    .secondary-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      background: var(--chip-bg);
-      backdrop-filter: blur(18px);
-      transition: background .2s ease, border-color .2s ease, transform .2s ease, color .2s ease, box-shadow .2s ease;
-    }
-
-    .top-link,
-    .theme-toggle,
-    .filter-chip {
-      min-height: 40px;
-      padding: 0 14px;
-      border-radius: 999px;
-    }
-
-    .theme-toggle {
-      gap: 8px;
-      cursor: pointer;
-      color: var(--text);
-      box-shadow: 0 8px 22px rgba(15,23,42,.04);
-    }
-
-    .theme-icon {
-      font-size: 14px;
-      line-height: 1;
-    }
-
-    .top-link:hover,
-    .filter-chip:hover,
-    .secondary-link:hover,
-    .theme-toggle:hover,
-    .primary-link:hover {
-      transform: translateY(-1px);
-    }
-
-    .top-link:hover,
-    .filter-chip:hover,
-    .secondary-link:hover,
-    .theme-toggle:hover {
-      background: var(--chip-hover);
-      border-color: var(--line-strong);
-    }
-
-    .section {
-      padding: 0;
-    }
-
-    .section-head {
-      display: none;
-    }
-
-    .filters {
-      margin-bottom: 28px;
-      row-gap: 12px;
-    }
-
-    .filter-chip {
-      cursor: pointer;
-      color: var(--muted);
-      font-size: 13px;
-      user-select: none;
-    }
-
-    .filter-chip.active {
-      color: var(--text);
-      background: var(--surface-strong);
-      border-color: var(--line-strong);
-      box-shadow: 0 10px 24px rgba(15,23,42,.06);
-    }
-
-    .catalog {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .card {
-      overflow: visible;
-      border-radius: var(--radius-xxl);
-      border: 1px solid var(--line);
-      background: var(--surface-strong);
-      box-shadow: var(--shadow);
-      transition: box-shadow .22s ease, transform .22s ease, border-color .22s ease, background .22s ease;
-      min-width: 0;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--line-strong);
-    }
-
-    .visual {
-      position: relative;
-      height: 220px;
-      overflow: hidden;
-      background: var(--visual-base);
-      border-bottom: 1px solid var(--line);
-      border-top-left-radius: var(--radius-xxl);
-      border-top-right-radius: var(--radius-xxl);
-    }
-
-    .visual::before,
-    .visual::after { content: ""; position: absolute; }
-
-    .visual.thumb {
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-    }
-
-    .visual.thumb::before {
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.08));
-      pointer-events: none;
-    }
-
-    html[data-theme="dark"] .visual.thumb::before {
-      background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.24));
-    }
-
-    .visual.thumb::after {
-      inset: auto 0 0 0;
-      height: 56px;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,.18));
-      pointer-events: none;
-    }
-
-    .memory { background: linear-gradient(180deg, var(--visual-memory-1) 0%, var(--visual-memory-2) 100%); }
-    .memory::before {
-      inset: 24px;
-      border-radius: 26px;
-      background: radial-gradient(circle at 50% 50%, rgba(125,166,209,.18), transparent 46%), linear-gradient(180deg, rgba(255,255,255,.6), rgba(232,238,245,.22));
-    }
-    .memory::after {
-      left: 16%; bottom: 30px; width: 220px; height: 112px;
-      background:
-        radial-gradient(circle at 50% 28%, rgba(255,244,224,.95) 0 11px, transparent 12px),
-        radial-gradient(circle at 24% 42%, rgba(160,211,192,.88) 0 16px, transparent 17px),
-        radial-gradient(circle at 78% 42%, rgba(224,184,208,.84) 0 16px, transparent 17px),
-        linear-gradient(90deg, transparent 48%, rgba(160,211,192,.88) 49% 51%, transparent 52%);
-      opacity: .9;
-    }
-
-    .zen { background: linear-gradient(180deg, var(--visual-zen-1) 0%, var(--visual-zen-2) 100%); }
-    .zen::before {
-      inset: 0;
-      background: repeating-radial-gradient(circle at 50% 40%, rgba(255,255,255,.05) 0 2px, transparent 2px 18px);
-      opacity: .7;
-    }
-    .zen::after {
-      left: 14%; top: 64px; width: 258px; height: 92px;
-      background:
-        radial-gradient(ellipse at 20% 55%, rgba(120,112,102,.82) 0 25px, transparent 27px),
-        radial-gradient(ellipse at 52% 48%, rgba(120,112,102,.72) 0 33px, transparent 35px),
-        radial-gradient(ellipse at 83% 58%, rgba(120,112,102,.86) 0 21px, transparent 23px);
-    }
-
-    .signal { background: linear-gradient(180deg, var(--visual-signal-1) 0%, var(--visual-signal-2) 100%); }
-    .signal::before {
-      inset: 24px;
-      border-radius: 24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.42), rgba(231,236,243,.14)),
-        repeating-linear-gradient(180deg, rgba(255,255,255,.06) 0 1px, transparent 1px 4px);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
-    }
-    .signal::after {
-      inset: 0;
-      background: linear-gradient(90deg, transparent 0 14%, rgba(201,151,102,.5) 14% 15%, transparent 15% 26%, rgba(204,136,176,.46) 26% 27%, transparent 27% 38%, rgba(132,176,212,.52) 38% 39%, transparent 39% 100%);
-      opacity: .82;
-    }
-
-    .clock { background: linear-gradient(180deg, var(--visual-clock-1) 0%, var(--visual-clock-2) 100%); }
-    .clock::before {
-      inset: 28px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,.48), rgba(234,240,247,.18));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-    .clock::after {
-      content: "12:08:24";
-      left: 28px;
-      right: 28px;
-      top: 50%;
-      transform: translateY(-50%);
-      text-align: center;
-      font: 700 34px/1.1 "SF Mono", "JetBrains Mono", monospace;
-      letter-spacing: .1em;
-      color: color-mix(in srgb, var(--text) 64%, #79a2cc 36%);
-    }
-
-    .timeline { background: linear-gradient(180deg, var(--visual-timeline-1) 0%, var(--visual-timeline-2) 100%); }
-    .timeline::before {
-      left: 12%; right: 12%; top: 50%; height: 2px;
-      background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(186,151,94,.56), rgba(255,255,255,.08));
-    }
-    .timeline::after {
-      inset: 0;
-      background:
-        radial-gradient(circle at 22% 50%, rgba(198,170,119,.92) 0 6px, transparent 7px),
-        radial-gradient(circle at 48% 50%, rgba(131,170,201,.88) 0 6px, transparent 7px),
-        radial-gradient(circle at 72% 50%, rgba(197,150,176,.88) 0 6px, transparent 7px);
-    }
-
-    .map { background: linear-gradient(180deg, var(--visual-map-1) 0%, var(--visual-map-2) 100%); }
-    .map::before {
-      left: 14%; right: 14%; top: 18%; bottom: 24%;
-      border-radius: 18px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
-      background-size: 36px 36px;
-    }
-    .map::after {
-      left: 22%; top: 30%; width: 54%; height: 40%;
-      background:
-        radial-gradient(circle at 14% 48%, rgba(131,170,201,.84) 0 22px, transparent 23px),
-        radial-gradient(circle at 38% 36%, rgba(157,200,174,.88) 0 18px, transparent 19px),
-        radial-gradient(circle at 56% 52%, rgba(210,181,128,.88) 0 20px, transparent 21px),
-        radial-gradient(circle at 76% 40%, rgba(199,152,178,.84) 0 18px, transparent 19px);
-    }
-
-    .ocean { background: linear-gradient(180deg, var(--visual-ocean-1) 0%, var(--visual-ocean-2) 100%); }
-    .ocean::before {
-      inset: 0;
-      background:
-        radial-gradient(circle at 50% 42%, rgba(151,185,213,.2), transparent 18%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 1px, transparent 1px 22px);
-      opacity: .8;
-    }
-    .ocean::after {
-      left: 18%; top: 36%; width: 62%; height: 26%;
-      background:
-        radial-gradient(circle at 20% 62%, rgba(127,168,198,.84) 0 8px, transparent 9px),
-        radial-gradient(circle at 32% 54%, rgba(127,168,198,.8) 0 10px, transparent 11px),
-        radial-gradient(circle at 50% 50%, rgba(127,168,198,.76) 0 14px, transparent 15px),
-        radial-gradient(circle at 62% 44%, rgba(127,168,198,.72) 0 10px, transparent 11px),
-        radial-gradient(circle at 78% 48%, rgba(127,168,198,.7) 0 8px, transparent 9px);
-    }
-
-    .eye { background: linear-gradient(180deg, var(--visual-eye-1) 0%, var(--visual-eye-2) 100%); }
-    .eye::before {
-      left: 50%; top: 50%; width: 220px; height: 116px;
-      transform: translate(-50%, -50%);
-      border-radius: 120px / 68px;
-      border: 2px solid rgba(114,148,177,.62);
-      background: rgba(255,255,255,.12);
-    }
-    .eye::after {
-      left: 50%; top: 50%; width: 44px; height: 44px;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(114,148,177,.95) 0 34%, rgba(167,187,214,.86) 35% 68%, transparent 69%);
-    }
-
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      min-height: 320px;
-      padding: 20px 20px 22px;
-    }
-
-    .card-top,
-    .card-footer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      margin-top: auto;
-    }
-
-    .chip-author,
-    .tag {
-      min-height: 30px;
-      padding: 0 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: .04em;
-    }
-
-    .chip-author {
-      color: var(--text);
-      background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
-      border-color: var(--line);
-      font-weight: 600;
-      position: relative;
-    }
-
-    .author-with-info {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .info-dot {
-      position: relative;
-      width: 14px;
-      height: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 1px solid color-mix(in srgb, var(--line-strong) 72%, transparent);
-      background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
-      color: var(--muted-soft);
-      font-size: 9px;
-      font-style: italic;
-      line-height: 1;
-      cursor: help;
-    }
-
-    .info-dot::after {
-      content: attr(data-tip);
-      position: absolute;
-      left: 50%;
-      bottom: calc(100% + 10px);
-      transform: translateX(-50%) translateY(6px);
-      width: 240px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--surface-strong);
-      color: var(--text);
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 500;
-      letter-spacing: 0;
-      line-height: 1.6;
-      box-shadow: var(--shadow-hover);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .18s ease, transform .18s ease;
-      text-transform: none;
-      white-space: normal;
-      z-index: 20;
-    }
-
-    .info-dot:hover::after,
-    .info-dot:focus-visible::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .tag {
-      color: var(--muted);
-      background: color-mix(in srgb, var(--surface-soft) 88%, transparent);
-      border-color: var(--line);
-    }
-
-    .title h3 {
-      margin: 0;
-      font-size: 28px;
-      line-height: 1.06;
-      letter-spacing: -.03em;
-      font-weight: 650;
-    }
-
-    .subtitle {
-      margin-top: 6px;
-      color: var(--muted-soft);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-    }
-
-    .desc {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .primary-link,
-    .secondary-link {
-      min-height: 44px;
-      padding: 0 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: -.01em;
-      color: var(--text);
-    }
-
-    .primary-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--chip-bg);
-      color: var(--text);
-      border: 1px solid var(--line);
-      backdrop-filter: blur(18px);
-      transition: background .2s ease, transform .2s ease, border-color .2s ease, color .2s ease;
-    }
-
-    .primary-link:hover {
-      background: var(--chip-hover);
-      border-color: var(--line-strong);
-    }
-
-    .secondary-link {
-      color: var(--text);
-    }
-
-    .footer {
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 28px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted-soft);
-      font-size: 13px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(14px);
-      animation: rise .64s ease forwards;
-    }
-
-    .delay-1 { animation-delay: .04s; }
-    .delay-2 { animation-delay: .08s; }
-    .delay-3 { animation-delay: .12s; }
-    .delay-4 { animation-delay: .16s; }
-
-    @keyframes rise {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 1220px) {
-      .catalog {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 720px) {
-      .wrap {
-        width: min(var(--max), calc(100% - 24px));
-        padding-top: 18px;
-      }
-
-      .topbar,
-      .topbar-actions,
-      .footer,
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .filters {
-        margin-bottom: 22px;
-      }
-
-      .catalog {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-      .card {
-        border-radius: 28px;
-      }
-
-      .visual {
-        height: 198px;
-        border-top-left-radius: 28px;
-        border-top-right-radius: 28px;
-      }
-
-      .title h3 {
-        font-size: 24px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
   <div class="wrap">
@@ -670,63 +42,6 @@
       </div>
 
       <div class="catalog" id="catalog">
-        <article class="card reveal delay-1" data-tags="arodes visual">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/memory-garden.png')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">阿罗德斯</span>
-              <span class="tag">互动视觉</span>
-            </div>
-            <div class="title">
-              <h3>记忆花园</h3>
-              <div class="subtitle">Digital Memory Landscape</div>
-            </div>
-            <p class="desc">用发光节点与静谧氛围组织记忆，像在数字空间里散步。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/memory-garden/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/memory-garden" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-2" data-tags="arodes visual wellness">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/zen-stones.png')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">阿罗德斯</span>
-              <span class="tag">健康体验</span>
-            </div>
-            <div class="title">
-              <h3>禅石排布</h3>
-              <div class="subtitle">Calm Interaction</div>
-            </div>
-            <p class="desc">以石子、留白和细微动态组织出安静的浏览体验。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/zen-stones/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/zen-stones" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-3" data-tags="arodes visual knowledge">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/signal-museum.png')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">阿罗德斯</span>
-              <span class="tag">知识表达</span>
-            </div>
-            <div class="title">
-              <h3>旧信号博物馆</h3>
-              <div class="subtitle">Archive of Electronic Signals</div>
-            </div>
-            <p class="desc">把信号、频率与展陈感做成一间可以在线浏览的小型电子博物馆。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/signal-museum/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/signal-museum" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
         <article class="card reveal delay-4" data-tags="bing tool">
           <div class="visual thumb" style="background-image:url('./assets/thumbs/time-clock.svg')"></div>
           <div class="card-body">
@@ -821,79 +136,68 @@
             </div>
           </div>
         </article>
+
+        <article class="card reveal delay-1" data-tags="arodes visual">
+          <div class="visual thumb" style="background-image:url('./assets/thumbs/memory-garden.png')"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="chip-author">阿罗德斯</span>
+              <span class="tag">互动视觉</span>
+            </div>
+            <div class="title">
+              <h3>记忆花园</h3>
+              <div class="subtitle">Digital Memory Landscape</div>
+            </div>
+            <p class="desc">用发光节点与静谧氛围组织记忆，像在数字空间里散步。</p>
+            <div class="card-footer">
+              <a class="primary-link" href="https://wanxb.github.io/memory-garden/" target="_blank" rel="noopener noreferrer">打开作品</a>
+              <a class="secondary-link" href="https://github.com/wanxb/memory-garden" target="_blank" rel="noopener noreferrer">源码</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal delay-2" data-tags="arodes visual wellness">
+          <div class="visual thumb" style="background-image:url('./assets/thumbs/zen-stones.png')"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="chip-author">阿罗德斯</span>
+              <span class="tag">健康体验</span>
+            </div>
+            <div class="title">
+              <h3>禅石排布</h3>
+              <div class="subtitle">Calm Interaction</div>
+            </div>
+            <p class="desc">以石子、留白和细微动态组织出安静的浏览体验。</p>
+            <div class="card-footer">
+              <a class="primary-link" href="https://wanxb.github.io/zen-stones/" target="_blank" rel="noopener noreferrer">打开作品</a>
+              <a class="secondary-link" href="https://github.com/wanxb/zen-stones" target="_blank" rel="noopener noreferrer">源码</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal delay-3" data-tags="arodes visual knowledge">
+          <div class="visual thumb" style="background-image:url('./assets/thumbs/signal-museum.png')"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="chip-author">阿罗德斯</span>
+              <span class="tag">知识表达</span>
+            </div>
+            <div class="title">
+              <h3>旧信号博物馆</h3>
+              <div class="subtitle">Archive of Electronic Signals</div>
+            </div>
+            <p class="desc">把信号、频率与展陈感做成一间可以在线浏览的小型电子博物馆。</p>
+            <div class="card-footer">
+              <a class="primary-link" href="https://wanxb.github.io/signal-museum/" target="_blank" rel="noopener noreferrer">打开作品</a>
+              <a class="secondary-link" href="https://github.com/wanxb/signal-museum" target="_blank" rel="noopener noreferrer">源码</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
   </div>
 
-  <script>
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const themeLabel = document.getElementById('themeLabel');
-    const themeMeta = document.querySelector('meta[name="theme-color"]');
-    const media = window.matchMedia('(prefers-color-scheme: dark)');
-    const storedTheme = localStorage.getItem('bing-works-theme') || 'auto';
-
-    function resolveTheme(theme) {
-      if (theme === 'auto') {
-        return media.matches ? 'dark' : 'light';
-      }
-      return theme;
-    }
-
-    function syncThemeUi(theme) {
-      const resolved = resolveTheme(theme);
-      root.setAttribute('data-theme', resolved);
-
-      if (theme === 'auto') {
-        themeIcon.textContent = '◐';
-        themeLabel.textContent = '跟随系统';
-      } else if (theme === 'dark') {
-        themeIcon.textContent = '☾';
-        themeLabel.textContent = '深色';
-      } else {
-        themeIcon.textContent = '☼';
-        themeLabel.textContent = '浅色';
-      }
-
-      if (themeMeta) {
-        themeMeta.setAttribute('content', resolved === 'dark' ? '#0e1117' : '#f3f4f6');
-      }
-    }
-
-    let themeMode = storedTheme;
-    syncThemeUi(themeMode);
-
-    themeToggle.addEventListener('click', () => {
-      themeMode = themeMode === 'auto' ? 'dark' : themeMode === 'dark' ? 'light' : 'auto';
-      localStorage.setItem('bing-works-theme', themeMode);
-      syncThemeUi(themeMode);
-    });
-
-    media.addEventListener('change', () => {
-      if (themeMode === 'auto') {
-        syncThemeUi('auto');
-      }
-    });
-
-    const chips = document.querySelectorAll('.filter-chip');
-    const cards = document.querySelectorAll('.card');
-
-    chips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        const filter = chip.dataset.filter;
-
-        chips.forEach((item) => item.classList.remove('active'));
-        chip.classList.add('active');
-
-        cards.forEach((card) => {
-          const tags = card.dataset.tags.split(' ');
-          const matched = filter === 'all' || tags.includes(filter);
-          card.style.display = matched ? '' : 'none';
-        });
-      });
-    });
-  </script>
+  <script src="./js/main.js"></script>
 </body>
 </html>
