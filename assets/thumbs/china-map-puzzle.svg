@@ -1,0 +1,36 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF5F5"/>
+      <stop offset="1" stop-color="#DCE8E7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect x="120" y="120" width="1200" height="660" rx="40" fill="#F6FAFA"/>
+  <g opacity="0.5">
+    <path d="M220 230H1220" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M220 330H1220" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M220 430H1220" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M220 530H1220" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M220 630H1220" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M320 180V720" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M470 180V720" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M620 180V720" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M770 180V720" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M920 180V720" stroke="#D6E2E1" stroke-width="2"/>
+    <path d="M1070 180V720" stroke="#D6E2E1" stroke-width="2"/>
+  </g>
+  <g>
+    <path d="M430 318L506 260L584 282L618 256L706 284L754 350L716 408L640 430L600 482L516 470L470 410L414 388L430 318Z" fill="#7FA8C8"/>
+    <path d="M606 482L654 446L716 450L744 510L678 546L616 526L606 482Z" fill="#A2CFB7"/>
+    <path d="M742 350L812 318L888 342L914 408L846 452L772 430L716 408L742 350Z" fill="#D9B57E"/>
+    <path d="M888 342L964 300L1038 334L1048 394L982 440L914 408L888 342Z" fill="#C898B3"/>
+    <path d="M508 260L566 222L622 238L584 282L508 260Z" fill="#9ABAD3"/>
+    <path d="M378 370L430 318L414 388L470 410L434 458L374 432L378 370Z" fill="#89C0B6"/>
+    <path d="M1032 446L1086 418L1126 452L1114 506L1058 526L1016 490L1032 446Z" fill="#E2C58F"/>
+    <path d="M1116 534L1156 518L1184 548L1174 586L1136 598L1104 574L1116 534Z" fill="#B7A2D2"/>
+  </g>
+  <g opacity="0.32">
+    <path d="M430 318L506 260L584 282L618 256L706 284L754 350L716 408L640 430L600 482L516 470L470 410L414 388L430 318Z" stroke="#234" stroke-width="8" stroke-linejoin="round"/>
+  </g>
+</svg>

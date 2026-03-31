@@ -1,0 +1,35 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3EEE8"/>
+      <stop offset="1" stop-color="#E5DDD1"/>
+    </linearGradient>
+    <linearGradient id="line" x1="266" y1="454" x2="1174" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C6A56B" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#BA9462"/>
+      <stop offset="1" stop-color="#C6A56B" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect x="128" y="136" width="1184" height="628" rx="40" fill="#F8F4EE"/>
+  <rect x="176" y="198" width="320" height="18" rx="9" fill="#D8CBB8"/>
+  <rect x="176" y="238" width="220" height="18" rx="9" fill="#E1D5C4"/>
+  <rect x="266" y="450" width="908" height="8" rx="4" fill="url(#line)"/>
+  <circle cx="382" cy="454" r="18" fill="#B58A52"/>
+  <circle cx="570" cy="454" r="22" fill="#C8AA7A"/>
+  <circle cx="770" cy="454" r="18" fill="#9B7A4C"/>
+  <circle cx="942" cy="454" r="24" fill="#D6BA8B"/>
+  <circle cx="1082" cy="454" r="20" fill="#AE8454"/>
+  <rect x="344" y="330" width="76" height="68" rx="20" fill="#EFE3D0"/>
+  <rect x="532" y="312" width="76" height="86" rx="22" fill="#F0E5D3"/>
+  <rect x="732" y="334" width="76" height="64" rx="20" fill="#EADCC8"/>
+  <rect x="904" y="300" width="76" height="98" rx="24" fill="#F1E7D6"/>
+  <rect x="1044" y="324" width="76" height="74" rx="20" fill="#EBDDC9"/>
+  <rect x="330" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
+  <rect x="518" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
+  <rect x="718" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
+  <rect x="890" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
+  <rect x="1030" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
+  <rect x="176" y="640" width="240" height="16" rx="8" fill="#DED1BF"/>
+  <rect x="176" y="678" width="360" height="16" rx="8" fill="#E6DACB"/>
+</svg>
