@@ -158,8 +158,8 @@
         "author": "Bing",
         "category": "工具效率",
         "title": "BeatCLI",
-        "subtitle": "CLI Audio Processor",
-        "description": "命令行音频处理工具，快速处理音频文件。",
+        "subtitle": "CLI Music Player",
+        "description": "通过命令行控制台播放音乐，简洁高效的音乐体验。",
         "sort": 9,
         "delay": 1,
         "links": {
@@ -186,8 +186,8 @@
         "author": "Bing",
         "category": "工具效率",
         "title": "SpoonForce",
-        "subtitle": "Productivity Tool",
-        "description": "生产力工具，帮助用户更好地管理时间与精力。",
+        "subtitle": "iPhone Kitchen Scale",
+        "description": "使用 iPhone 实现厨房秤功能，通过触摸进行称重。",
         "sort": 11,
         "delay": 3,
         "links": {
