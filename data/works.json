@@ -120,6 +120,80 @@
         "links": {
           "source": "https://github.com/wanxb/ai-chat-slice"
         }
+      },
+      {
+        "id": "park-timer-bot",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/park-timer-bot.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "停车计时机器人",
+        "subtitle": "ParkTimerBot",
+        "description": "Telegram 机器人，帮用户记录停车时间并提醒。",
+        "sort": 7,
+        "delay": 3,
+        "links": {
+          "source": "https://github.com/wanxb/ParkTimerBot"
+        }
+      },
+      {
+        "id": "clip-box",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/clip-box.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "ClipBox",
+        "subtitle": "Clipboard Manager",
+        "description": "轻量级剪贴板管理工具，提升复制粘贴效率。",
+        "sort": 8,
+        "delay": 4,
+        "links": {
+          "source": "https://github.com/wanxb/ClipBox"
+        }
+      },
+      {
+        "id": "beat-cli",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/beat-cli.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "BeatCLI",
+        "subtitle": "CLI Audio Processor",
+        "description": "命令行音频处理工具，快速处理音频文件。",
+        "sort": 9,
+        "delay": 1,
+        "links": {
+          "source": "https://github.com/wanxb/BeatCLI"
+        }
+      },
+      {
+        "id": "moto-mind",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/moto-mind.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "MotoMind",
+        "subtitle": "Development in Progress",
+        "description": "开发中项目，敬请期待。",
+        "sort": 10,
+        "delay": 2,
+        "links": {}
+      },
+      {
+        "id": "spoon-force",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/spoon-force.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "SpoonForce",
+        "subtitle": "Productivity Tool",
+        "description": "生产力工具，帮助用户更好地管理时间与精力。",
+        "sort": 11,
+        "delay": 3,
+        "links": {
+          "demo": "https://wanxb.github.io/spoon-force/",
+          "source": "https://github.com/wanxb/SpoonForce"
+        }
       }
     ],
     "阿罗德斯": [
