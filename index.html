@@ -6,11 +6,11 @@
   <title>Bing' Works</title>
   <meta
     name="description"
-    content="Bing' Works：Bing 与阿罗德斯的小作品目录，以更克制的方式展示工具、互动实验、知识可视化与数字氛围项目。"
+    content="Bing' Works：Bing 与阿罗德斯的作品目录，以更克制的方式展示工具、互动实验、知识可视化与数字氛围项目。"
   />
   <meta name="theme-color" content="#f3f4f6" />
   <meta property="og:title" content="Bing' Works" />
-  <meta property="og:description" content="一个克制、清晰、可直接访问的小作品目录。" />
+  <meta property="og:description" content="一个克制、清晰、可直接访问的作品目录。" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="stylesheet" href="./css/style.css" />
@@ -24,176 +24,15 @@
       </div>
       <div class="topbar-actions">
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换主题">
-          <span class="theme-icon" id="themeIcon">◐</span>
-          <span id="themeLabel">跟随系统</span>
+          <span class="theme-icon" id="themeIcon">☼</span>
         </button>
       </div>
     </header>
 
     <section class="section reveal delay-2" id="works">
-      <div class="filters" aria-label="作品筛选">
-        <button class="filter-chip active" data-filter="all" type="button">全部</button>
-        <button class="filter-chip" data-filter="bing" type="button">Bing</button>
-        <button class="filter-chip author-filter" data-filter="arodes" type="button">阿罗德斯 <span class="info-dot" tabindex="0" aria-label="关于阿罗德斯" data-tip="阿罗德斯是 Bing 的 OpenClaw 助手，有些项目是阿罗德斯自主完成的。">i</span></button>
-        <button class="filter-chip" data-filter="tool" type="button">工具效率</button>
-        <button class="filter-chip" data-filter="visual" type="button">互动视觉</button>
-        <button class="filter-chip" data-filter="knowledge" type="button">知识表达</button>
-        <button class="filter-chip" data-filter="wellness" type="button">健康体验</button>
-      </div>
+      <div class="filters" aria-label="作品筛选"></div>
 
-      <div class="catalog" id="catalog">
-        <article class="card reveal delay-4" data-tags="bing tool">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/time-clock.svg')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">Bing</span>
-              <span class="tag">工具效率</span>
-            </div>
-            <div class="title">
-              <h3>极简时钟</h3>
-              <div class="subtitle">Time Clock</div>
-            </div>
-            <p class="desc">用克制的布局和清晰的数字表达时间本身。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/time-clock/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/time-clock" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-1" data-tags="bing knowledge">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/chinese-emperors-timeline.svg')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">Bing</span>
-              <span class="tag">知识表达</span>
-            </div>
-            <div class="title">
-              <h3>皇帝年表</h3>
-              <div class="subtitle">Chinese Emperors Timeline</div>
-            </div>
-            <p class="desc">把历史信息整理成更易浏览的时间结构，方便查看、比较和理解。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/chinese-emperors-timeline/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/chinese-emperors-timeline" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-2" data-tags="bing visual knowledge">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/china-map-puzzle.svg')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">Bing</span>
-              <span class="tag">互动视觉</span>
-            </div>
-            <div class="title">
-              <h3>地图拼块</h3>
-              <div class="subtitle">China Map Puzzle</div>
-            </div>
-            <p class="desc">把地图认知变成轻量互动，通过拼接重新认识地理信息。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/china-map-puzzle/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/china-map-puzzle" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-3" data-tags="bing visual">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/cyber-ocean.svg')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">Bing</span>
-              <span class="tag">互动视觉</span>
-            </div>
-            <div class="title">
-              <h3>赛博海洋</h3>
-              <div class="subtitle">Cyber Ocean</div>
-            </div>
-            <p class="desc">用光点、深色与漂浮感构成一个带赛博气质的在线场景。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/cyber-ocean/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/cyber-ocean" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-4" data-tags="bing tool wellness">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/eye-spa-pro.svg')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">Bing</span>
-              <span class="tag">健康体验</span>
-            </div>
-            <div class="title">
-              <h3>护眼空间</h3>
-              <div class="subtitle">Eye Spa Pro</div>
-            </div>
-            <p class="desc">围绕护眼与屏幕使用节奏组织体验，让功能与舒适感同时存在。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/eye-spa-pro/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/eye-spa-pro" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-1" data-tags="arodes visual">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/memory-garden.png')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">阿罗德斯</span>
-              <span class="tag">互动视觉</span>
-            </div>
-            <div class="title">
-              <h3>记忆花园</h3>
-              <div class="subtitle">Digital Memory Landscape</div>
-            </div>
-            <p class="desc">用发光节点与静谧氛围组织记忆，像在数字空间里散步。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/memory-garden/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/memory-garden" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-2" data-tags="arodes visual wellness">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/zen-stones.png')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">阿罗德斯</span>
-              <span class="tag">健康体验</span>
-            </div>
-            <div class="title">
-              <h3>禅石排布</h3>
-              <div class="subtitle">Calm Interaction</div>
-            </div>
-            <p class="desc">以石子、留白和细微动态组织出安静的浏览体验。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/zen-stones/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/zen-stones" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal delay-3" data-tags="arodes visual knowledge">
-          <div class="visual thumb" style="background-image:url('./assets/thumbs/signal-museum.png')"></div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="chip-author">阿罗德斯</span>
-              <span class="tag">知识表达</span>
-            </div>
-            <div class="title">
-              <h3>旧信号博物馆</h3>
-              <div class="subtitle">Archive of Electronic Signals</div>
-            </div>
-            <p class="desc">把信号、频率与展陈感做成一间可以在线浏览的小型电子博物馆。</p>
-            <div class="card-footer">
-              <a class="primary-link" href="https://wanxb.github.io/signal-museum/" target="_blank" rel="noopener noreferrer">打开作品</a>
-              <a class="secondary-link" href="https://github.com/wanxb/signal-museum" target="_blank" rel="noopener noreferrer">源码</a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="catalog" id="catalog"></div>
     </section>
 
   </div>

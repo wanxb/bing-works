@@ -1,0 +1,176 @@
+{
+  "_template": {
+    "id": "work-id",
+    "tags": ["filter-id"],
+    "thumb": "./assets/thumbs/filename.svg",
+    "author": "作者名",
+    "category": "分类名",
+    "title": "作品标题",
+    "subtitle": "Subtitle",
+    "description": "简介（最多显示2行，约48个中文字符，超出显示...）",
+    "sort": 1,
+    "delay": 1,
+    "links": {
+      "demo": "https://demo-url.com/",
+      "source": "https://github.com/user/repo"
+    }
+  },
+  "filters": [
+    { "id": "all", "label": "全部" },
+    { "id": "bing", "label": "Bing" },
+    { "id": "arodes", "label": "阿罗德斯", "info": "阿罗德斯是 Bing 的 OpenClaw 助手，有些项目是阿罗德斯自主完成的。", "hasInfo": true },
+    { "id": "tool", "label": "工具效率" },
+    { "id": "visual", "label": "互动视觉" },
+    { "id": "knowledge", "label": "知识表达" },
+    { "id": "wellness", "label": "健康体验" }
+  ],
+  "works": {
+    "Bing": [
+      {
+        "id": "time-clock",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/time-clock.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "极简时钟",
+        "subtitle": "Time Clock",
+        "description": "用克制的布局和清晰的数字表达时间本身。",
+        "sort": 1,
+        "delay": 4,
+        "links": {
+          "demo": "https://wanxb.github.io/time-clock/",
+          "source": "https://github.com/wanxb/time-clock"
+        }
+      },
+      {
+        "id": "chinese-emperors-timeline",
+        "tags": ["bing", "knowledge"],
+        "thumb": "./assets/thumbs/chinese-emperors-timeline.svg",
+        "author": "Bing",
+        "category": "知识表达",
+        "title": "皇帝年表",
+        "subtitle": "Chinese Emperors Timeline",
+        "description": "把历史信息整理成更易浏览的时间结构，方便查看、比较和理解。",
+        "sort": 2,
+        "delay": 1,
+        "links": {
+          "demo": "https://wanxb.github.io/chinese-emperors-timeline/",
+          "source": "https://github.com/wanxb/chinese-emperors-timeline"
+        }
+      },
+      {
+        "id": "china-map-puzzle",
+        "tags": ["bing", "visual", "knowledge"],
+        "thumb": "./assets/thumbs/china-map-puzzle.svg",
+        "author": "Bing",
+        "category": "互动视觉",
+        "title": "地图拼块",
+        "subtitle": "China Map Puzzle",
+        "description": "把地图认知变成轻量互动，通过拼接重新认识地理信息。",
+        "sort": 3,
+        "delay": 2,
+        "links": {
+          "demo": "https://wanxb.github.io/china-map-puzzle/",
+          "source": "https://github.com/wanxb/china-map-puzzle"
+        }
+      },
+      {
+        "id": "cyber-ocean",
+        "tags": ["bing", "visual"],
+        "thumb": "./assets/thumbs/cyber-ocean.svg",
+        "author": "Bing",
+        "category": "互动视觉",
+        "title": "赛博海洋",
+        "subtitle": "Cyber Ocean",
+        "description": "用光点、深色与漂浮感构成一个带赛博气质的在线场景。",
+        "sort": 4,
+        "delay": 3,
+        "links": {
+          "demo": "https://wanxb.github.io/cyber-ocean/",
+          "source": "https://github.com/wanxb/cyber-ocean"
+        }
+      },
+      {
+        "id": "eye-spa-pro",
+        "tags": ["bing", "tool", "wellness"],
+        "thumb": "./assets/thumbs/eye-spa-pro.svg",
+        "author": "Bing",
+        "category": "健康体验",
+        "title": "护眼空间",
+        "subtitle": "Eye Spa Pro",
+        "description": "围绕护眼与屏幕使用节奏组织体验，让功能与舒适感同时存在。",
+        "sort": 5,
+        "delay": 4,
+        "links": {
+          "demo": "https://wanxb.github.io/eye-spa-pro/",
+          "source": "https://github.com/wanxb/eye-spa-pro"
+        }
+      },
+      {
+        "id": "ai-chat-slice",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/ai-chat-slice.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "AI 聊天切片",
+        "subtitle": "AIChatSlice",
+        "description": "浏览器扩展，快速选择 AI 聊天消息并导出为 Markdown。",
+        "sort": 6,
+        "delay": 2,
+        "links": {
+          "source": "https://github.com/wanxb/ai-chat-slice"
+        }
+      }
+    ],
+    "阿罗德斯": [
+      {
+        "id": "memory-garden",
+        "tags": ["arodes", "visual"],
+        "thumb": "./assets/thumbs/memory-garden.png",
+        "author": "阿罗德斯",
+        "category": "互动视觉",
+        "title": "记忆花园",
+        "subtitle": "Digital Memory Landscape",
+        "description": "用发光节点与静谧氛围组织记忆，像在数字空间里散步。",
+        "sort": 1,
+        "delay": 1,
+        "links": {
+          "demo": "https://wanxb.github.io/memory-garden/",
+          "source": "https://github.com/wanxb/memory-garden"
+        }
+      },
+      {
+        "id": "zen-stones",
+        "tags": ["arodes", "visual", "wellness"],
+        "thumb": "./assets/thumbs/zen-stones.png",
+        "author": "阿罗德斯",
+        "category": "健康体验",
+        "title": "禅石排布",
+        "subtitle": "Calm Interaction",
+        "description": "以石子、留白和细微动态组织出安静的浏览体验。",
+        "sort": 2,
+        "delay": 2,
+        "links": {
+          "demo": "https://wanxb.github.io/zen-stones/",
+          "source": "https://github.com/wanxb/zen-stones"
+        }
+      },
+      {
+        "id": "signal-museum",
+        "tags": ["arodes", "visual", "knowledge"],
+        "thumb": "./assets/thumbs/signal-museum.png",
+        "author": "阿罗德斯",
+        "category": "知识表达",
+        "title": "旧信号博物馆",
+        "subtitle": "Archive of Electronic Signals",
+        "description": "把信号、频率与展陈感做成一间可以在线浏览的小型电子博物馆。",
+        "sort": 3,
+        "delay": 3,
+        "links": {
+          "demo": "https://wanxb.github.io/signal-museum/",
+          "source": "https://github.com/wanxb/signal-museum"
+        }
+      }
+    ]
+  }
+}
