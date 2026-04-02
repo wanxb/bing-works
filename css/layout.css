@@ -1,0 +1,136 @@
+/* 布局样式 - 网格、视图模式 */
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* 大图标视图（默认） */
+.catalog[data-view="large"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* 小图标视图 */
+.catalog[data-view="small"] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.catalog[data-view="small"] .visual {
+  height: 160px;
+}
+
+.catalog[data-view="small"] .card-body {
+  padding: 12px;
+  min-height: auto;
+  gap: 8px;
+}
+
+.catalog[data-view="small"] .card-top {
+  gap: 6px;
+}
+
+.catalog[data-view="small"] .chip-author,
+.catalog[data-view="small"] .tag {
+  min-height: 26px;
+  padding: 0 10px;
+  font-size: 11px;
+}
+
+.catalog[data-view="small"] .title h3 {
+  font-size: 16px;
+}
+
+.catalog[data-view="small"] .subtitle {
+  font-size: 10px;
+}
+
+.catalog[data-view="small"] .desc {
+  height: 40px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.catalog[data-view="small"] .primary-link,
+.catalog[data-view="small"] .secondary-link {
+  height: 32px;
+}
+
+.catalog[data-view="small"] .primary-link.icon-btn,
+.catalog[data-view="small"] .secondary-link.icon-btn {
+  width: 32px;
+}
+
+.catalog[data-view="small"] .card-footer {
+  margin-top: 4px;
+}
+
+/* 列表视图 */
+.catalog[data-view="list"] {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.catalog[data-view="list"] .card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  overflow: hidden;
+}
+
+.catalog[data-view="list"] .visual {
+  height: 100%;
+  min-height: 180px;
+  border-bottom: none;
+  border-right: 1px solid var(--line);
+  border-top-left-radius: var(--radius-xxl);
+  border-bottom-left-radius: var(--radius-xxl);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.catalog[data-view="list"] .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  min-height: 180px;
+  padding: 20px 24px;
+}
+
+.catalog[data-view="list"] .card-top {
+  order: -2;
+}
+
+.catalog[data-view="list"] .title {
+  order: -1;
+}
+
+.catalog[data-view="list"] .card-footer {
+  order: 1;
+  margin-top: 0;
+}
+
+@media (max-width: 1220px) {
+  .catalog {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .catalog[data-view="large"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .catalog[data-view="small"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrap {
+    padding: 24px 0 64px;
+  }
+  .catalog {
+    gap: 24px;
+  }
+  .catalog[data-view="small"] {
+    gap: 16px;
+  }
+}

@@ -14,12 +14,13 @@
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="stylesheet" href="./css/style.css" />
+  <script type="module" src="./js/app.js"></script>
 </head>
 <body>
   <div class="wrap">
     <header class="topbar reveal">
       <div class="brand">
-        <span class="brand-mark">✦</span>
+        <span class="brand-mark">B</span>
         <span>Bing' Works</span>
       </div>
       <div class="topbar-actions">
@@ -27,7 +28,7 @@
           <svg class="view-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </button>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换主题">
-          <span class="theme-icon" id="themeIcon">☼</span>
+          <span class="theme-icon" id="themeIcon" aria-hidden="true"></span>
         </button>
       </div>
     </header>
@@ -38,8 +39,7 @@
       <div class="catalog" id="catalog"></div>
     </section>
 
-  </div>
 
-  <script src="./js/main.js"></script>
+  </div>
 </body>
 </html>

@@ -1,0 +1,97 @@
+/* 动画效果 */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: rise .64s ease forwards;
+}
+
+.delay-1 { animation-delay: .04s; }
+.delay-2 { animation-delay: .08s; }
+.delay-3 { animation-delay: .12s; }
+.delay-4 { animation-delay: .16s; }
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@property --snake-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* 筛选器激活动画 */
+.filter-chip.active {
+  --snake-c: 0, 0, 0;
+}
+
+html[data-theme="dark"] .filter-chip.active {
+  --snake-c: 255, 255, 255;
+}
+
+.filter-chip.active::before,
+.filter-chip.active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: snake-rotate 5s linear infinite;
+}
+
+/* 蛇身+尾 — 较细，长渐变 */
+.filter-chip.active::before {
+  padding: 1.5px;
+  background:
+    conic-gradient(
+      from var(--snake-angle),
+      transparent 0%,
+      transparent 58%,
+      rgba(var(--snake-c), 0.02) 64%,
+      rgba(var(--snake-c), 0.06) 71%,
+      rgba(var(--snake-c), 0.14) 78%,
+      rgba(var(--snake-c), 0.26) 86%,
+      rgba(var(--snake-c), 0.38) 93%,
+      rgba(var(--snake-c), 0.44) 97%,
+      transparent 100%
+    ),
+    rgba(var(--snake-c), 0.04);
+  z-index: 1;
+}
+
+/* 蛇头 — 更宽更亮，仅覆盖前端 */
+.filter-chip.active::after {
+  padding: 2.6px;
+  background: conic-gradient(
+    from var(--snake-angle),
+    transparent 0%,
+    transparent 90%,
+    rgba(var(--snake-c), 0.18) 94%,
+    rgba(var(--snake-c), 0.46) 97.5%,
+    transparent 100%
+  );
+  z-index: 2;
+}
+
+@keyframes snake-rotate {
+  to { --snake-angle: 360deg; }
+}
+
+/* 滑动提示动画 */
+@keyframes swipeHintFade {
+  0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}

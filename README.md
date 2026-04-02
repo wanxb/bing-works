@@ -1,75 +1,111 @@
 # Bing' Works
 
-Bing' Works 是一个克制、清晰、可直接访问的小作品目录，用来统一展示 Bing 与阿罗德斯的网页作品。
+一个用于展示 Bing 与阿罗德斯作品的静态作品目录站点。
 
-## 项目定位
+## 项目简介
 
-这个仓库用于承载作品集主页本身，而不是集中维护所有项目源码。
+这个仓库承载的是作品集首页本身，不负责集中维护每个子项目的源码。
 
-它负责：
-- 展示作品目录
-- 提供统一访问入口
-- 组织作者与作品类型
-- 链接到各项目的 GitHub Pages 与源码仓库
+站点当前提供：
+- 作品卡片展示
+- 标签筛选
+- `large / small / list` 三种视图切换
+- 浅色 / 深色主题切换
+- 移动端大图标轮播浏览
 
-## 当前收录项目
+## 技术栈
 
-### 阿罗德斯
-- **记忆花园 / Memory Garden**
-  - Live: <https://wanxb.github.io/memory-garden/>
-  - Repo: <https://github.com/wanxb/memory-garden>
-- **禅石排布 / Zen Stones**
-  - Live: <https://wanxb.github.io/zen-stones/>
-  - Repo: <https://github.com/wanxb/zen-stones>
-- **旧信号博物馆 / Signal Museum**
-  - Live: <https://wanxb.github.io/signal-museum/>
-  - Repo: <https://github.com/wanxb/signal-museum>
+- 原生 HTML / CSS / JavaScript
+- 静态 JSON 数据驱动渲染
+- 无构建步骤，无框架依赖
 
-### Bing
-- **极简时钟 / Time Clock**
-  - Live: <https://wanxb.github.io/time-clock/>
-  - Repo: <https://github.com/wanxb/time-clock>
-- **皇帝年表 / Chinese Emperors Timeline**
-  - Live: <https://wanxb.github.io/chinese-emperors-timeline/>
-  - Repo: <https://github.com/wanxb/chinese-emperors-timeline>
-- **地图拼块 / China Map Puzzle**
-  - Live: <https://wanxb.github.io/china-map-puzzle/>
-  - Repo: <https://github.com/wanxb/china-map-puzzle>
-- **赛博海洋 / Cyber Ocean**
-  - Live: <https://wanxb.github.io/cyber-ocean/>
-  - Repo: <https://github.com/wanxb/cyber-ocean>
-- **护眼空间 / Eye Spa Pro**
-  - Live: <https://wanxb.github.io/eye-spa-pro/>
-  - Repo: <https://github.com/wanxb/eye-spa-pro>
-
-## 文件结构
+## 目录结构
 
 ```text
-mini-works/
+bing-works/
 ├── index.html
-├── README.md
 ├── favicon.svg
-├── vercel.json
-└── assets/
-    └── thumbs/
+├── README.md
+├── assets/
+│   └── thumbs/
+├── css/
+│   ├── style.css
+│   ├── variables.css
+│   ├── base.css
+│   ├── animations.css
+│   ├── components.css
+│   ├── layout.css
+│   └── mobile.css
+├── data/
+│   └── works.json
+└── js/
+    ├── app.js
+    ├── data.js
+    ├── filters.js
+    ├── view.js
+    ├── theme.js
+    ├── tooltip.js
+    └── carousel.js
 ```
 
-## 本地预览
+## 本地运行
+
+这是一个纯静态项目，直接起一个本地 HTTP 服务即可：
 
 ```bash
-cd mini-works
-python3 -m http.server 8080
+cd bing-works
+python -m http.server 8080
 ```
 
 然后打开：
 
 - <http://localhost:8080>
 
+## 数据维护
+
+作品数据维护在 [data/works.json](/e:/Projects/bing-works/data/works.json)。
+
+主要字段说明：
+- `filters`: 顶部筛选标签
+- `works`: 按作者分组的作品列表
+- `thumb`: 卡片缩略图路径
+- `tags`: 作品所属标签，用于筛选
+- `links.demo`: 在线地址
+- `links.source`: 源码地址
+
+新增作品时，通常只需要：
+1. 在 `assets/thumbs/` 添加缩略图
+2. 在 `data/works.json` 补充作品信息
+3. 如有新分类，再同步补充 `filters`
+
+## 开发说明
+
+- 页面入口：`js/app.js`
+- 数据渲染：`js/data.js`
+- 筛选逻辑：`js/filters.js`
+- 视图切换：`js/view.js`
+- 主题切换：`js/theme.js`
+- 提示浮层：`js/tooltip.js`
+- 移动端轮播：`js/carousel.js`
+
+样式按职责拆分在 `css/` 目录中：
+- `variables.css`: 主题变量
+- `base.css`: 基础样式
+- `components.css`: 组件样式
+- `layout.css`: 桌面布局
+- `mobile.css`: 移动端适配
+- `animations.css`: 动画效果
+
 ## 部署
 
-这是一个静态站点，可以部署到：
+项目可以直接部署到任意静态托管平台，例如：
 
 - GitHub Pages
 - Vercel
 - Netlify
-- 任何支持静态文件托管的平台
+- Cloudflare Pages
+
+## 备注
+
+如果页面无法加载作品数据，通常是因为直接双击打开了 `index.html`。  
+请通过本地服务器或静态托管方式访问页面。
