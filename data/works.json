@@ -194,6 +194,22 @@
           "demo": "https://wanxb.github.io/SpoonForce/",
           "source": "https://github.com/wanxb/SpoonForce"
         }
+      },
+      {
+        "id": "luminote",
+        "tags": ["bing", "visual"],
+        "thumb": "./assets/thumbs/luminote.svg",
+        "author": "Bing",
+        "category": "互动视觉",
+        "title": "Luminote",
+        "subtitle": "Photography Portfolio",
+        "description": "摄影作品与视觉手记的轻盈归档，用留白与画面组织温和的浏览体验。",
+        "sort": 12,
+        "delay": 4,
+        "links": {
+          "demo": "https://luminote.bbing.xyz/",
+          "source": "https://github.com/wanxb/Luminote"
+        }
       }
     ],
     "阿罗德斯": [
