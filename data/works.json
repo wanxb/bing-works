@@ -210,6 +210,21 @@
           "demo": "https://luminote.bbing.xyz/",
           "source": "https://github.com/wanxb/Luminote"
         }
+      },
+      {
+        "id": "c-drive-cleaner",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/c-drive-cleaner.png",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "C 盘清理器",
+        "subtitle": "C Drive Cleaner",
+        "description": "面向 Windows 的交互式缓存清理工具，自动发现缓存目录并按风险分级，方便先扫描再清理。",
+        "sort": 13,
+        "delay": 1,
+        "links": {
+          "source": "https://github.com/wanxb/c-drive-cleaner"
+        }
       }
     ],
     "阿罗德斯": [
