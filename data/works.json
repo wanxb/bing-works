@@ -225,6 +225,22 @@
         "links": {
           "source": "https://github.com/wanxb/c-drive-cleaner"
         }
+      },
+      {
+        "id": "screen-time",
+        "tags": ["bing", "tool", "wellness"],
+        "thumb": "./assets/thumbs/screen-time.png",
+        "author": "Bing",
+        "category": "健康体验",
+        "title": "屏幕时间",
+        "subtitle": "Screen Time",
+        "description": "轻量的 Windows 屏幕时间工具，统计本机软件使用时长，并在连续使用过久时温和提醒休息。",
+        "sort": 14,
+        "delay": 2,
+        "links": {
+          "demo": "https://wanxb.github.io/screen-time/",
+          "source": "https://github.com/wanxb/screen-time"
+        }
       }
     ],
     "阿罗德斯": [
