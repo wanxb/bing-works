@@ -241,6 +241,21 @@
           "demo": "https://wanxb.github.io/screen-time/",
           "source": "https://github.com/wanxb/screen-time"
         }
+      },
+      {
+        "id": "alpha-radar",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/alpha-radar.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "AlphaRadar",
+        "subtitle": "Alpha Event Radar",
+        "description": "基于 Cloudflare Workers 的 Alpha 事件雷达，抓取多源数据、识别交易信号并推送到 Telegram。",
+        "sort": 15,
+        "delay": 3,
+        "links": {
+          "source": "https://github.com/wanxb/AlphaRadar"
+        }
       }
     ],
     "阿罗德斯": [
