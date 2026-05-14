@@ -256,6 +256,22 @@
         "links": {
           "source": "https://github.com/wanxb/AlphaRadar"
         }
+      },
+      {
+        "id": "mortgage-advisor",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/mortgage-advisor.png",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "房贷参谋",
+        "subtitle": "Mortgage Advisor",
+        "description": "房贷全周期计算与决策工具，支持贷款规划、提前还款、利率调整和方案对比。",
+        "sort": 16,
+        "delay": 4,
+        "links": {
+          "demo": "https://wanxb.github.io/mortgage-advisor/",
+          "source": "https://github.com/wanxb/mortgage-advisor"
+        }
       }
     ],
     "阿罗德斯": [
