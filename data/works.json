@@ -285,11 +285,13 @@
         "author": "Bing",
         "category": "工具效率",
         "title": "MotoMind",
-        "subtitle": "Development in Progress",
-        "description": "开发中项目，敬请期待。",
+        "subtitle": "AI 驱动的摩托车维护助手",
+        "description": "一个 AI 驱动的摩托车维护助手，提供个性化的加油记录、油耗统计、保险管理、保养管理和维护建议，帮助车主更好地照顾他们的摩托车。",
         "sort": 17,
         "delay": 4,
-        "links": {}
+        "links": {
+          "source": "https://github.com/wanxb/MotoMind"
+        }
       }
     ],
     "阿罗德斯": [
