@@ -26,6 +26,100 @@
   ],
   "works": {
     "Bing": [
+       {
+        "id": "luminote",
+        "tags": ["bing", "visual"],
+        "thumb": "./assets/thumbs/luminote.svg",
+        "author": "Bing",
+        "category": "互动视觉",
+        "title": "Luminote",
+        "subtitle": "Photography Portfolio",
+        "description": "摄影作品与视觉手记的轻盈归档，用留白与画面组织温和的浏览体验。",
+        "sort": 1,
+        "delay": 1,
+        "links": {
+          "demo": "https://luminote.bbing.xyz/",
+          "source": "https://github.com/wanxb/Luminote"
+        }
+      },
+      {
+        "id": "screen-time",
+        "tags": ["bing", "tool", "wellness"],
+        "thumb": "./assets/thumbs/screen-time.png",
+        "author": "Bing",
+        "category": "健康体验",
+        "title": "屏幕时间",
+        "subtitle": "Screen Time",
+        "description": "轻量的 Windows 屏幕时间工具，统计本机软件使用时长，并在连续使用过久时温和提醒休息。",
+        "sort": 2,
+        "delay": 1,
+        "links": {
+          "demo": "https://wanxb.github.io/screen-time/",
+          "source": "https://github.com/wanxb/screen-time"
+        }
+      },
+      {
+        "id": "mortgage-advisor",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/mortgage-advisor.png",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "房贷参谋",
+        "subtitle": "Mortgage Advisor",
+        "description": "房贷全周期计算与决策工具，支持贷款规划、提前还款、利率调整和方案对比。",
+        "sort": 3,
+        "delay": 1,
+        "links": {
+          "demo": "https://wanxb.github.io/mortgage-advisor/",
+          "source": "https://github.com/wanxb/mortgage-advisor"
+        }
+      },
+       {
+        "id": "c-drive-cleaner",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/c-drive-cleaner.png",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "C 盘清理器",
+        "subtitle": "C Drive Cleaner",
+        "description": "面向 Windows 的交互式缓存清理工具，自动发现缓存目录并按风险分级，方便先扫描再清理。",
+        "sort": 4,
+        "delay": 1,
+        "links": {
+          "source": "https://github.com/wanxb/c-drive-cleaner"
+        }
+      },
+     
+      {
+        "id": "alpha-radar",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/alpha-radar.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "AlphaRadar",
+        "subtitle": "Alpha Event Radar",
+        "description": "基于 Cloudflare Workers 的 Alpha 事件雷达，抓取多源数据、识别交易信号并推送到 Telegram。",
+        "sort": 5,
+        "delay": 2,
+        "links": {
+          "source": "https://github.com/wanxb/AlphaRadar"
+        }
+      },
+      {
+        "id": "ai-chat-slice",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/ai-chat-slice.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "AI 聊天切片",
+        "subtitle": "AIChatSlice",
+        "description": "浏览器扩展，快速选择 AI 聊天消息并导出为 Markdown。",
+        "sort": 6,
+        "delay": 3,
+        "links": {
+          "source": "https://github.com/wanxb/ai-chat-slice"
+        }
+      },
       {
         "id": "time-clock",
         "tags": ["bing", "tool"],
@@ -35,8 +129,8 @@
         "title": "极简时钟",
         "subtitle": "Time Clock",
         "description": "用克制的布局和清晰的数字表达时间本身。",
-        "sort": 1,
-        "delay": 4,
+        "sort": 7,
+        "delay": 2,
         "links": {
           "demo": "https://wanxb.github.io/time-clock/",
           "source": "https://github.com/wanxb/time-clock"
@@ -51,8 +145,8 @@
         "title": "皇帝年表",
         "subtitle": "Chinese Emperors Timeline",
         "description": "把历史信息整理成更易浏览的时间结构，方便查看、比较和理解。",
-        "sort": 2,
-        "delay": 1,
+        "sort": 8,
+        "delay": 2,
         "links": {
           "demo": "https://wanxb.github.io/chinese-emperors-timeline/",
           "source": "https://github.com/wanxb/chinese-emperors-timeline"
@@ -67,8 +161,8 @@
         "title": "地图拼块",
         "subtitle": "China Map Puzzle",
         "description": "把地图认知变成轻量互动，通过拼接重新认识地理信息。",
-        "sort": 3,
-        "delay": 2,
+        "sort": 9,
+        "delay": 3,
         "links": {
           "demo": "https://wanxb.github.io/china-map-puzzle/",
           "source": "https://github.com/wanxb/china-map-puzzle"
@@ -83,7 +177,7 @@
         "title": "赛博海洋",
         "subtitle": "Cyber Ocean",
         "description": "用光点、深色与漂浮感构成一个带赛博气质的在线场景。",
-        "sort": 4,
+        "sort": 10,
         "delay": 3,
         "links": {
           "demo": "https://wanxb.github.io/cyber-ocean/",
@@ -99,28 +193,14 @@
         "title": "护眼空间",
         "subtitle": "Eye Spa Pro",
         "description": "围绕护眼与屏幕使用节奏组织体验，让功能与舒适感同时存在。",
-        "sort": 5,
-        "delay": 4,
+        "sort": 11,
+        "delay": 3,
         "links": {
           "demo": "https://wanxb.github.io/eye-spa-pro/",
           "source": "https://github.com/wanxb/eye-spa-pro"
         }
       },
-      {
-        "id": "ai-chat-slice",
-        "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/ai-chat-slice.svg",
-        "author": "Bing",
-        "category": "工具效率",
-        "title": "AI 聊天切片",
-        "subtitle": "AIChatSlice",
-        "description": "浏览器扩展，快速选择 AI 聊天消息并导出为 Markdown。",
-        "sort": 6,
-        "delay": 2,
-        "links": {
-          "source": "https://github.com/wanxb/ai-chat-slice"
-        }
-      },
+      
       {
         "id": "park-timer-bot",
         "tags": ["bing", "tool"],
@@ -130,7 +210,7 @@
         "title": "停车计时机器人",
         "subtitle": "ParkTimerBot",
         "description": "Telegram 机器人，帮用户记录停车时间并提醒。",
-        "sort": 7,
+        "sort": 12,
         "delay": 3,
         "links": {
           "source": "https://github.com/wanxb/ParkTimerBot"
@@ -145,7 +225,7 @@
         "title": "ClipBox",
         "subtitle": "Clipboard Manager",
         "description": "轻量级剪贴板管理工具，提升复制粘贴效率。",
-        "sort": 8,
+        "sort": 13,
         "delay": 4,
         "links": {
           "source": "https://github.com/wanxb/ClipBox"
@@ -160,10 +240,42 @@
         "title": "BeatCLI",
         "subtitle": "CLI Music Player",
         "description": "通过命令行控制台播放音乐，简洁高效的音乐体验。",
-        "sort": 9,
-        "delay": 1,
+        "sort": 14,
+        "delay": 4,
         "links": {
           "source": "https://github.com/wanxb/BeatCLI"
+        }
+      },
+      {
+        "id": "spoon-force",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/spoon-force.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "SpoonForce",
+        "subtitle": "iPhone Kitchen Scale",
+        "description": "使用 iPhone 实现厨房秤功能，通过触摸进行称重。",
+        "sort": 15,
+        "delay": 4,
+        "links": {
+          "demo": "https://wanxb.github.io/SpoonForce/",
+          "source": "https://github.com/wanxb/SpoonForce"
+        }
+      },
+       {
+        "id": "letters-longing",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/letters-longing.png",
+        "author": "Bing",
+        "category": "知识表达",
+        "title": "尺素",
+        "subtitle": "书信美学资料库",
+        "description": "一个书信美学资料库，用精选内容、清晰来源和优雅阅读体验，帮助用户找到合适的书信表达",
+        "sort": 16,
+        "delay": 4,
+        "links": {
+          "demo": "https://wanxb.github.io/letters-longing/",
+          "source": "https://github.com/wanxb/letters-longing"
         }
       },
       {
@@ -175,103 +287,9 @@
         "title": "MotoMind",
         "subtitle": "Development in Progress",
         "description": "开发中项目，敬请期待。",
-        "sort": 10,
-        "delay": 2,
+        "sort": 17,
+        "delay": 4,
         "links": {}
-      },
-      {
-        "id": "spoon-force",
-        "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/spoon-force.svg",
-        "author": "Bing",
-        "category": "工具效率",
-        "title": "SpoonForce",
-        "subtitle": "iPhone Kitchen Scale",
-        "description": "使用 iPhone 实现厨房秤功能，通过触摸进行称重。",
-        "sort": 11,
-        "delay": 3,
-        "links": {
-          "demo": "https://wanxb.github.io/SpoonForce/",
-          "source": "https://github.com/wanxb/SpoonForce"
-        }
-      },
-      {
-        "id": "luminote",
-        "tags": ["bing", "visual"],
-        "thumb": "./assets/thumbs/luminote.svg",
-        "author": "Bing",
-        "category": "互动视觉",
-        "title": "Luminote",
-        "subtitle": "Photography Portfolio",
-        "description": "摄影作品与视觉手记的轻盈归档，用留白与画面组织温和的浏览体验。",
-        "sort": 12,
-        "delay": 4,
-        "links": {
-          "demo": "https://luminote.bbing.xyz/",
-          "source": "https://github.com/wanxb/Luminote"
-        }
-      },
-      {
-        "id": "c-drive-cleaner",
-        "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/c-drive-cleaner.png",
-        "author": "Bing",
-        "category": "工具效率",
-        "title": "C 盘清理器",
-        "subtitle": "C Drive Cleaner",
-        "description": "面向 Windows 的交互式缓存清理工具，自动发现缓存目录并按风险分级，方便先扫描再清理。",
-        "sort": 13,
-        "delay": 1,
-        "links": {
-          "source": "https://github.com/wanxb/c-drive-cleaner"
-        }
-      },
-      {
-        "id": "screen-time",
-        "tags": ["bing", "tool", "wellness"],
-        "thumb": "./assets/thumbs/screen-time.png",
-        "author": "Bing",
-        "category": "健康体验",
-        "title": "屏幕时间",
-        "subtitle": "Screen Time",
-        "description": "轻量的 Windows 屏幕时间工具，统计本机软件使用时长，并在连续使用过久时温和提醒休息。",
-        "sort": 14,
-        "delay": 2,
-        "links": {
-          "demo": "https://wanxb.github.io/screen-time/",
-          "source": "https://github.com/wanxb/screen-time"
-        }
-      },
-      {
-        "id": "alpha-radar",
-        "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/alpha-radar.svg",
-        "author": "Bing",
-        "category": "工具效率",
-        "title": "AlphaRadar",
-        "subtitle": "Alpha Event Radar",
-        "description": "基于 Cloudflare Workers 的 Alpha 事件雷达，抓取多源数据、识别交易信号并推送到 Telegram。",
-        "sort": 15,
-        "delay": 3,
-        "links": {
-          "source": "https://github.com/wanxb/AlphaRadar"
-        }
-      },
-      {
-        "id": "mortgage-advisor",
-        "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/mortgage-advisor.png",
-        "author": "Bing",
-        "category": "工具效率",
-        "title": "房贷参谋",
-        "subtitle": "Mortgage Advisor",
-        "description": "房贷全周期计算与决策工具，支持贷款规划、提前还款、利率调整和方案对比。",
-        "sort": 16,
-        "delay": 4,
-        "links": {
-          "demo": "https://wanxb.github.io/mortgage-advisor/",
-          "source": "https://github.com/wanxb/mortgage-advisor"
-        }
       }
     ],
     "阿罗德斯": [
