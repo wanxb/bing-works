@@ -1,0 +1,336 @@
+{
+  "tags": [
+    { "id": "javascript", "label": "JavaScript" },
+    { "id": "tutorial", "label": "教程" },
+    { "id": "thoughts", "label": "随想" },
+    { "id": "life", "label": "生活" },
+    { "id": "redis", "label": "Redis" },
+    { "id": "java", "label": "Java" },
+    { "id": "dotnet", "label": ".NET" },
+    { "id": "typescript", "label": "TypeScript" },
+    { "id": "mq", "label": "消息队列" },
+    { "id": "docker", "label": "Docker/K8s" },
+    { "id": "architecture", "label": "系统架构" },
+    { "id": "ai", "label": "AI/ML" },
+    { "id": "python", "label": "Python" },
+    { "id": "rust", "label": "Rust" },
+    { "id": "blockchain", "label": "区块链" }
+  ],
+  "posts": [
+    {
+      "slug": "transformer-deep-dive",
+      "title": "Transformer 详解：从注意力机制到 GPT",
+      "date": "2025-04-25",
+      "tags": ["ai"],
+      "excerpt": "从 Self-Attention 出发推导 Transformer 架构设计逻辑，理解 GPT 系列模型背后的核心原理。",
+      "filename": "transformer-deep-dive.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "bingworks-architecture",
+      "title": "Bing'Works 全栈架构设计与演进",
+      "date": "2025-01-20",
+      "tags": ["architecture", "javascript"],
+      "excerpt": "一个零依赖个人站点的架构回顾：为什么不用框架、数据层设计、搜索与主题切换的权衡。",
+      "filename": "bingworks-architecture.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "web3-projects-dex-move",
+      "title": "Web3 实战：Solidity DEX 与 Sui Move 链上应用",
+      "date": "2025-03-18",
+      "tags": ["blockchain", "tutorial"],
+      "excerpt": "基于 WTF-Dapp 的简易 DEX 实现与 Sui Move 链上留言板——两个生态的合约编程对比。",
+      "filename": "web3-projects-dex-move.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "rag-knowledge-base",
+      "title": "RAG 实战：构建一个私有知识库问答系统",
+      "date": "2024-08-18",
+      "tags": ["ai", "tutorial"],
+      "excerpt": "基于向量检索 + 大模型的 RAG 方案设计，涵盖文档切割、向量库选型与 Prompt 模板优化。",
+      "filename": "rag-knowledge-base.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "blockchain-basics",
+      "title": "区块链入门：从分布式账本到智能合约编程",
+      "date": "2024-06-10",
+      "tags": ["blockchain", "tutorial"],
+      "excerpt": "区块链底层原理、PoW/PoS 共识机制与智能合约初探——从比特币到以太坊的演进逻辑。",
+      "filename": "blockchain-basics.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "high-concurrency-patterns",
+      "title": "高并发系统的七种武器",
+      "date": "2024-02-15",
+      "tags": ["architecture"],
+      "excerpt": "缓存、限流、降级、异步、读写分离、池化、动静分离——七种高并发应对手段的组合使用。",
+      "filename": "high-concurrency-patterns.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "rust-projects-clipbox-loganalyzer",
+      "title": "Rust 练手项目：ClipBox 剪贴板与日志分析器",
+      "date": "2024-01-15",
+      "tags": ["rust", "tutorial"],
+      "excerpt": "用 Rust 写桌面工具与命令行应用的全流程——跨平台剪贴板管理与并行日志统计分析。",
+      "filename": "rust-projects-clipbox-loganalyzer.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "ml-basics",
+      "title": "机器学习入门：从线性回归到神经网络",
+      "date": "2023-11-15",
+      "tags": ["ai", "tutorial"],
+      "excerpt": "从线性回归、梯度下降到激活函数与神经网络，零基础理解机器学习的核心概念。",
+      "filename": "ml-basics.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "rust-learning-notes",
+      "title": "Rust 初探：所有权、借用与生命周期的理解",
+      "date": "2023-10-20",
+      "tags": ["rust", "tutorial"],
+      "excerpt": "从所有权规则、借用检查到生命周期标注——Rust 核心概念的学习梳理与代码示例。",
+      "filename": "rust-learning-notes.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "monolith-to-microservices",
+      "title": "从单体到微服务：一个电商系统的演进之路",
+      "date": "2023-06-20",
+      "tags": ["architecture", "java"],
+      "excerpt": "电商后台从单体到微服务的完整演进过程：如何切分、分布式事务、服务调用与数据一致性。",
+      "filename": "monolith-to-microservices.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "semantic-kernel-intro",
+      "title": "用 Semantic Kernel 给你的应用加上 AI 大脑",
+      "date": "2023-05-10",
+      "tags": ["dotnet", "ai"],
+      "excerpt": "微软 Semantic Kernel 初探：Prompt Template、Native Function 与 Planner 自动编排。",
+      "filename": "semantic-kernel-intro.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "typescript-advanced-types",
+      "title": "TypeScript 高级类型实战：泛型、条件类型与类型体操",
+      "date": "2023-03-15",
+      "tags": ["typescript", "tutorial"],
+      "excerpt": "泛型约束、条件类型、模板字面量类型与 infer 实战——让类型系统为你工作。",
+      "filename": "typescript-advanced-types.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "docker-to-k8s",
+      "title": "从 Docker Compose 到 K8s：容器化实践之路",
+      "date": "2022-07-22",
+      "tags": ["docker", "tutorial"],
+      "excerpt": "Compose 够用为什么还要 K8s？从单机到编排的实际需求、核心概念与翻车记录。",
+      "filename": "docker-to-k8s.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "python-projects-wordcloud-cleaner",
+      "title": "Python 小项目实战：词云生成器与 C 盘清理脚本",
+      "date": "2022-08-12",
+      "tags": ["python", "tutorial"],
+      "excerpt": "用 Python 写词云生成（jieba + wordcloud）和 C 盘清理脚本——文件 IO、中文处理、CLI 封装。",
+      "filename": "python-projects-wordcloud-cleaner.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "java-oom-troubleshooting",
+      "title": "一次线上 OOM 排查全记录",
+      "date": "2022-02-18",
+      "tags": ["java"],
+      "excerpt": "生产环境 OOM 完整排查：发现无界 Map 导致内存泄漏的全过程与修复方案。",
+      "filename": "java-oom-troubleshooting.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "python-learning-notes",
+      "title": "Python 学习笔记：从基础语法到实用工具库",
+      "date": "2022-05-08",
+      "tags": ["python", "tutorial"],
+      "excerpt": "从缩进语法、推导式到标准库与第三方生态——Java 开发者的 Python 转型学习记录。",
+      "filename": "python-learning-notes.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "mq-comparison",
+      "title": "消息队列选型指南：RabbitMQ vs Kafka vs RocketMQ",
+      "date": "2021-09-05",
+      "tags": ["mq", "architecture"],
+      "excerpt": "三者特性对比与实际选型心路——合适的场景选合适的 MQ，别为了炫技加维护负担。",
+      "filename": "mq-comparison.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "redis-caching-patterns",
+      "title": "Redis 缓存实战：击穿、穿透、雪崩全搞定",
+      "date": "2021-04-10",
+      "tags": ["redis", "tutorial"],
+      "excerpt": "缓存三大经典问题的场景分析与解法：互斥锁、布隆过滤器、随机 TTL 与集群容灾。",
+      "filename": "redis-caching-patterns.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "java-threading-basics",
+      "title": "Java 多线程入门：从 synchronized 到线程池",
+      "date": "2020-08-20",
+      "tags": ["java", "tutorial"],
+      "excerpt": "线程创建、synchronized、volatile 与线程池参数解析——理解它解决什么问题比死记硬背管用。",
+      "filename": "java-threading-basics.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "redis-intro",
+      "title": "Redis 入门笔记：从零开始理解内存数据库",
+      "date": "2020-03-15",
+      "tags": ["redis", "tutorial"],
+      "excerpt": "五种基础数据类型、RDB 与 AOF 持久化策略——Redis 初学者的概念梳理笔记。",
+      "filename": "redis-intro.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "work-from-home",
+      "title": "开始在家办公，自由职业实现了一半",
+      "date": "2020-02-06",
+      "tags": ["thoughts", "life"],
+      "excerpt": "疫情封锁下远程办公的生活记录，游戏太好玩导致周记拖更，以及《喜鹊谋杀案》《鸟人》的阅读观影笔记。",
+      "filename": "work-from-home.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "take-root",
+      "title": "既然环境那么差，不如好好扎根吧",
+      "date": "2020-01-30",
+      "tags": ["thoughts", "life"],
+      "excerpt": "春节疫情爆发，封村封路、被测体温、冒险接女友见家长……特殊时期的真实记录。",
+      "filename": "take-root.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "shape-of-water",
+      "title": "所有的边缘人拥抱在一起就能对抗黑暗的世界",
+      "date": "2020-01-19",
+      "tags": ["thoughts"],
+      "excerpt": "工作收尾、年底酒局，《超越感觉》阅读笔记，奥斯卡最佳影片《水形物语》二刷影评。",
+      "filename": "shape-of-water.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "green-book-review",
+      "title": "我不够白，也不够黑，甚至不够男人",
+      "date": "2020-01-12",
+      "tags": ["thoughts"],
+      "excerpt": "初雪、女友科目三通过、第一次见家长！《没有疆界》阅读笔记，奥斯卡最佳影片《绿皮书》影评。",
+      "filename": "green-book-review.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "new-year-cooking",
+      "title": "王婆卖瓜：本周吹一波自己的厨艺",
+      "date": "2020-01-05",
+      "tags": ["thoughts", "life"],
+      "excerpt": "跨年周、元旦出差、冥想尝试、厨艺展示、激进建构主义阅读笔记、《误杀》与《阿甘正传》观后感。",
+      "filename": "new-year-cooking.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "driving-school-stories",
+      "title": "扒一扒驾校教练：那些年学车时你遭过的「毒手」",
+      "date": "2020-01-03",
+      "tags": ["thoughts"],
+      "excerpt": "驾校两位教练，一个用心教学收获口碑，一个投机取巧只顾眼前。同一份工作，两种人生。",
+      "filename": "driving-school-stories.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "what-i-gained-2019",
+      "title": "2019年除了捡到个女盆友，还收获了什么",
+      "date": "2019-12-31",
+      "tags": ["thoughts", "life"],
+      "excerpt": "2019年终回顾：买房、恋爱、跑马拉松、拍vlog、学理财，按月份记录这一年的成长与收获。",
+      "filename": "what-i-gained-2019.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "goodbye-2019",
+      "title": "2019年最后一周，2020继续加油",
+      "date": "2019-12-29",
+      "tags": ["thoughts"],
+      "excerpt": "圣诞周礼物与拼多多、《俞军产品方法论》读后感、《双子杀手》观后感，以及一周运动记录。",
+      "filename": "goodbye-2019.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "winter-solstice-dumplings",
+      "title": "今日冬至，吃完饺子继续努力",
+      "date": "2019-12-22",
+      "tags": ["thoughts"],
+      "excerpt": "第三方平台二次开发的踩坑记录、《写作这回事》和《红高粱》《无极》的阅读观影笔记。",
+      "filename": "winter-solstice-dumplings.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "norwegian-wood-27-years",
+      "title": "有人看了27年村上春树的《挪威的森林》",
+      "date": "2019-12-15",
+      "tags": ["thoughts"],
+      "excerpt": "微信提醒功能上线、东野圭吾《恶意》的震撼、村上春树《挪威的森林》初读、《我和我的祖国》观后感。",
+      "filename": "norwegian-wood-27-years.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "butterfly-effect",
+      "title": "拥有回到过去的能力，怎么做才能让现在的你更优秀？",
+      "date": "2019-12-08",
+      "tags": ["thoughts"],
+      "excerpt": "小黄条ToDo与分时工作法、内存溢出与内存泄漏、NLP《语言的魔力》、《蝴蝶效应》时间旅行哲学。",
+      "filename": "butterfly-effect.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "upgrade-every-7-days",
+      "title": "7天让自己升级一次，难度大吗？",
+      "date": "2019-12-01",
+      "tags": ["thoughts"],
+      "excerpt": "域名解析与个人网页搭建、GitHub与Markdown入门、四本好书的阅读笔记、《少年的你》校园欺凌思考。",
+      "filename": "upgrade-every-7-days.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "nanjing-three-days",
+      "title": "南京三日游",
+      "date": "2019-06-09",
+      "tags": ["life"],
+      "excerpt": "端午南京行：夫子庙、玄武湖、鸡鸣寺、中山陵、秦淮河夜游、朝天宫，三天暴走吃喝全记录。",
+      "filename": "nanjing-three-days.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "ssd-replacement",
+      "title": "SSD 更换笔记",
+      "date": "2018-05-18",
+      "tags": ["tutorial"],
+      "excerpt": "给笔记本换SSD装Win10的翻车全记录：分区失误、SQL Server安装失败、系统闪烁、Host服务深坑。",
+      "filename": "ssd-replacement.md",
+      "author": "Bing"
+    },
+    {
+      "slug": "programming-everywhere",
+      "title": "世界上没有程序解决不了的问题，如果有……",
+      "date": "2017-11-19",
+      "tags": ["thoughts", "tutorial"],
+      "excerpt": "程序不只是代码，生活中处处是程序。俄罗斯程序员自动化生活、15岁少年的温暖发明、古城钟楼的微博。",
+      "filename": "programming-everywhere.md",
+      "author": "Bing"
+    }
+  ]
+}

@@ -85,6 +85,44 @@
   color: var(--text);
 }
 
+/* 导航标签 */
+.topbar-nav {
+  display: flex;
+  gap: 4px;
+  margin-left: 20px;
+}
+
+.nav-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--chip-bg);
+  backdrop-filter: blur(18px);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.nav-tab:hover {
+  background: var(--chip-hover);
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+
+.nav-tab.active {
+  color: var(--text);
+  background: var(--surface-strong);
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(15,23,42,.06);
+}
+
 /* 主题切换按钮 */
 .theme-toggle {
   display: inline-flex;

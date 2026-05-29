@@ -31,6 +31,12 @@ function initViewToggle() {
     // 触发视图切换事件
     document.dispatchEvent(new CustomEvent('viewChanged', { detail: { view: currentView } }));
   });
+
+  // 路由切换时显示/隐藏视图按钮
+  document.addEventListener('routeChanged', (e) => {
+    const isWorks = e.detail.route === 'works';
+    viewToggle.style.display = isWorks ? '' : 'none';
+  });
 }
 
 export { initViewToggle };

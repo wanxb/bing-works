@@ -6,14 +6,16 @@
   <title>Bing' Works</title>
   <meta
     name="description"
-    content="Bing' Works：Bing 与阿罗德斯的作品目录，以更克制的方式展示工具、互动实验、知识可视化与数字氛围项目。"
+    content="Bing' Works：Bing 的作品目录，以更简洁的方式展示工具、互动实验、知识可视化与数字氛围项目。"
   />
   <meta name="theme-color" content="#f3f4f6" />
   <meta property="og:title" content="Bing' Works" />
-  <meta property="og:description" content="一个克制、清晰、可直接访问的作品目录。" />
+  <meta property="og:description" content="一个简洁、清晰、可直接访问的作品目录。" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script type="module" src="./js/app.js"></script>
 </head>
 <body>
@@ -23,10 +25,17 @@
         <span class="brand-mark">B</span>
         <span>Bing' Works</span>
       </div>
+      <nav class="topbar-nav" id="topbarNav">
+        <a class="nav-tab active" href="#/" data-route="works">Works</a>
+        <a class="nav-tab" href="#/blog" data-route="blog">Blog</a>
+      </nav>
       <div class="topbar-actions">
         <button class="view-toggle" id="viewToggle" type="button" aria-label="切换视图">
           <svg class="view-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </button>
+        <div class="blog-search" id="topbarBlogSearch" style="display:none">
+          <input type="text" class="blog-search__input blog-search__input--topbar" placeholder="搜索文章..." aria-label="搜索文章" />
+        </div>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换主题">
           <span class="theme-icon" id="themeIcon" aria-hidden="true"></span>
         </button>
@@ -37,6 +46,21 @@
       <div class="filters" aria-label="作品筛选"></div>
 
       <div class="catalog" id="catalog"></div>
+    </section>
+
+    <section class="section blog-section" id="blog" style="display:none">
+      <div class="blog-controls">
+        <div class="filters blog-filters" aria-label="文章筛选"></div>
+      </div>
+      <div class="blog-list" id="blogList"></div>
+      <article class="blog-post" id="blogPost" style="display:none">
+        <div class="blog-post__sidebar">
+          <nav class="blog-post__toc" id="blogToc"></nav>
+        </div>
+        <div class="blog-post__content" id="blogContent"></div>
+        <nav class="blog-post__prevnext" id="blogPrevNext"></nav>
+        <section class="blog-comments" id="blogComments"></section>
+      </article>
     </section>
 
 
