@@ -27,6 +27,51 @@
   "works": {
     "Bing": [
        {
+        "id": "moto-agent",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/moto-agent.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "弼马温",
+        "subtitle": "Moto Agent",
+        "description": "基于 Telegram 的摩托车油耗管理机器人，支持自然语言记录、多车油耗追踪和定时提醒，后台基于 Cloudflare Workers + D1。",
+        "sort": 1,
+        "delay": 1,
+        "links": {
+          "source": "https://github.com/wanxb/moto_agent"
+        }
+      },
+       {
+        "id": "token-usage-dashboard",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/token-usage-dashboard.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "Token 用量面板",
+        "subtitle": "Token Usage Dashboard",
+        "description": "本地 Web 仪表盘，通过解析日志文件追踪 Claude Code 和 Codex 的 token 使用情况，支持多源聚合和按项目分组。",
+        "sort": 2,
+        "delay": 1,
+        "links": {
+          "source": "https://github.com/wanxb/token-usage-dashboard"
+        }
+      },
+       {
+        "id": "issuepilot",
+        "tags": ["bing", "tool"],
+        "thumb": "./assets/thumbs/issuepilot.svg",
+        "author": "Bing",
+        "category": "工具效率",
+        "title": "IssuePilot",
+        "subtitle": "Multi-Agent Workflow",
+        "description": "多智能体 GitHub Issue 自动化开发流水线，自动抓取 Issue、AI 评估价值、多 Agent 协作完成开发自测评审，自动提交 PR。",
+        "sort": 3,
+        "delay": 1,
+        "links": {
+          "source": "https://github.com/wanxb/issuepilot"
+        }
+      },
+       {
         "id": "luminote",
         "tags": ["bing", "visual"],
         "thumb": "./assets/thumbs/luminote.svg",
@@ -35,7 +80,7 @@
         "title": "Luminote",
         "subtitle": "Photography Portfolio",
         "description": "摄影作品与视觉手记的轻盈归档，用留白与画面组织温和的浏览体验。",
-        "sort": 1,
+        "sort": 4,
         "delay": 1,
         "links": {
           "demo": "https://luminote.bbing.xyz/",
@@ -51,7 +96,7 @@
         "title": "屏幕时间",
         "subtitle": "Screen Time",
         "description": "轻量的 Windows 屏幕时间工具，统计本机软件使用时长，并在连续使用过久时温和提醒休息。",
-        "sort": 2,
+        "sort": 5,
         "delay": 1,
         "links": {
           "demo": "https://wanxb.github.io/screen-time/",
@@ -67,7 +112,7 @@
         "title": "房贷参谋",
         "subtitle": "Mortgage Advisor",
         "description": "房贷全周期计算与决策工具，支持贷款规划、提前还款、利率调整和方案对比。",
-        "sort": 3,
+        "sort": 6,
         "delay": 1,
         "links": {
           "demo": "https://wanxb.github.io/mortgage-advisor/",
@@ -83,13 +128,13 @@
         "title": "C 盘清理器",
         "subtitle": "C Drive Cleaner",
         "description": "面向 Windows 的交互式缓存清理工具，自动发现缓存目录并按风险分级，方便先扫描再清理。",
-        "sort": 4,
+        "sort": 7,
         "delay": 1,
         "links": {
           "source": "https://github.com/wanxb/c-drive-cleaner"
         }
       },
-     
+
       {
         "id": "alpha-radar",
         "tags": ["bing", "tool"],
@@ -99,7 +144,7 @@
         "title": "AlphaRadar",
         "subtitle": "Alpha Event Radar",
         "description": "基于 Cloudflare Workers 的 Alpha 事件雷达，抓取多源数据、识别交易信号并推送到 Telegram。",
-        "sort": 5,
+        "sort": 8,
         "delay": 2,
         "links": {
           "source": "https://github.com/wanxb/AlphaRadar"
@@ -114,7 +159,7 @@
         "title": "AI 聊天切片",
         "subtitle": "AIChatSlice",
         "description": "浏览器扩展，快速选择 AI 聊天消息并导出为 Markdown。",
-        "sort": 6,
+        "sort": 9,
         "delay": 3,
         "links": {
           "source": "https://github.com/wanxb/ai-chat-slice"
@@ -129,7 +174,7 @@
         "title": "极简时钟",
         "subtitle": "Time Clock",
         "description": "用克制的布局和清晰的数字表达时间本身。",
-        "sort": 7,
+        "sort": 10,
         "delay": 2,
         "links": {
           "demo": "https://wanxb.github.io/time-clock/",
@@ -145,7 +190,7 @@
         "title": "皇帝年表",
         "subtitle": "Chinese Emperors Timeline",
         "description": "把历史信息整理成更易浏览的时间结构，方便查看、比较和理解。",
-        "sort": 8,
+        "sort": 11,
         "delay": 2,
         "links": {
           "demo": "https://wanxb.github.io/chinese-emperors-timeline/",
@@ -161,7 +206,7 @@
         "title": "地图拼块",
         "subtitle": "China Map Puzzle",
         "description": "把地图认知变成轻量互动，通过拼接重新认识地理信息。",
-        "sort": 9,
+        "sort": 12,
         "delay": 3,
         "links": {
           "demo": "https://wanxb.github.io/china-map-puzzle/",
@@ -177,7 +222,7 @@
         "title": "赛博海洋",
         "subtitle": "Cyber Ocean",
         "description": "用光点、深色与漂浮感构成一个带赛博气质的在线场景。",
-        "sort": 10,
+        "sort": 13,
         "delay": 3,
         "links": {
           "demo": "https://wanxb.github.io/cyber-ocean/",
@@ -193,14 +238,14 @@
         "title": "护眼空间",
         "subtitle": "Eye Spa Pro",
         "description": "围绕护眼与屏幕使用节奏组织体验，让功能与舒适感同时存在。",
-        "sort": 11,
+        "sort": 14,
         "delay": 3,
         "links": {
           "demo": "https://wanxb.github.io/eye-spa-pro/",
           "source": "https://github.com/wanxb/eye-spa-pro"
         }
       },
-      
+
       {
         "id": "park-timer-bot",
         "tags": ["bing", "tool"],
@@ -210,7 +255,7 @@
         "title": "停车计时机器人",
         "subtitle": "ParkTimerBot",
         "description": "Telegram 机器人，帮用户记录停车时间并提醒。",
-        "sort": 12,
+        "sort": 15,
         "delay": 3,
         "links": {
           "source": "https://github.com/wanxb/ParkTimerBot"
@@ -225,7 +270,7 @@
         "title": "ClipBox",
         "subtitle": "Clipboard Manager",
         "description": "轻量级剪贴板管理工具，提升复制粘贴效率。",
-        "sort": 13,
+        "sort": 16,
         "delay": 4,
         "links": {
           "source": "https://github.com/wanxb/ClipBox"
@@ -240,7 +285,7 @@
         "title": "BeatCLI",
         "subtitle": "CLI Music Player",
         "description": "通过命令行控制台播放音乐，简洁高效的音乐体验。",
-        "sort": 14,
+        "sort": 17,
         "delay": 4,
         "links": {
           "source": "https://github.com/wanxb/BeatCLI"
@@ -255,7 +300,7 @@
         "title": "SpoonForce",
         "subtitle": "iPhone Kitchen Scale",
         "description": "使用 iPhone 实现厨房秤功能，通过触摸进行称重。",
-        "sort": 15,
+        "sort": 18,
         "delay": 4,
         "links": {
           "demo": "https://wanxb.github.io/SpoonForce/",
@@ -271,26 +316,11 @@
         "title": "尺素",
         "subtitle": "书信美学资料库",
         "description": "一个书信美学资料库，用精选内容、清晰来源和优雅阅读体验，帮助用户找到合适的书信表达",
-        "sort": 16,
+        "sort": 19,
         "delay": 4,
         "links": {
           "demo": "https://wanxb.github.io/letters-longing/",
           "source": "https://github.com/wanxb/letters-longing"
-        }
-      },
-      {
-        "id": "moto-mind",
-        "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/moto-mind.svg",
-        "author": "Bing",
-        "category": "工具效率",
-        "title": "MotoMind",
-        "subtitle": "AI 驱动的摩托车维护助手",
-        "description": "一个 AI 驱动的摩托车维护助手，提供个性化的加油记录、油耗统计、保险管理、保养管理和维护建议，帮助车主更好地照顾他们的摩托车。",
-        "sort": 17,
-        "delay": 4,
-        "links": {
-          "source": "https://github.com/wanxb/MotoMind"
         }
       }
     ],
