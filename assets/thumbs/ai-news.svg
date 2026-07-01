@@ -1,0 +1,52 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF2F7"/>
+      <stop offset="1" stop-color="#DCE4EE"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="364" y1="180" x2="1076" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadow" x="290" y="122" width="860" height="656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="30" stdDeviation="28" flood-color="#7A8798" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <g opacity="0.55">
+    <rect x="120" y="110" width="1200" height="680" rx="44" fill="#F5F8FB"/>
+    <rect x="156" y="146" width="1128" height="608" rx="36" stroke="#D9E0E8" stroke-width="2"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="364" y="180" width="712" height="540" rx="40" fill="url(#panel)"/>
+  </g>
+  <g transform="translate(720, 410)">
+    <!-- Newspaper/document icon -->
+    <rect x="-60" y="-70" width="120" height="140" rx="8" fill="none" stroke="#4a90e2" stroke-width="2.5" opacity="0.6"/>
+    <!-- Article lines -->
+    <line x1="-40" y1="-45" x2="40" y2="-45" stroke="#50c878" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+    <line x1="-40" y1="-25" x2="30" y2="-25" stroke="#e2a64a" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <line x1="-40" y1="-5" x2="35" y2="-5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <line x1="-40" y1="15" x2="25" y2="15" stroke="#50c878" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="-40" y1="35" x2="40" y2="35" stroke="#e2a64a" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+    <line x1="-40" y1="55" x2="15" y2="55" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+    <!-- RSS arc signals on the right -->
+    <circle cx="80" cy="0" r="20" fill="none" stroke="#50c878" stroke-width="2" opacity="0.4"/>
+    <circle cx="80" cy="0" r="35" fill="none" stroke="#50c878" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="80" cy="0" r="50" fill="none" stroke="#50c878" stroke-width="1" opacity="0.2"/>
+    <circle cx="80" cy="0" r="4" fill="#50c878" opacity="0.8"/>
+    <path d="M75 -8 L75 5 M75 -8 L80 -2 L85 -8" stroke="#50c878" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Timeline dots on left -->
+    <circle cx="-80" cy="-40" r="5" fill="#4a90e2" opacity="0.6"/>
+    <circle cx="-80" cy="-10" r="5" fill="#50c878" opacity="0.8"/>
+    <circle cx="-80" cy="20" r="5" fill="#e2a64a" opacity="0.7"/>
+    <circle cx="-80" cy="50" r="5" fill="#4a90e2" opacity="0.5"/>
+    <line x1="-80" y1="-35" x2="-80" y2="-15" stroke="#4a90e2" stroke-width="1.5" opacity="0.3"/>
+    <line x1="-80" y1="-5" x2="-80" y2="15" stroke="#50c878" stroke-width="1.5" opacity="0.3"/>
+    <line x1="-80" y1="25" x2="-80" y2="45" stroke="#e2a64a" stroke-width="1.5" opacity="0.3"/>
+    <line x1="-75" y1="-10" x2="-60" y2="-10" stroke="#50c878" stroke-width="1.5" opacity="0.3"/>
+    <line x1="-75" y1="-40" x2="-60" y2="-40" stroke="#4a90e2" stroke-width="1.5" opacity="0.3"/>
+    <line x1="-75" y1="20" x2="-60" y2="20" stroke="#e2a64a" stroke-width="1.5" opacity="0.3"/>
+    <text x="0" y="95" text-anchor="middle" fill="#526170" font-family="monospace" font-size="24" opacity="0.7">AI 资讯 · News Timeline</text>
+  </g>
+</svg>
