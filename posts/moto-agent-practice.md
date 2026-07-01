@@ -1,8 +1,8 @@
-# 弼马温实战：从零构建一个 Telegram AI Agent 摩托车油耗管家
+# 弼马温实战：从零构建一个 AI Agent 摩托车油耗管家
 
 前阵子入手了摩托车，每次加油都要掏出手机记里程、算油耗，用了一阵子备忘录和 Excel，烦了。想着反正现在 LLM 这么强，不如写个机器人，发条消息让它自己帮我记。
 
-做着做着就不只是"记油耗"了——最后变成了一个完整的 Telegram AI Agent，带多车管理、维保记录、定时提醒、语音输入、Web 仪表盘……名字叫**弼马温**（Bike Moto Agent 的谐音梗，也是孙悟空最早的官职）。
+做着做着就不只是"记油耗"了——最后变成了一个完整的 AI Agent，带多车管理、维保记录、定时提醒、语音输入、Web 仪表盘……名字叫**弼马温**（Bike Moto Agent 的谐音梗，也是孙悟空最早的官职）。
 
 这篇文章完整拆解它的设计和实现，不是什么高大上的框架，就是实实在在从需求到落地的全过程。
 
@@ -121,21 +121,21 @@ Telegram 用户 / PWA 浏览器
 ```typescript
 // src/ports.ts
 interface ILLMProvider {
-  chat(messages: Message[], tools?: Tool[]): Promise<Response>
+  chat(messages: Message[], tools?: Tool[]): Promise<Response>;
 }
 
 interface ISessionStore {
-  get(key: string): Promise<Session | null>
-  set(key: string, session: Session): Promise<void>
+  get(key: string): Promise<Session | null>;
+  set(key: string, session: Session): Promise<void>;
 }
 
 interface ITTSProvider {
-  transcribe(audio: ArrayBuffer): Promise<string>
+  transcribe(audio: ArrayBuffer): Promise<string>;
 }
 
 interface IMessenger {
-  send(chatId: string, text: string): Promise<void>
-  replace(chatId: string, messageId: number, text: string): Promise<void>
+  send(chatId: string, text: string): Promise<void>;
+  replace(chatId: string, messageId: number, text: string): Promise<void>;
 }
 ```
 
@@ -154,31 +154,35 @@ interface IMessenger {
 
 ```typescript
 // src/agent.ts — 精简版
-async function agentLoop(messages: Message[], tools: Tool[], llm: ILLMProvider) {
-  let round = 0
-  const maxRounds = 8
+async function agentLoop(
+  messages: Message[],
+  tools: Tool[],
+  llm: ILLMProvider,
+) {
+  let round = 0;
+  const maxRounds = 8;
 
   while (round < maxRounds) {
-    const response = await llm.chat(messages, tools)
+    const response = await llm.chat(messages, tools);
 
     if (!response.toolCalls || response.toolCalls.length === 0) {
-      return response.text  // LLM 直接回复，结束
+      return response.text; // LLM 直接回复，结束
     }
 
     // 批量执行工具调用
     const results = await Promise.all(
-      response.toolCalls.map(call => dispatchTool(call))
-    )
+      response.toolCalls.map((call) => dispatchTool(call)),
+    );
 
     // 把工具结果追加到消息历史
     for (const result of results) {
-      messages.push(result)
+      messages.push(result);
     }
 
-    round++
+    round++;
   }
 
-  return "我已经思考了足够多轮，暂时无法完成这个请求。"
+  return "我已经思考了足够多轮，暂时无法完成这个请求。";
 }
 ```
 
@@ -190,26 +194,26 @@ async function agentLoop(messages: Message[], tools: Tool[], llm: ILLMProvider) 
 
 ```typescript
 interface Tool {
-  name: string
-  description: string
-  descriptionEn: string
-  parameters: Record<string, any>
-  execute(args: any, context: ToolContext): Promise<any>
+  name: string;
+  description: string;
+  descriptionEn: string;
+  parameters: Record<string, any>;
+  execute(args: any, context: ToolContext): Promise<any>;
 }
 
 class ToolRegistry {
-  private tools = new Map<string, Tool>()
+  private tools = new Map<string, Tool>();
 
   register(tool: Tool) {
-    this.tools.set(tool.name, tool)
+    this.tools.set(tool.name, tool);
   }
 
   getToolDefinitions(): ToolDef[] {
-    return Array.from(this.tools.values()).map(t => ({
+    return Array.from(this.tools.values()).map((t) => ({
       name: t.name,
-      description: t.lang === 'zh' ? t.description : t.descriptionEn,
+      description: t.lang === "zh" ? t.description : t.descriptionEn,
       parameters: t.parameters,
-    }))
+    }));
   }
 }
 ```
@@ -257,23 +261,23 @@ class FallbackLLM implements ILLMProvider {
   constructor(
     private primary: ILLMProvider,
     private secondary: ILLMProvider,
-    private maxRetries: number = 3
+    private maxRetries: number = 3,
   ) {}
 
   async chat(messages: Message[], tools?: Tool[]) {
-    let lastError: Error | null = null
+    let lastError: Error | null = null;
 
     for (let i = 0; i < this.maxRetries; i++) {
       try {
-        return await this.primary.chat(messages, tools)
+        return await this.primary.chat(messages, tools);
       } catch (e) {
-        lastError = e
-        await sleep(1000 * Math.pow(2, i))  // 指数退避
+        lastError = e;
+        await sleep(1000 * Math.pow(2, i)); // 指数退避
       }
     }
 
     // 主 Provider 全部失败，降级到备选
-    return this.secondary.chat(messages, tools)
+    return this.secondary.chat(messages, tools);
   }
 }
 ```
@@ -460,5 +464,3 @@ DeepSeek 的 function calling 有时候会漏参数（比如记录加油漏了 `
 4. **无状态架构对 Agent 开发是好事**。Workers 强制无状态让架构更清晰——session 在 KV 里，业务数据在 D1 里，Agent 状态在消息历史里。每层各自管好自己的存储，出了问题好排查。
 
 弼马温的源码在 [github.com/wangxunbing/moto_agent](https://github.com/wangxunbing/moto_agent)，文档非常详细（PRD、架构设计、20 份 Spec、10 个 ADR），感兴趣的可以看看。
-
-下一篇文章写同一系列的 IssuePilot——一个多 Agent 协作的 GitHub Issue 自动化开发系统，那个项目的架构复杂度比弼马温又上了一个台阶。

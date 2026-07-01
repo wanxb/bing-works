@@ -2,7 +2,7 @@
 
 > 写作日期：2026-06-26
 
-上一个项目弼马温是一个单 Agent 系统——一个 LLM 完成所有的理解和执行。IssuePilot 完全不同：它不是"把一个 Agent 做大"，而是**设计了一套多 Agent Workflow，让多个专业 Agent 接力完成从 Issue 发现到 PR 提交的完整流水线**。
+弼马温应用是一个单 Agent 系统——一个 LLM 完成所有的理解和执行。IssuePilot 完全不同：它不是"把一个 Agent 做大"，而是**设计了一套多 Agent Workflow，让多个专业 Agent 接力完成从 Issue 发现到 PR 提交的完整流水线**。
 
 这篇文章从 Workflow 编排的视角展开——不是逐个介绍 Agent，而是展示这 5 个 Agent 如何在一套 Workflow 的调度下协作。
 
@@ -450,12 +450,12 @@ async def stuck_detection_workflow(tool_history: list[str]) -> str:
         await asyncio.sleep(10)
         recent = tool_history[-12:]
         read_only = {"Read", "Glob", "Grep", "WebSearch"}
-        
+
         if len(recent) >= 12 and all(t in read_only for t in recent):
             # 连续 12 次只读，判定卡死
             await terminate_workflow("stuck")
             return "STUCK"
-    
+
     return "NORMAL"
 ```
 
