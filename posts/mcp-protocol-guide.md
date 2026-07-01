@@ -1,6 +1,5 @@
 # MCP 协议详解：让 AI 与万物互联的标准接口
 
-> 写作日期：2025-09-10
 
 2024 年 11 月，Anthropic 发布了 Model Context Protocol（MCP），当时没引起太大轰动。但到了 2025 年，MCP 已经成了 AI 工具集成的事实标准——OpenAI、Google、DeepMind 全部加入。大家管它叫"AI 界的 USB-C"。
 

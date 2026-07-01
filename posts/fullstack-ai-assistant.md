@@ -1,6 +1,5 @@
 # Agent Workflow 实战：从零构建一个全栈智能助手
 
-> 写作日期：2025-10-29
 
 前面几篇文章讲了 Function Calling、Agent 设计、MCP 协议、RAG——这文章把所有这些技术组合起来，构建一个完整的 **Agent Workflow 系统**。
 

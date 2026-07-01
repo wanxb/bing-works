@@ -1,6 +1,5 @@
 # Function Calling 机制：LLM 如何学会用工具
 
-> 写作日期：2025-04-10
 
 在 AI Agent 的体系里，Function Calling 是最底层、最关键的能力之一。没有它，LLM 就是个"只会说话的聊天机器人"；有了它，LLM 可以查数据库、调 API、发邮件、控制设备。
 

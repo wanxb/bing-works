@@ -1,6 +1,5 @@
 # LLM 推理原理与优化：KV Cache、Speculative Decoding 与 Continuous Batching
 
-> 写作日期：2025-05-20
 
 用同一个模型，为什么有的服务每秒只能处理几个请求，有的能处理几百个？为什么有些场景等第一个 token 就要好几秒，有些却能"秒出"？
 

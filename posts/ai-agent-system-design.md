@@ -1,6 +1,5 @@
 # AI Agent 系统设计：从 ReAct 到 Multi-Agent
 
-> 写作日期：2025-07-16
 
 2024 年是 AI Agent 爆发的元年，2025-2026 是 Agent 走向工程化、生产化的两年。经历了从"用一个 prompt 做 Agent"到"用多个 Agent 协作"的转变，这篇文章梳理 AI Agent 的系统设计。
 

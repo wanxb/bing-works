@@ -1,6 +1,5 @@
 # IssuePilot 实战：多 Agent Workflow 协作的 GitHub Issue 自动化开发流水线
 
-> 写作日期：2026-06-26
 
 弼马温应用是一个单 Agent 系统——一个 LLM 完成所有的理解和执行。IssuePilot 完全不同：它不是"把一个 Agent 做大"，而是**设计了一套多 Agent Workflow，让多个专业 Agent 接力完成从 Issue 发现到 PR 提交的完整流水线**。
 
