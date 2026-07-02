@@ -338,6 +338,22 @@
           "demo": "https://wanxb.github.io/letters-longing/",
           "source": "https://github.com/wanxb/letters-longing"
         }
+      },
+      {
+        "id": "tech-vocab-trainer",
+        "tags": ["bing", "knowledge"],
+        "thumb": "./assets/thumbs/tech-vocab-trainer.svg",
+        "author": "Bing",
+        "category": "知识表达",
+        "title": "技术词汇训练",
+        "subtitle": "Tech Vocab Trainer",
+        "description": "面向技术人员的英语词汇闪卡应用，基于 SM-2 间隔重复算法，涵盖 12 个技术类别 440+ 词汇。",
+        "sort": 21,
+        "delay": 1,
+        "links": {
+          "demo": "https://wanxb.github.io/tech-vocab-trainer/",
+          "source": "https://github.com/wanxb/tech-vocab-trainer"
+        }
       }
     ],
     "阿罗德斯": [

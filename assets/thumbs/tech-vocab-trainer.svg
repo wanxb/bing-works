@@ -1,0 +1,42 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF2F7"/>
+      <stop offset="1" stop-color="#DCE4EE"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="364" y1="180" x2="1076" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a1a2e"/>
+      <stop offset="1" stop-color="#16213e"/>
+    </linearGradient>
+    <filter id="shadow" x="290" y="122" width="860" height="656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="30" stdDeviation="28" flood-color="#7A8798" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <g opacity="0.55">
+    <rect x="120" y="110" width="1200" height="680" rx="44" fill="#F5F8FB"/>
+    <rect x="156" y="146" width="1128" height="608" rx="36" stroke="#D9E0E8" stroke-width="2"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="364" y="180" width="712" height="540" rx="40" fill="url(#panel)"/>
+  </g>
+  <g transform="translate(720, 420)">
+    <!-- Flashcard card outer -->
+    <rect x="-100" y="-80" width="200" height="160" rx="16" fill="#1e2a3a" stroke="#4a90e2" stroke-width="2"/>
+    <!-- Card inner glow -->
+    <rect x="-92" y="-72" width="184" height="144" rx="12" fill="none" stroke="#4a90e2" stroke-width="1" opacity="0.3"/>
+    <!-- Word on card -->
+    <text x="0" y="-30" text-anchor="middle" fill="#e8eef5" font-family="monospace" font-size="28" font-weight="bold" letter-spacing="1">async</text>
+    <!-- Separator line -->
+    <line x1="-70" y1="-6" x2="70" y2="-6" stroke="#50c878" stroke-width="1.5" opacity="0.5"/>
+    <!-- Meaning lines (Chinese) -->
+    <line x1="-60" y1="14" x2="60" y2="14" stroke="#6a7a8e" stroke-width="3" rx="2" opacity="0.6"/>
+    <line x1="-45" y1="32" x2="45" y2="32" stroke="#6a7a8e" stroke-width="3" rx="2" opacity="0.4"/>
+    <line x1="-35" y1="50" x2="35" y2="50" stroke="#6a7a8e" stroke-width="3" rx="2" opacity="0.3"/>
+    <!-- SM-2 indicator badge -->
+    <rect x="65" y="-68" width="26" height="18" rx="4" fill="#50c878" opacity="0.8"/>
+    <text x="78" y="-55" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="11" font-weight="bold">SM-2</text>
+    <!-- Stack hint (cards behind) -->
+    <rect x="-85" y="-66" width="170" height="14" rx="4" fill="#2a3a4a" opacity="0.5"/>
+  </g>
+</svg>
