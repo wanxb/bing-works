@@ -38,6 +38,7 @@
         "sort": 1,
         "delay": 1,
         "links": {
+          "demo": "https://moto.bbing.xyz/",
           "source": "https://github.com/wanxb/moto_agent"
         }
       },
