@@ -40,6 +40,31 @@
         "links": {
           "demo": "https://moto.bbing.xyz/",
           "source": "https://github.com/wanxb/moto_agent"
+        },
+        "year": 2026,
+        "focus": ["Agent Loop", "模型路由", "Cloudflare Workers"],
+        "relatedPosts": ["moto-agent-practice"],
+        "schemaType": "SoftwareApplication",
+        "caseStudy": {
+          "background": "摩托车油耗记录看似简单，真正使用时却涉及自然语言输入、多车辆状态、提醒、历史数据和移动场景。弼马温把这些分散操作收敛到 Telegram 对话，并提供可回看的 PWA 数据面板。",
+          "role": "从使用场景、Agent 架构、工具边界到部署与测试，完整设计并实现产品主流程。",
+          "constraints": [
+            "对话必须足够短，不能让记录一次加油变成填写表单。",
+            "模型调用需要控制成本和延迟，同时保留确定性业务规则。",
+            "服务运行在 Cloudflare Workers，需要适配无服务器运行环境和 D1 数据存储。"
+          ],
+          "decisions": [
+            "使用六边形架构隔离 Telegram、模型、数据库和业务领域，避免渠道逻辑侵入核心能力。",
+            "自定义 Agent Loop 和工具协议，让模型负责意图理解，具体读写仍由可测试的业务工具完成。",
+            "采用分级模型路由，把简单分类和复杂推理分开处理，平衡效果、速度与成本。"
+          ],
+          "implementation": [
+            "Cloudflare Workers + D1 承担 API、状态与历史数据。",
+            "Telegram Bot 支持自然语言和语音输入，多车数据通过领域模型保持隔离。",
+            "PWA 仪表盘用于查看油耗趋势、记录和车辆状态。"
+          ],
+          "delivery": "以可运行产品为目标推进，从 Agent Loop、工具测试到部署文档形成完整交付链路，而不是停留在模型调用 Demo。",
+          "reflection": "Agent 的价值不是替代所有确定性逻辑，而是降低用户表达意图的成本。把模型限制在合适边界内，产品反而更稳定。"
         }
       },
        {
@@ -70,6 +95,31 @@
         "delay": 1,
         "links": {
           "source": "https://github.com/wanxb/issuepilot"
+        },
+        "year": 2026,
+        "focus": ["Multi-Agent", "Workflow", "状态机"],
+        "relatedPosts": ["issuepilot-practice"],
+        "schemaType": "SoftwareApplication",
+        "caseStudy": {
+          "background": "开源项目中的 Issue 发现、价值判断、开发、审查和 PR 跟踪通常分散在多个工具和人工步骤中。IssuePilot 将这条链路组织为可观察、可暂停、可恢复的多 Agent Workflow。",
+          "role": "负责工作流边界、Agent 分工、状态模型、人工决策节点和执行隔离的整体设计与实现。",
+          "constraints": [
+            "自动化不能绕过人工对 Issue 价值和风险的最终判断。",
+            "开发 Agent 产生的代码必须在隔离环境中执行并经过独立审查。",
+            "长流程需要具备明确状态、失败恢复和 PR 生命周期跟踪能力。"
+          ],
+          "decisions": [
+            "使用分类器和四个职责明确的 Agent，而不是让单一 Agent 承担整个软件生命周期。",
+            "以状态机作为 Workflow 骨架，在关键位置设置人工 Gate，确保自动化始终可控。",
+            "使用 Docker Sandbox 隔离代码执行，并把审查反馈重新送入开发循环。"
+          ],
+          "implementation": [
+            "Issue 发现与价值评估 Workflow。",
+            "开发、测试与审查循环 Workflow。",
+            "PR 提交、状态追踪与可观测事件记录。"
+          ],
+          "delivery": "通过 Spec、ADR、dry run 和状态记录组织复杂流程，让 Agent 协作具备可解释的工程边界。",
+          "reflection": "多 Agent 的关键不在 Agent 数量，而在职责分离、状态管理和失败处理。没有 Workflow 约束，多 Agent 只会放大不确定性。"
         }
       },
        {
@@ -86,6 +136,31 @@
         "links": {
           "demo": "https://news.bbing.xyz/",
           "source": "https://github.com/wanxb/ai-news"
+        },
+        "year": 2026,
+        "focus": ["信息聚合", "自动化流水线", "静态分发"],
+        "relatedPosts": [],
+        "schemaType": "SoftwareApplication",
+        "caseStudy": {
+          "background": "AI 信息更新速度快，但高频浏览多个官方来源会带来重复阅读和注意力切换。AI 资讯将可信来源组织成每日时间线，减少信息获取成本。",
+          "role": "负责来源选择、内容采集、数据整理、时间线呈现和零后端部署方案。",
+          "constraints": [
+            "来源需要保持可信和可追溯，不能用聚合数量替代信息质量。",
+            "站点应当低维护、低成本，并能自动持续更新。",
+            "内容密度较高，移动端仍需保持快速扫描能力。"
+          ],
+          "decisions": [
+            "优先接入 Anthropic、OpenAI、Google Gemini 与 DeepMind 官方来源。",
+            "使用自动采集与静态生成，把运行复杂度放在构建阶段。",
+            "以时间线和来源标识为主要信息结构，避免算法推荐干扰判断。"
+          ],
+          "implementation": [
+            "多来源抓取与标准化处理。",
+            "按日期组织的静态数据和时间线页面。",
+            "无需常驻后端的自动部署流程。"
+          ],
+          "delivery": "将采集、整理、生成和部署串成可重复执行的流水线，使内容更新不依赖手工发布。",
+          "reflection": "信息产品的核心不是抓得更多，而是来源边界、结构清晰和更新可靠。"
         }
       },
        {
@@ -370,7 +445,9 @@
         "links": {
           "demo": "https://ssj.bbing.xyz/",
           "source": "https://github.com/wanxb/shuangshoujian"
-        }
+        },
+        "focus": ["学习路径", "动作教学", "自学复盘"],
+        "schemaType": "LearningResource"
       }
     ],
     "阿罗德斯": [

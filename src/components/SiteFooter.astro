@@ -1,0 +1,13 @@
+---
+import { siteProfile } from '../config/site';
+---
+
+<footer class="site-footer">
+  <p>持续设计、构建并复盘真实的 AI 系统。</p>
+  <nav aria-label="页脚导航">
+    <a href={siteProfile.links.github} target="_blank" rel="me noopener noreferrer">GitHub</a>
+    <a href={siteProfile.links.rss}>RSS</a>
+  </nav>
+  <small>&copy; {new Date().getFullYear()} Bing</small>
+</footer>
+

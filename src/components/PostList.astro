@@ -1,0 +1,186 @@
+---
+import type { PostMeta } from '../lib/content';
+import { topicOrder } from '../config/site';
+
+interface Props {
+  posts: PostMeta[];
+  interactive?: boolean;
+}
+
+const { posts, interactive = false } = Astro.props;
+const availableTopics = topicOrder.filter((topic) => posts.some((post) => post.topic === topic));
+
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date(`${date}T00:00:00+08:00`));
+}
+---
+
+{interactive && (
+  <div class="post-controls">
+    <label class="sr-only" for="postSearch">搜索文章</label>
+    <input id="postSearch" class="post-search" type="search" placeholder="搜索标题或摘要" autocomplete="off" />
+    <div class="post-topics" aria-label="文章专题">
+      <button type="button" data-post-topic="all" aria-pressed="true">全部</button>
+      {availableTopics.map((topic) => (
+        <button type="button" data-post-topic={topic} aria-pressed="false">{topic}</button>
+      ))}
+    </div>
+  </div>
+)}
+
+<ol class="post-list" id={interactive ? 'postArchive' : undefined}>
+  {posts.map((post) => (
+    <li
+      class="post-row"
+      data-post-item={interactive ? '' : undefined}
+      data-post-topic-value={interactive ? post.topic : undefined}
+      data-post-search-value={interactive ? `${post.title} ${post.excerpt}`.toLowerCase() : undefined}
+    >
+      <time class="row-date" datetime={post.date}>{formatDate(post.date)}</time>
+      <span class="row-topic">{post.topic}</span>
+      <div>
+        <h2 class="row-title"><a href={`/blog/${post.slug}/`}>{post.title}</a></h2>
+        <p class="row-description">{post.excerpt}</p>
+      </div>
+      <span class="row-meta">{post.readingMinutes} 分钟</span>
+    </li>
+  ))}
+</ol>
+
+{interactive && <p class="empty-result" id="postEmpty" hidden>没有找到匹配的文章。</p>}
+
+{interactive && (
+  <nav class="archive-pagination" data-post-pagination aria-label="文章分页" hidden>
+    <button class="archive-pagination__previous" type="button" data-page-previous>上一页</button>
+    <div class="archive-pagination__pages" data-page-list></div>
+    <button class="archive-pagination__next" type="button" data-page-next>下一页</button>
+    <p class="archive-pagination__status" data-page-status aria-live="polite"></p>
+  </nav>
+)}
+
+{interactive && (
+  <script>
+    const searchInput = document.querySelector<HTMLInputElement>('#postSearch');
+    const topicButtons = document.querySelectorAll<HTMLButtonElement>('[data-post-topic]');
+    const postItems = Array.from(document.querySelectorAll<HTMLElement>('[data-post-item]'));
+    const postArchive = document.querySelector<HTMLElement>('#postArchive');
+    const emptyResult = document.querySelector<HTMLElement>('#postEmpty');
+    const pagination = document.querySelector<HTMLElement>('[data-post-pagination]');
+    const pageList = pagination?.querySelector<HTMLElement>('[data-page-list]');
+    const previousButton = pagination?.querySelector<HTMLButtonElement>('[data-page-previous]');
+    const nextButton = pagination?.querySelector<HTMLButtonElement>('[data-page-next]');
+    const pageStatus = pagination?.querySelector<HTMLElement>('[data-page-status]');
+    const pageSize = 10;
+    let activeTopic = 'all';
+    let currentPage = 1;
+
+    function setUrl(push = false) {
+      const url = new URL(window.location.href);
+      const query = searchInput?.value.trim() || '';
+      activeTopic === 'all'
+        ? url.searchParams.delete('topic')
+        : url.searchParams.set('topic', activeTopic);
+      query ? url.searchParams.set('q', query) : url.searchParams.delete('q');
+      currentPage === 1
+        ? url.searchParams.delete('page')
+        : url.searchParams.set('page', String(currentPage));
+      window.history[push ? 'pushState' : 'replaceState']({}, '', url);
+    }
+
+    function scrollToArchive() {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      postArchive?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+
+    function renderPageButtons(totalPages: number) {
+      if (!pageList) return;
+      pageList.replaceChildren();
+
+      for (let page = 1; page <= totalPages; page++) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = String(page);
+        button.setAttribute('aria-label', `第 ${page} 页`);
+        if (page === currentPage) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => {
+          if (page === currentPage) return;
+          currentPage = page;
+          applyPostFilters(true, true);
+        });
+        pageList.append(button);
+      }
+    }
+
+    function applyPostFilters(syncUrl = true, shouldScroll = false, pushState = false) {
+      const query = searchInput?.value.trim().toLowerCase() || '';
+      const matchingItems = postItems.filter((item) => {
+        const matchesTopic = activeTopic === 'all' || item.dataset.postTopicValue === activeTopic;
+        const matchesQuery = !query || (item.dataset.postSearchValue || '').includes(query);
+        return matchesTopic && matchesQuery;
+      });
+      const totalPages = Math.max(1, Math.ceil(matchingItems.length / pageSize));
+      currentPage = Math.min(Math.max(currentPage, 1), totalPages);
+      const pageStart = (currentPage - 1) * pageSize;
+      const visibleItems = new Set(matchingItems.slice(pageStart, pageStart + pageSize));
+
+      postItems.forEach((item) => {
+        item.hidden = !visibleItems.has(item);
+      });
+
+      if (emptyResult) emptyResult.hidden = matchingItems.length > 0;
+      if (pagination) pagination.hidden = matchingItems.length === 0 || totalPages <= 1;
+      if (previousButton) previousButton.disabled = currentPage === 1;
+      if (nextButton) nextButton.disabled = currentPage === totalPages;
+      if (pageStatus) pageStatus.textContent = `共 ${matchingItems.length} 篇文章 · 第 ${currentPage} / ${totalPages} 页`;
+      renderPageButtons(totalPages);
+      if (syncUrl) setUrl(pushState);
+      if (shouldScroll) scrollToArchive();
+    }
+
+    function restorePostState() {
+      const params = new URLSearchParams(window.location.search);
+      const topic = params.get('topic') || 'all';
+      const selectedButton = Array.from(topicButtons).find(
+        (button) => button.dataset.postTopic === topic,
+      );
+      activeTopic = selectedButton?.dataset.postTopic || 'all';
+      currentPage = Math.max(1, Number.parseInt(params.get('page') || '1', 10) || 1);
+      if (searchInput) searchInput.value = params.get('q') || '';
+      topicButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.postTopic === activeTopic));
+      });
+      applyPostFilters(false);
+    }
+
+    searchInput?.addEventListener('input', () => {
+      currentPage = 1;
+      applyPostFilters(true);
+    });
+    topicButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeTopic = button.dataset.postTopic || 'all';
+        currentPage = 1;
+        topicButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        applyPostFilters(true, false, true);
+      });
+    });
+
+    previousButton?.addEventListener('click', () => {
+      if (currentPage === 1) return;
+      currentPage--;
+      applyPostFilters(true, true, true);
+    });
+
+    nextButton?.addEventListener('click', () => {
+      currentPage++;
+      applyPostFilters(true, true, true);
+    });
+
+    window.addEventListener('popstate', restorePostState);
+    restorePostState();
+  </script>
+)}

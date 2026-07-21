@@ -1,0 +1,30 @@
+---
+import WorkList from '../../components/WorkList.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllWorks, getWorkFilters } from '../../lib/content';
+import { collectionSchema } from '../../lib/schema';
+
+const works = getAllWorks();
+const filters = getWorkFilters();
+---
+
+<BaseLayout
+  title="Work - Bing 的项目与 AI 系统实践"
+  description="Bing 的项目档案，包含 AI Agent、开发工具、知识产品与数字实验，以及背后的架构判断与工程实践。"
+  jsonLd={collectionSchema(
+    'Bing 的项目与实践',
+    'AI Agent、开发工具、知识产品与数字实验。',
+    '/works/',
+    works.map((work) => `/works/${work.id}/`),
+  )}
+>
+  <header class="page-heading">
+    <p class="eyebrow">Work · {works.length} Projects</p>
+    <h1>项目与实践</h1>
+    <p class="lead">每个项目都是一次对问题边界、技术方案与交付方式的具体判断。</p>
+  </header>
+
+  <section class="page-section archive-section" aria-label="全部项目">
+    <WorkList works={works} filters={filters} />
+  </section>
+</BaseLayout>

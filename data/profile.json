@@ -1,0 +1,45 @@
+{
+  "name": "Bing",
+  "siteName": "Bing's Works",
+  "statement": "从模型能力到生产系统",
+  "introduction": [
+    "专注 AI Agent、大模型应用架构与工程化交付。",
+    "关注系统边界、技术取舍、团队协作与长期演进。"
+  ],
+  "description": "Bing 的个人网站，记录 AI Agent、大模型应用架构、生产工程与技术领导力实践。",
+  "capabilities": [
+    {
+      "title": "AI 系统架构",
+      "description": "设计模型、Agent、数据与企业系统之间清晰可靠的协作关系。"
+    },
+    {
+      "title": "Agent 工程化",
+      "description": "让 Agent 具备可评估、可观测、可控制和可持续演进的能力。"
+    },
+    {
+      "title": "技术领导力",
+      "description": "连接业务目标、技术路线与团队交付，在复杂约束中作出判断。"
+    }
+  ],
+  "principles": [
+    "不为使用 AI 而使用 AI。",
+    "系统的可控性和可观测性，通常比自动化程度更重要。",
+    "架构的价值，是帮助团队持续作出更好的技术决策。"
+  ],
+  "featuredWorkIds": ["moto-agent", "issuepilot", "ai-news"],
+  "featuredPostSlugs": [
+    "moto-agent-practice",
+    "knowledge-intensive-agent-traps",
+    "agent-boundary",
+    "enterprise-agent-path"
+  ],
+  "navigation": [
+    { "label": "Work", "href": "/works/" },
+    { "label": "Writing", "href": "/blog/" },
+    { "label": "About", "href": "/about/" }
+  ],
+  "links": {
+    "github": "https://github.com/wanxb",
+    "rss": "/rss.xml"
+  }
+}

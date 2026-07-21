@@ -1,0 +1,22 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { siteProfile } from '../config/site';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <a class="site-brand" href="/" aria-label="Bing 首页">Bing</a>
+  <nav class="site-nav" aria-label="主导航">
+    {siteProfile.navigation.map((item) => {
+      const isActive = currentPath.startsWith(item.href);
+      return (
+        <a href={item.href} aria-current={isActive ? 'page' : undefined}>
+          {item.label}
+        </a>
+      );
+    })}
+  </nav>
+  <ThemeToggle />
+</header>
+

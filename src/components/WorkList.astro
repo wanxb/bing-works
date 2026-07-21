@@ -1,0 +1,169 @@
+---
+import type { Work } from '../lib/content';
+
+interface Props {
+  works: Work[];
+  filters?: Array<{ id: string; label: string }>;
+}
+
+const { works, filters = [] } = Astro.props;
+---
+
+{filters.length > 0 && (
+  <div class="work-filters" aria-label="项目分类">
+    {filters.map((filter) => (
+      <button
+        type="button"
+        class="work-filter"
+        data-work-filter={filter.id}
+        aria-pressed={filter.id === 'all' ? 'true' : 'false'}
+      >
+        {filter.label}
+      </button>
+    ))}
+  </div>
+)}
+
+<ol class="archive-work-list" id="workArchive">
+  {works.map((work) => (
+    <li class="archive-work" data-work-item data-work-tags={work.tags.join(' ')}>
+      <a class="archive-work__visual" href={`/works/${work.id}/`} tabindex="-1" aria-hidden="true">
+        <img src={work.thumb} alt="" width="320" height="180" loading="lazy" />
+      </a>
+      <div class="archive-work__main">
+        <div class="archive-work__heading">
+          <h2><a href={`/works/${work.id}/`}>{work.title}</a></h2>
+          <span>{work.subtitle}</span>
+        </div>
+        <p>{work.description}</p>
+        {work.focus && (
+          <ul class="tag-list" aria-label="技术重点">
+            {work.focus.map((item) => <li class="tag">{item}</li>)}
+          </ul>
+        )}
+      </div>
+      <div class="archive-work__meta">
+        <span>{work.year || work.category}</span>
+        <span>{work.author}</span>
+      </div>
+    </li>
+  ))}
+</ol>
+
+<nav class="archive-pagination" data-work-pagination aria-label="项目分页" hidden>
+  <button class="archive-pagination__previous" type="button" data-page-previous>上一页</button>
+  <div class="archive-pagination__pages" data-page-list></div>
+  <button class="archive-pagination__next" type="button" data-page-next>下一页</button>
+  <p class="archive-pagination__status" data-page-status aria-live="polite"></p>
+</nav>
+
+{filters.length > 0 && (
+  <script>
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-work-filter]');
+    const workItems = Array.from(document.querySelectorAll<HTMLElement>('[data-work-item]'));
+    const workArchive = document.querySelector<HTMLElement>('#workArchive');
+    const pagination = document.querySelector<HTMLElement>('[data-work-pagination]');
+    const pageList = document.querySelector<HTMLElement>('[data-page-list]');
+    const previousButton = document.querySelector<HTMLButtonElement>('[data-page-previous]');
+    const nextButton = document.querySelector<HTMLButtonElement>('[data-page-next]');
+    const pageStatus = document.querySelector<HTMLElement>('[data-page-status]');
+    const pageSize = 8;
+    let activeFilter = 'all';
+    let currentPage = 1;
+
+    function setUrl(push = false) {
+      const url = new URL(window.location.href);
+      activeFilter === 'all'
+        ? url.searchParams.delete('category')
+        : url.searchParams.set('category', activeFilter);
+      currentPage === 1
+        ? url.searchParams.delete('page')
+        : url.searchParams.set('page', String(currentPage));
+      window.history[push ? 'pushState' : 'replaceState']({}, '', url);
+    }
+
+    function scrollToArchive() {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      workArchive?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+
+    function renderPageButtons(totalPages: number) {
+      if (!pageList) return;
+      pageList.replaceChildren();
+
+      for (let page = 1; page <= totalPages; page++) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = String(page);
+        button.setAttribute('aria-label', `第 ${page} 页`);
+        if (page === currentPage) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => {
+          if (page === currentPage) return;
+          currentPage = page;
+          applyWorkFilter(true, true, true);
+        });
+        pageList.append(button);
+      }
+    }
+
+    function applyWorkFilter(syncUrl = true, shouldScroll = false, pushState = false) {
+      const matchingItems = workItems.filter((item) => {
+        const tags = (item.dataset.workTags || '').split(' ');
+        return activeFilter === 'all' || tags.includes(activeFilter);
+      });
+      const totalPages = Math.max(1, Math.ceil(matchingItems.length / pageSize));
+      currentPage = Math.min(Math.max(currentPage, 1), totalPages);
+      const pageStart = (currentPage - 1) * pageSize;
+      const visibleItems = new Set(matchingItems.slice(pageStart, pageStart + pageSize));
+
+      workItems.forEach((item) => {
+        item.hidden = !visibleItems.has(item);
+      });
+
+      if (pagination) pagination.hidden = totalPages <= 1;
+      if (previousButton) previousButton.disabled = currentPage === 1;
+      if (nextButton) nextButton.disabled = currentPage === totalPages;
+      if (pageStatus) pageStatus.textContent = `共 ${matchingItems.length} 个项目 · 第 ${currentPage} / ${totalPages} 页`;
+      renderPageButtons(totalPages);
+      if (syncUrl) setUrl(pushState);
+      if (shouldScroll) scrollToArchive();
+    }
+
+    function restoreWorkState() {
+      const params = new URLSearchParams(window.location.search);
+      const category = params.get('category') || 'all';
+      const selectedButton = Array.from(filterButtons).find(
+        (button) => button.dataset.workFilter === category,
+      );
+      activeFilter = selectedButton?.dataset.workFilter || 'all';
+      currentPage = Math.max(1, Number.parseInt(params.get('page') || '1', 10) || 1);
+      filterButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.workFilter === activeFilter));
+      });
+      applyWorkFilter(false);
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeFilter = button.dataset.workFilter || 'all';
+        currentPage = 1;
+        filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        applyWorkFilter(true, false, true);
+      });
+    });
+
+    previousButton?.addEventListener('click', () => {
+      if (currentPage === 1) return;
+      currentPage--;
+      applyWorkFilter(true, true, true);
+    });
+
+    nextButton?.addEventListener('click', () => {
+      currentPage++;
+      applyWorkFilter(true, true, true);
+    });
+
+    window.addEventListener('popstate', restoreWorkState);
+    restoreWorkState();
+  </script>
+)}

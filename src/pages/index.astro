@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteProfile } from '../config/site';
+import { getAllPosts, getWorkById } from '../lib/content';
+import { personSchema, websiteSchema } from '../lib/schema';
+
+const featuredWorks = siteProfile.featuredWorkIds
+  .map((id) => getWorkById(id))
+  .filter((work) => Boolean(work));
+const allPosts = getAllPosts();
+const featuredPosts = siteProfile.featuredPostSlugs
+  .map((slug) => allPosts.find((post) => post.slug === slug))
+  .filter((post) => Boolean(post));
+
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat('zh-CN', {
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date(`${date}T00:00:00+08:00`));
+}
+---
+
+<BaseLayout
+  title="Bing - 从模型能力到生产系统"
+  description={siteProfile.description}
+  jsonLd={[personSchema(), websiteSchema()]}
+>
+  <section class="home-hero">
+    <p class="eyebrow">AI Systems · Agent Engineering · Technical Leadership</p>
+    <h1>{siteProfile.name}</h1>
+    <p class="hero-statement">{siteProfile.statement}</p>
+    <div class="hero-introduction">
+      {siteProfile.introduction.map((line) => <p class="lead">{line}</p>)}
+    </div>
+    <div class="hero-actions" aria-label="主要入口">
+      <a class="text-link" href="/works/">查看实践</a>
+      <a class="text-link" href="/blog/">阅读文章</a>
+    </div>
+  </section>
+
+  <section class="page-section" aria-labelledby="capabilities-heading">
+    <div class="section-heading">
+      <h2 id="capabilities-heading">我关注的事情</h2>
+    </div>
+    <ul class="capability-list">
+      {siteProfile.capabilities.map((capability) => (
+        <li class="capability-item">
+          <h3>{capability.title}</h3>
+          <p>{capability.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="page-section" aria-labelledby="work-heading">
+    <div class="section-heading">
+      <h2 id="work-heading">Selected Work</h2>
+      <a href="/works/">全部项目</a>
+    </div>
+    <ol class="work-list">
+      {featuredWorks.map((work) => work && (
+        <li class="work-row">
+          <span class="row-year">{work.year || '实践'}</span>
+          <div>
+            <h3 class="row-title"><a href={`/works/${work.id}/`}>{work.title}</a></h3>
+            <p class="row-description">{work.subtitle}</p>
+          </div>
+          <p class="row-description">{work.description}</p>
+          <span class="row-meta">{work.focus?.slice(0, 2).join(' · ') || work.category}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="page-section" aria-labelledby="writing-heading">
+    <div class="section-heading">
+      <h2 id="writing-heading">Selected Writing</h2>
+      <a href="/blog/">全部文章</a>
+    </div>
+    <ol class="post-list">
+      {featuredPosts.map((post) => post && (
+        <li class="post-row">
+          <time class="row-date" datetime={post.date}>{formatDate(post.date)}</time>
+          <span class="row-topic">{post.topic}</span>
+          <div>
+            <h3 class="row-title"><a href={`/blog/${post.slug}/`}>{post.title}</a></h3>
+            <p class="row-description">{post.excerpt}</p>
+          </div>
+          <span class="row-meta">{post.readingMinutes} 分钟</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="page-section" aria-labelledby="principles-heading">
+    <div class="section-heading">
+      <h2 id="principles-heading">判断与原则</h2>
+    </div>
+    <ol class="principle-list">
+      {siteProfile.principles.map((principle) => <li>{principle}</li>)}
+    </ol>
+  </section>
+</BaseLayout>

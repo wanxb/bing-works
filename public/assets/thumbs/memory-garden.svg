@@ -1,0 +1,37 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-memory-garden" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FB"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="panel-memory-garden" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1F2937"/>
+    </linearGradient>
+    <filter id="shadow-memory-garden" x="-80" y="-80" width="1600" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#64748B" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#panel-memory-garden)"/>
+  <circle cx="320" cy="430" r="360" fill="#16A34A" opacity="0.12"/>
+  <circle cx="1040" cy="390" r="330" fill="#A855F7" opacity="0.1"/>
+  <path d="M0 690C236 610 438 622 636 690C862 768 1094 780 1440 656V900H0V690Z" fill="#0F172A" opacity="0.34"/>
+  <g filter="url(#shadow-memory-garden)">
+    <rect x="150" y="118" width="1140" height="664" rx="42" fill="#111827" opacity="0.72"/>
+    <rect x="214" y="174" width="1012" height="58" rx="29" fill="#263244"/>
+    <circle cx="254" cy="203" r="9" fill="#16A34A"/>
+    <circle cx="288" cy="203" r="9" fill="#A855F7"/>
+    <rect x="342" y="194" width="272" height="17" rx="8.5" fill="#475569"/>
+    <rect x="646" y="194" width="412" height="17" rx="8.5" fill="#334155"/>
+    <rect x="214" y="652" width="1012" height="58" rx="29" fill="#0F172A" opacity="0.84"/>
+    <rect x="278" y="677" width="308" height="11" rx="5.5" fill="#16A34A" opacity="0.9"/>
+    <rect x="648" y="677" width="512" height="11" rx="5.5" fill="#475569"/>
+  </g>
+  <g transform="translate(720 430) scale(1.42)">
+    <circle r="230" fill="#16A34A" opacity="0.12"/>
+    <circle r="180" fill="#A855F7" opacity="0.1"/>
+    <g><path d="M-122 80L-52-34 24 50 118-82" stroke="#16A34A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-122" cy="80" r="34" fill="#F8FAFC"/><circle cx="-52" cy="-34" r="28" fill="#A855F7"/><circle cx="24" cy="50" r="32" fill="#16A34A"/><circle cx="118" cy="-82" r="38" fill="#F8FAFC"/><path d="M-168 126c74 42 254 42 336 0" stroke="#CBD5E1" stroke-width="10" stroke-linecap="round"/></g>
+  </g>
+  <text x="720" y="704" text-anchor="middle" fill="#F8FAFC" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700">记忆花园</text>
+  <text x="720" y="750" text-anchor="middle" fill="#CBD5E1" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">Digital Memory Landscape</text>
+</svg>

@@ -1,0 +1,210 @@
+{
+  "version": "2.0.0",
+  "spec_name": "personal-ai-brand-redesign",
+  "total": 10,
+  "completed": 10,
+  "current_task": null,
+  "tasks": [
+    {
+      "id": "T-001",
+      "title": "初始化 Astro 静态站点工程",
+      "description": "创建 package.json、astro.config.mjs、tsconfig.json 和 .env.example，安装 Astro、sitemap、RSS 与 Markdown 解析依赖；准备 public 静态资源目录并保留现有源数据。",
+      "requirement_ids": ["R-005", "R-006", "R-007"],
+      "depends_on": [],
+      "status": "completed",
+      "files_created": [
+        "package.json",
+        "package-lock.json",
+        "astro.config.mjs",
+        "tsconfig.json",
+        ".env.example",
+        "public/assets/thumbs/*",
+        "public/posts/images/*",
+        "public/favicon.svg"
+      ],
+      "files_modified": [],
+      "started_at": "2026-07-21T17:29:00+08:00",
+      "completed_at": "2026-07-21T17:34:00+08:00",
+      "result": "初始化 Astro 静态工程、安装构建依赖，并准备现有缩略图、文章图片与 favicon 的 public 资源。"
+    },
+    {
+      "id": "T-002",
+      "title": "建立品牌配置与内容适配层",
+      "description": "创建 src/config/site.ts、src/lib/content.ts 和 src/lib/markdown.ts，集中管理个人品牌文案、精选内容、SITE_URL，并在构建阶段读取现有 Works JSON、Posts JSON 和 Markdown。",
+      "requirement_ids": ["R-001", "R-003", "R-004", "R-006", "R-007"],
+      "depends_on": ["T-001"],
+      "status": "completed",
+      "files_created": [
+        "src/config/site.ts",
+        "src/lib/content.ts",
+        "src/lib/markdown.ts"
+      ],
+      "files_modified": [],
+      "started_at": "2026-07-21T17:35:00+08:00",
+      "completed_at": "2026-07-21T17:43:00+08:00",
+      "result": "建立集中品牌配置、Works/Posts 类型化读取、专题映射、Markdown 静态渲染与内容关联能力。"
+    },
+    {
+      "id": "T-003",
+      "title": "实现极简文字设计系统与基础布局",
+      "description": "创建 global.css、BaseLayout、SiteHeader、SiteFooter 和 ThemeToggle，完成语义化导航、深浅主题、可见焦点、跳至正文和响应式文字排版。",
+      "requirement_ids": ["R-001", "R-002", "R-005"],
+      "depends_on": ["T-002"],
+      "status": "completed",
+      "files_created": [
+        "src/components/SiteHeader.astro",
+        "src/components/SiteFooter.astro",
+        "src/components/ThemeToggle.astro",
+        "src/layouts/BaseLayout.astro",
+        "src/styles/global.css"
+      ],
+      "files_modified": [],
+      "started_at": "2026-07-21T17:44:00+08:00",
+      "completed_at": "2026-07-21T17:48:00+08:00",
+      "result": "完成文字优先设计系统、语义化基础布局、响应式导航、深浅主题、焦点与减少动态效果支持。"
+    },
+    {
+      "id": "T-004",
+      "title": "实现文字优先首页与 About 页面",
+      "description": "创建首页和 About 页面，以姓名、核心主张、三项能力、精选项目、精选文章、工作原则和联系方式呈现个人品牌，不使用 CTO 字样或装饰性视觉。",
+      "requirement_ids": ["R-001", "R-002"],
+      "depends_on": ["T-003"],
+      "status": "completed",
+      "files_created": [
+        "src/pages/index.astro",
+        "src/pages/about.astro"
+      ],
+      "files_modified": [
+        "src/styles/global.css"
+      ],
+      "started_at": "2026-07-21T17:49:00+08:00",
+      "completed_at": "2026-07-21T17:53:00+08:00",
+      "result": "完成文字优先首页与 About 页面，呈现核心主张、三项能力、精选实践、精选文章和工作原则。"
+    },
+    {
+      "id": "T-005",
+      "title": "实现 Works 档案与项目详情",
+      "description": "扩展 data/works.json 的重点项目案例字段，创建 WorkList、/works/ 和 /works/[id]/，覆盖全部 25 个项目并为弼马温、IssuePilot、AI 资讯提供增强案例内容。",
+      "requirement_ids": ["R-003", "R-005", "R-007"],
+      "depends_on": ["T-002", "T-003"],
+      "status": "completed",
+      "files_created": [
+        "src/components/WorkList.astro",
+        "src/pages/works/index.astro",
+        "src/pages/works/[id].astro"
+      ],
+      "files_modified": [
+        "data/works.json",
+        "src/styles/global.css"
+      ],
+      "started_at": "2026-07-21T17:54:00+08:00",
+      "completed_at": "2026-07-21T18:00:00+08:00",
+      "result": "生成全部 25 个项目详情页和文字档案列表，并为弼马温、IssuePilot、AI 资讯补充架构与交付案例。"
+    },
+    {
+      "id": "T-006",
+      "title": "实现 Blog 列表、文章页与评论",
+      "description": "创建 PostList、ArticleLayout、/blog/ 和 /blog/[slug]/，静态渲染 58 篇文章，提供专题、目录、上一篇/下一篇、相关文章、关联项目和按需 Giscus 评论。",
+      "requirement_ids": ["R-004", "R-005", "R-007"],
+      "depends_on": ["T-002", "T-003", "T-005"],
+      "status": "completed",
+      "files_created": [
+        "src/components/PostList.astro",
+        "src/layouts/ArticleLayout.astro",
+        "src/pages/blog/index.astro",
+        "src/pages/blog/[slug].astro"
+      ],
+      "files_modified": [
+        "package.json",
+        "package-lock.json",
+        "src/lib/markdown.ts",
+        "src/styles/global.css"
+      ],
+      "started_at": "2026-07-21T18:01:00+08:00",
+      "completed_at": "2026-07-21T18:12:00+08:00",
+      "result": "静态生成 58 篇文章及博客列表，支持专题筛选、搜索、目录、前后文章、相关内容、代码高亮和延迟加载评论。"
+    },
+    {
+      "id": "T-007",
+      "title": "完成结构化数据与站点 SEO 输出",
+      "description": "创建 schema 工具、RSS、robots、404 和旧 hash 路由迁移；为首页、项目和文章生成 canonical、Open Graph、Person、BlogPosting、Breadcrumb 与项目 JSON-LD。",
+      "requirement_ids": ["R-005"],
+      "depends_on": ["T-004", "T-005", "T-006"],
+      "status": "completed",
+      "files_created": [
+        "src/lib/schema.ts",
+        "src/pages/rss.xml.ts",
+        "src/pages/sitemap.xml.ts",
+        "src/pages/robots.txt.ts",
+        "src/pages/404.astro"
+      ],
+      "files_modified": [
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/ArticleLayout.astro",
+        "src/pages/index.astro",
+        "src/pages/about.astro",
+        "src/pages/works/index.astro",
+        "src/pages/works/[id].astro",
+        "src/pages/blog/index.astro",
+        "src/styles/global.css"
+      ],
+      "started_at": "2026-07-21T18:13:00+08:00",
+      "completed_at": "2026-07-21T18:20:00+08:00",
+      "result": "完成页面级 canonical/OG、首页/文章/项目 JSON-LD、RSS、sitemap.xml、robots.txt、404 与旧 hash 链接迁移。"
+    },
+    {
+      "id": "T-008",
+      "title": "增加内容校验与构建检查",
+      "description": "创建 validate-content.mjs，检查项目/文章数量、重复 ID/slug、Markdown 与图片文件、精选引用和关联引用；将校验接入 npm build 并修复全部构建错误。",
+      "requirement_ids": ["R-006", "R-007"],
+      "depends_on": ["T-005", "T-006", "T-007"],
+      "status": "completed",
+      "files_created": [
+        "data/profile.json",
+        "scripts/validate-content.mjs"
+      ],
+      "files_modified": [
+        "package.json",
+        "package-lock.json",
+        "astro.config.mjs",
+        "src/config/site.ts"
+      ],
+      "started_at": "2026-07-21T18:21:00+08:00",
+      "completed_at": "2026-07-21T18:28:00+08:00",
+      "result": "增加品牌与内容数据校验，检查 25 个项目、58 篇文章、文件与引用完整性，并接入生产构建。"
+    },
+    {
+      "id": "T-009",
+      "title": "更新维护文档与部署入口",
+      "description": "更新 README，记录安装、开发、构建、SITE_URL、项目与文章维护方式；明确 dist 静态部署流程和旧 SPA 文件的过渡状态。",
+      "requirement_ids": ["R-005", "R-006"],
+      "depends_on": ["T-008"],
+      "status": "completed",
+      "files_created": [],
+      "files_modified": [
+        "README.md"
+      ],
+      "started_at": "2026-07-21T18:29:00+08:00",
+      "completed_at": "2026-07-21T18:35:00+08:00",
+      "result": "更新新版开发、校验、构建、SITE_URL、内容维护、dist 部署与旧 SPA 过渡说明。"
+    },
+    {
+      "id": "T-010",
+      "title": "执行浏览器视觉、响应式与 SEO 验收",
+      "description": "启动本地 Astro 服务，在桌面与移动视口检查首页、Works、重点项目、Blog 和文章页；验证无重叠、无空白、深浅主题、静态正文、URL、sitemap、RSS 和资源请求，并修复发现的问题。",
+      "requirement_ids": ["R-001", "R-002", "R-003", "R-004", "R-005", "R-006", "R-007"],
+      "depends_on": ["T-009"],
+      "status": "completed",
+      "files_created": [],
+      "files_modified": [
+        ".gitignore",
+        ".claude/blade-spec/personal-ai-brand-redesign/tasks.json",
+        ".claude/blade-spec/personal-ai-brand-redesign/spec.json",
+        ".claude/blade-spec/personal-ai-brand-redesign/result.md"
+      ],
+      "started_at": "2026-07-21T18:36:00+08:00",
+      "completed_at": "2026-07-21T18:45:00+08:00",
+      "result": "完成桌面与移动端视觉、筛选、主题、文章图片和结构化数据验收；核对 58 篇文章、25 个项目、87 条 sitemap URL、58 条 RSS，生产构建生成 88 个页面。"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "name": "personal-ai-brand-redesign",
+  "description": "以 AI 系统架构、Agent 工程化与技术领导力为核心的个人网站改版",
+  "requirement": "将现有 Bing' Works 改版为极简、文字优先的个人品牌网站，围绕 AI、大模型与 Agent 展示技术深度、架构判断、管理与交付能力，不直接使用 CTO 字样；将方案写入文件、拆分任务卡并按任务连续推进，同时完成静态页面与 SEO 升级。",
+  "auto_mode": true,
+  "phase": "completed",
+  "created_at": "2026-07-21T17:16:19+08:00",
+  "updated_at": "2026-07-21T18:45:00+08:00",
+  "current_task": null,
+  "phases": {
+    "requirements": { "status": "approved", "approved_at": "2026-07-21T17:20:00+08:00" },
+    "design": { "status": "approved", "approved_at": "2026-07-21T17:25:00+08:00" },
+    "tasks": { "status": "approved", "approved_at": "2026-07-21T17:28:00+08:00" },
+    "execution": { "status": "completed", "started_at": "2026-07-21T17:28:00+08:00", "completed_at": "2026-07-21T18:45:00+08:00" }
+  }
+}

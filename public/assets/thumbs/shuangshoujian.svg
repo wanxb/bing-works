@@ -1,0 +1,37 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-shuangshoujian" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FB"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="panel-shuangshoujian" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1F2937"/>
+    </linearGradient>
+    <filter id="shadow-shuangshoujian" x="-80" y="-80" width="1600" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#64748B" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#panel-shuangshoujian)"/>
+  <circle cx="320" cy="430" r="360" fill="#92400E" opacity="0.12"/>
+  <circle cx="1040" cy="390" r="330" fill="#CBD5E1" opacity="0.1"/>
+  <path d="M0 690C236 610 438 622 636 690C862 768 1094 780 1440 656V900H0V690Z" fill="#0F172A" opacity="0.34"/>
+  <g filter="url(#shadow-shuangshoujian)">
+    <rect x="150" y="118" width="1140" height="664" rx="42" fill="#111827" opacity="0.72"/>
+    <rect x="214" y="174" width="1012" height="58" rx="29" fill="#263244"/>
+    <circle cx="254" cy="203" r="9" fill="#92400E"/>
+    <circle cx="288" cy="203" r="9" fill="#CBD5E1"/>
+    <rect x="342" y="194" width="272" height="17" rx="8.5" fill="#475569"/>
+    <rect x="646" y="194" width="412" height="17" rx="8.5" fill="#334155"/>
+    <rect x="214" y="652" width="1012" height="58" rx="29" fill="#0F172A" opacity="0.84"/>
+    <rect x="278" y="677" width="308" height="11" rx="5.5" fill="#92400E" opacity="0.9"/>
+    <rect x="648" y="677" width="512" height="11" rx="5.5" fill="#475569"/>
+  </g>
+  <g transform="translate(720 430) scale(1.42)">
+    <circle r="230" fill="#92400E" opacity="0.12"/>
+    <circle r="180" fill="#CBD5E1" opacity="0.1"/>
+    <g transform="translate(0 -28)"><path d="M0-190L58-52L16 114H-16L-58-52z" fill="#E2E8F0"/><path d="M0-190L0 114M-38-50H38" stroke="#94A3B8" stroke-width="7" stroke-linecap="round"/><path d="M-118 116H118" stroke="#92400E" stroke-width="20" stroke-linecap="round"/><path d="M-54 116c18 34 90 34 108 0" stroke="#CBD5E1" stroke-width="12" stroke-linecap="round"/><rect x="-20" y="98" width="40" height="146" rx="18" fill="#7C2D12"/><path d="M0 102v138" stroke="#F59E0B" stroke-width="6" stroke-linecap="round" opacity=".72"/><circle cx="0" cy="116" r="30" fill="#111827" stroke="#CBD5E1" stroke-width="8"/><path d="M-30 246H30" stroke="#92400E" stroke-width="18" stroke-linecap="round"/></g>
+  </g>
+  <text x="720" y="704" text-anchor="middle" fill="#F8FAFC" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700">双手剑</text>
+  <text x="720" y="750" text-anchor="middle" fill="#CBD5E1" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">自学教学网站</text>
+</svg>

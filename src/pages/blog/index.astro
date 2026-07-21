@@ -1,0 +1,29 @@
+---
+import PostList from '../../components/PostList.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllPosts } from '../../lib/content';
+import { collectionSchema } from '../../lib/schema';
+
+const posts = getAllPosts();
+---
+
+<BaseLayout
+  title="Writing - Bing 的 AI、Agent 与系统架构文章"
+  description="Bing 关于 AI Agent、大模型应用架构、生产工程、技术领导力和软件系统实践的长期写作。"
+  jsonLd={collectionSchema(
+    'Bing 的写作与判断',
+    '关于 AI Agent、大模型应用架构、生产工程与技术领导力的长期写作。',
+    '/blog/',
+    posts.map((post) => `/blog/${post.slug}/`),
+  )}
+>
+  <header class="page-heading">
+    <p class="eyebrow">Writing · {posts.length} Articles</p>
+    <h1>写作与判断</h1>
+    <p class="lead">记录 AI 系统如何被理解、设计、交付和持续演进。</p>
+  </header>
+
+  <section class="page-section archive-section" aria-label="全部文章">
+    <PostList posts={posts} interactive />
+  </section>
+</BaseLayout>

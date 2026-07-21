@@ -1,0 +1,146 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { Post } from '../lib/content';
+import { getAdjacentPosts, getRelatedPosts } from '../lib/content';
+import { articleSchema, breadcrumbSchema } from '../lib/schema';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const relatedPosts = getRelatedPosts(post.slug);
+const { newer, older } = getAdjacentPosts(post.slug);
+
+const publishedDate = new Intl.DateTimeFormat('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(new Date(`${post.date}T00:00:00+08:00`));
+---
+
+<BaseLayout
+  title={`${post.title} | Bing`}
+  description={post.excerpt}
+  type="article"
+  jsonLd={[
+    articleSchema(post),
+    breadcrumbSchema([
+      { name: '首页', path: '/' },
+      { name: 'Writing', path: '/blog/' },
+      { name: post.title, path: `/blog/${post.slug}/` },
+    ]),
+  ]}
+>
+  <header class="article-heading">
+    <p class="eyebrow">{post.topic} · {publishedDate} · {post.readingMinutes} 分钟</p>
+    <h1>{post.title}</h1>
+    <p class="lead">{post.excerpt}</p>
+  </header>
+
+  <div class="article-grid">
+    <aside class="article-sidebar">
+      {post.headings.length > 0 && (
+        <details class="article-toc" open>
+          <summary>目录</summary>
+          <nav aria-label="文章目录">
+            {post.headings.map((heading) => (
+              <a class:list={{ 'toc-h3': heading.level === 3 }} href={`#${heading.id}`}>{heading.text}</a>
+            ))}
+          </nav>
+        </details>
+      )}
+    </aside>
+
+    <article class="article-content" set:html={post.html} />
+  </div>
+
+  {post.relatedWorks.length > 0 && (
+    <section class="article-after" aria-labelledby="related-work-heading">
+      <h2 id="related-work-heading">相关项目</h2>
+      <ul class="related-list">
+        {post.relatedWorks.map((work) => (
+          <li>
+            <a href={`/works/${work.id}/`}>{work.title}</a>
+            <span>{work.subtitle}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {relatedPosts.length > 0 && (
+    <section class="article-after" aria-labelledby="related-post-heading">
+      <h2 id="related-post-heading">继续阅读</h2>
+      <ul class="related-list">
+        {relatedPosts.map((item) => (
+          <li>
+            <a href={`/blog/${item.slug}/`}>{item.title}</a>
+            <span>{item.topic}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <nav class="article-pagination" aria-label="前后文章">
+    {newer ? (
+      <a href={`/blog/${newer.slug}/`}><span>上一篇</span><strong>{newer.title}</strong></a>
+    ) : <span></span>}
+    {older ? (
+      <a class="article-pagination__next" href={`/blog/${older.slug}/`}><span>下一篇</span><strong>{older.title}</strong></a>
+    ) : <span></span>}
+  </nav>
+
+  <section class="comments" aria-labelledby="comments-heading">
+    <h2 id="comments-heading">评论</h2>
+    <div class="giscus-container" data-giscus-term={post.slug}></div>
+  </section>
+
+  <script>
+    const container = document.querySelector<HTMLElement>('[data-giscus-term]');
+    let loaded = false;
+
+    function giscusTheme() {
+      return document.documentElement.dataset.theme === 'dark' ? 'dark_dimmed' : 'light';
+    }
+
+    function loadGiscus() {
+      if (!container || loaded) return;
+      loaded = true;
+      const script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      script.setAttribute('data-repo', 'wanxb/bing-works');
+      script.setAttribute('data-repo-id', 'R_kgDOR0WmbA');
+      script.setAttribute('data-category', 'General');
+      script.setAttribute('data-category-id', 'DIC_kwDOR0WmbM4C-D_-');
+      script.setAttribute('data-mapping', 'specific');
+      script.setAttribute('data-term', container.dataset.giscusTerm || location.pathname);
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-theme', giscusTheme());
+      script.setAttribute('data-lang', 'zh-CN');
+      container.appendChild(script);
+    }
+
+    if (container) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          loadGiscus();
+          observer.disconnect();
+        }
+      }, { rootMargin: '320px' });
+      observer.observe(container);
+    }
+
+    document.addEventListener('themeChanged', () => {
+      const frame = document.querySelector<HTMLIFrameElement>('.giscus-frame');
+      frame?.contentWindow?.postMessage({
+        giscus: { setConfig: { theme: giscusTheme() } },
+      }, 'https://giscus.app');
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,19 @@
+{
+  "name": "bing-works",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "validate": "node scripts/validate-content.mjs",
+    "build": "npm run validate && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "astro": "^5.18.2",
+    "highlight.js": "^11.11.1",
+    "marked": "^18.0.7",
+    "marked-highlight": "^2.2.4"
+  }
+}
