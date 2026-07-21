@@ -190,7 +190,7 @@ main {
 
 .home-hero {
   max-width: 820px;
-  padding: 72px 0 64px;
+  padding: 56px 0 48px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -338,6 +338,41 @@ h3 {
   font-size: 14px;
 }
 
+.home-section,
+.about-section {
+  padding: 40px 0;
+}
+
+.home-section .section-heading {
+  margin-bottom: 20px;
+}
+
+.home-section .capability-item,
+.about-section .capability-item {
+  padding: 20px 0;
+}
+
+.home-section .work-row,
+.home-section .post-row {
+  padding: 18px 0;
+}
+
+.home-section .principle-list li {
+  padding: 16px 0;
+}
+
+.about-heading {
+  padding: 52px 0 36px;
+}
+
+.about-section > h2 {
+  margin-bottom: 20px;
+}
+
+.about-section.prose-section p {
+  margin-bottom: 16px;
+}
+
 .capability-list,
 .principle-list,
 .work-list,
@@ -354,10 +389,6 @@ h3 {
   gap: 48px;
   padding: 24px 0;
   border-top: 1px solid var(--line);
-}
-
-.capability-item:last-child {
-  border-bottom: 1px solid var(--line);
 }
 
 .capability-item h3,
@@ -404,11 +435,6 @@ h3 {
 
 .post-row {
   grid-template-columns: 104px 112px minmax(0, 1fr) auto;
-}
-
-.work-row:last-child,
-.post-row:last-child {
-  border-bottom: 1px solid var(--line);
 }
 
 .row-year,
@@ -515,6 +541,10 @@ h3 {
 
 .post-row[hidden] {
   display: none;
+}
+
+#postArchive .post-row:first-child {
+  border-top: 0;
 }
 
 .empty-result {
@@ -648,8 +678,6 @@ h3 {
 
 .article-content h2 {
   margin: 2.4em 0 0.8em;
-  padding-top: 0.6em;
-  border-top: 1px solid var(--line);
   font-size: 27px;
 }
 
@@ -983,11 +1011,6 @@ html[data-theme='dark'] .hljs-type {
   border-top: 1px solid var(--line);
 }
 
-.detail-list li:last-child,
-.decision-list li:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
 .detail-list--inline {
   display: flex;
   flex-wrap: wrap;
@@ -1028,10 +1051,6 @@ html[data-theme='dark'] .hljs-type {
   justify-content: space-between;
   padding: 18px 0;
   border-top: 1px solid var(--line);
-}
-
-.related-list li:last-child {
-  border-bottom: 1px solid var(--line);
 }
 
 .related-list a {
@@ -1093,7 +1112,7 @@ html[data-theme='dark'] .hljs-type {
   }
 
   .home-hero {
-    padding: 48px 0 40px;
+    padding: 40px 0 32px;
   }
 
   .hero-statement {
@@ -1102,6 +1121,15 @@ html[data-theme='dark'] .hljs-type {
 
   .page-section {
     padding: 40px 0;
+  }
+
+  .home-section,
+  .about-section {
+    padding: 32px 0;
+  }
+
+  .about-heading {
+    padding: 36px 0 28px;
   }
 
   h1 {

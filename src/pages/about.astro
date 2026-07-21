@@ -14,19 +14,19 @@ import { personSchema } from '../lib/schema';
     mainEntity: personSchema(),
   }}
 >
-  <header class="page-heading">
+  <header class="page-heading about-heading">
     <p class="eyebrow">About</p>
     <h1>Bing</h1>
     <p class="lead">我关心的不是如何把 AI 放进每个产品，而是如何让模型能力在合适的边界内进入真实系统。</p>
   </header>
 
-  <section class="page-section prose-section" aria-labelledby="direction-heading">
+  <section class="page-section prose-section about-section" aria-labelledby="direction-heading">
     <h2 id="direction-heading">专业方向</h2>
     <p>我的工作围绕 AI Agent、大模型应用架构和工程化落地展开。从模型选择、工具与知识接入，到评估、可观测性、成本与安全，我更关注一套系统能否被理解、被控制，并在业务和团队约束中持续演进。</p>
     <p>技术能力只是起点。真正困难的部分通常是明确问题边界、比较方案、组织协作、控制风险，并让团队稳定地把判断变成交付结果。</p>
   </section>
 
-  <section class="page-section" aria-labelledby="capability-heading">
+  <section class="page-section about-section" aria-labelledby="capability-heading">
     <h2 id="capability-heading">能力与实践</h2>
     <ul class="capability-list">
       {siteProfile.capabilities.map((capability) => (
@@ -38,7 +38,7 @@ import { personSchema } from '../lib/schema';
     </ul>
   </section>
 
-  <section class="page-section prose-section" aria-labelledby="method-heading">
+  <section class="page-section prose-section about-section" aria-labelledby="method-heading">
     <h2 id="method-heading">工作方式</h2>
     <p>先确认业务价值和失败成本，再选择模型与架构；先建立评估、可观测和回退能力，再扩大自动化范围；用清晰的技术边界和决策记录，让协作不依赖少数人的隐性知识。</p>
     <p>这个网站收录我做过的产品、技术实验和长期写作。项目展示系统如何被做出来，文章记录其中的判断、取舍与复盘。</p>
