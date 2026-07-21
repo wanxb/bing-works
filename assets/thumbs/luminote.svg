@@ -1,50 +1,37 @@
-<svg width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f4eee5"/>
-      <stop offset="100%" stop-color="#e5ddcf"/>
+    <linearGradient id="bg-luminote" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FB"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
     </linearGradient>
-    <linearGradient id="panel" x1="84" y1="28" x2="352" y2="192" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#fffaf3"/>
-      <stop offset="100%" stop-color="#f4ede2"/>
+    <linearGradient id="panel-luminote" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1F2937"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#5c5144" flood-opacity="0.12"/>
+    <filter id="shadow-luminote" x="-80" y="-80" width="1600" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#64748B" flood-opacity="0.2"/>
     </filter>
   </defs>
-
-  <rect width="400" height="220" fill="url(#bg)"/>
-  <circle cx="72" cy="38" r="72" fill="#ffffff" opacity="0.26"/>
-  <circle cx="352" cy="196" r="96" fill="#cdbba2" opacity="0.18"/>
-
-  <g filter="url(#shadow)">
-    <rect x="26" y="24" width="348" height="172" rx="26" fill="url(#panel)"/>
+  <rect width="1440" height="900" fill="url(#panel-luminote)"/>
+  <circle cx="320" cy="430" r="360" fill="#EC4899" opacity="0.12"/>
+  <circle cx="1040" cy="390" r="330" fill="#38BDF8" opacity="0.1"/>
+  <path d="M0 690C236 610 438 622 636 690C862 768 1094 780 1440 656V900H0V690Z" fill="#0F172A" opacity="0.34"/>
+  <g filter="url(#shadow-luminote)">
+    <rect x="150" y="118" width="1140" height="664" rx="42" fill="#111827" opacity="0.72"/>
+    <rect x="214" y="174" width="1012" height="58" rx="29" fill="#263244"/>
+    <circle cx="254" cy="203" r="9" fill="#EC4899"/>
+    <circle cx="288" cy="203" r="9" fill="#38BDF8"/>
+    <rect x="342" y="194" width="272" height="17" rx="8.5" fill="#475569"/>
+    <rect x="646" y="194" width="412" height="17" rx="8.5" fill="#334155"/>
+    <rect x="214" y="652" width="1012" height="58" rx="29" fill="#0F172A" opacity="0.84"/>
+    <rect x="278" y="677" width="308" height="11" rx="5.5" fill="#EC4899" opacity="0.9"/>
+    <rect x="648" y="677" width="512" height="11" rx="5.5" fill="#475569"/>
   </g>
-
-  <rect x="42" y="38" width="94" height="144" rx="20" fill="#fbf7f0" stroke="#dfd3c3"/>
-  <circle cx="66" cy="64" r="16" fill="#1e1d1a" opacity="0.08"/>
-  <rect x="54" y="88" width="58" height="8" rx="4" fill="#8a7e6f" opacity="0.88"/>
-  <rect x="54" y="102" width="42" height="6" rx="3" fill="#a39584" opacity="0.9"/>
-  <rect x="54" y="124" width="70" height="4" rx="2" fill="#b5a897"/>
-  <rect x="54" y="134" width="60" height="4" rx="2" fill="#c1b4a4"/>
-  <rect x="54" y="144" width="64" height="4" rx="2" fill="#d0c4b5"/>
-
-  <g>
-    <rect x="154" y="42" width="94" height="60" rx="14" fill="#d9cfbf"/>
-    <rect x="258" y="42" width="94" height="60" rx="14" fill="#cbc0af"/>
-    <rect x="154" y="112" width="94" height="60" rx="14" fill="#c3b39f"/>
-    <rect x="258" y="112" width="94" height="60" rx="14" fill="#d8ccb8"/>
-
-    <path d="M154 86c18-4 28-15 40-27 11 14 23 24 54 31v12h-94V86Z" fill="#b59d81"/>
-    <circle cx="224" cy="58" r="7" fill="#fff7ea" opacity="0.72"/>
-
-    <path d="M258 82c14-13 27-16 40-14 12 2 26 10 54 28v6h-94V82Z" fill="#a98f74"/>
-    <rect x="292" y="54" width="20" height="30" rx="10" fill="#f3e4cf" opacity="0.48"/>
-
-    <path d="M154 160c16-28 34-35 53-25 10 5 18 13 41 37h-94v-12Z" fill="#8f7860"/>
-    <circle cx="221" cy="132" r="8" fill="#f5ede0" opacity="0.5"/>
-
-    <path d="M258 170c14-7 24-18 35-34 11 13 23 24 59 36h-94v-2Z" fill="#bba48b"/>
-    <circle cx="278" cy="128" r="6" fill="#fff6ea" opacity="0.65"/>
+  <g transform="translate(720 430) scale(1.42)">
+    <circle r="230" fill="#EC4899" opacity="0.12"/>
+    <circle r="180" fill="#38BDF8" opacity="0.1"/>
+    <g><rect x="-150" y="-90" width="300" height="190" rx="34" fill="#F8FAFC"/><rect x="-86" y="-122" width="98" height="46" rx="18" fill="#38BDF8"/><circle cx="0" cy="10" r="66" fill="#111827"/><circle cx="0" cy="10" r="38" fill="#EC4899"/><circle cx="94" cy="-44" r="16" fill="#111827"/></g>
   </g>
+  <text x="720" y="704" text-anchor="middle" fill="#F8FAFC" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700">Luminote</text>
+  <text x="720" y="750" text-anchor="middle" fill="#CBD5E1" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">Photography Portfolio</text>
 </svg>

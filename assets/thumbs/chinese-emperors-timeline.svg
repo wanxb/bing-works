@@ -1,35 +1,37 @@
 <svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F3EEE8"/>
-      <stop offset="1" stop-color="#E5DDD1"/>
+    <linearGradient id="bg-chinese-emperors-timeline" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FB"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
     </linearGradient>
-    <linearGradient id="line" x1="266" y1="454" x2="1174" y2="454" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#C6A56B" stop-opacity="0.15"/>
-      <stop offset="0.5" stop-color="#BA9462"/>
-      <stop offset="1" stop-color="#C6A56B" stop-opacity="0.15"/>
+    <linearGradient id="panel-chinese-emperors-timeline" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1F2937"/>
     </linearGradient>
+    <filter id="shadow-chinese-emperors-timeline" x="-80" y="-80" width="1600" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#64748B" flood-opacity="0.2"/>
+    </filter>
   </defs>
-  <rect width="1440" height="900" fill="url(#bg)"/>
-  <rect x="128" y="136" width="1184" height="628" rx="40" fill="#F8F4EE"/>
-  <rect x="176" y="198" width="320" height="18" rx="9" fill="#D8CBB8"/>
-  <rect x="176" y="238" width="220" height="18" rx="9" fill="#E1D5C4"/>
-  <rect x="266" y="450" width="908" height="8" rx="4" fill="url(#line)"/>
-  <circle cx="382" cy="454" r="18" fill="#B58A52"/>
-  <circle cx="570" cy="454" r="22" fill="#C8AA7A"/>
-  <circle cx="770" cy="454" r="18" fill="#9B7A4C"/>
-  <circle cx="942" cy="454" r="24" fill="#D6BA8B"/>
-  <circle cx="1082" cy="454" r="20" fill="#AE8454"/>
-  <rect x="344" y="330" width="76" height="68" rx="20" fill="#EFE3D0"/>
-  <rect x="532" y="312" width="76" height="86" rx="22" fill="#F0E5D3"/>
-  <rect x="732" y="334" width="76" height="64" rx="20" fill="#EADCC8"/>
-  <rect x="904" y="300" width="76" height="98" rx="24" fill="#F1E7D6"/>
-  <rect x="1044" y="324" width="76" height="74" rx="20" fill="#EBDDC9"/>
-  <rect x="330" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
-  <rect x="518" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
-  <rect x="718" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
-  <rect x="890" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
-  <rect x="1030" y="518" width="104" height="16" rx="8" fill="#D5C5AF"/>
-  <rect x="176" y="640" width="240" height="16" rx="8" fill="#DED1BF"/>
-  <rect x="176" y="678" width="360" height="16" rx="8" fill="#E6DACB"/>
+  <rect width="1440" height="900" fill="url(#panel-chinese-emperors-timeline)"/>
+  <circle cx="320" cy="430" r="360" fill="#B45309" opacity="0.12"/>
+  <circle cx="1040" cy="390" r="330" fill="#DC2626" opacity="0.1"/>
+  <path d="M0 690C236 610 438 622 636 690C862 768 1094 780 1440 656V900H0V690Z" fill="#0F172A" opacity="0.34"/>
+  <g filter="url(#shadow-chinese-emperors-timeline)">
+    <rect x="150" y="118" width="1140" height="664" rx="42" fill="#111827" opacity="0.72"/>
+    <rect x="214" y="174" width="1012" height="58" rx="29" fill="#263244"/>
+    <circle cx="254" cy="203" r="9" fill="#B45309"/>
+    <circle cx="288" cy="203" r="9" fill="#DC2626"/>
+    <rect x="342" y="194" width="272" height="17" rx="8.5" fill="#475569"/>
+    <rect x="646" y="194" width="412" height="17" rx="8.5" fill="#334155"/>
+    <rect x="214" y="652" width="1012" height="58" rx="29" fill="#0F172A" opacity="0.84"/>
+    <rect x="278" y="677" width="308" height="11" rx="5.5" fill="#B45309" opacity="0.9"/>
+    <rect x="648" y="677" width="512" height="11" rx="5.5" fill="#475569"/>
+  </g>
+  <g transform="translate(720 430) scale(1.42)">
+    <circle r="230" fill="#B45309" opacity="0.12"/>
+    <circle r="180" fill="#DC2626" opacity="0.1"/>
+    <g><path d="M-164 0H164" stroke="#B45309" stroke-width="14" stroke-linecap="round"/><circle cx="-120" cy="0" r="30" fill="#F8FAFC" stroke="#DC2626" stroke-width="8"/><circle cx="0" cy="0" r="30" fill="#F8FAFC" stroke="#DC2626" stroke-width="8"/><circle cx="120" cy="0" r="30" fill="#F8FAFC" stroke="#DC2626" stroke-width="8"/><path d="M-120-56v-48M0 56v48M120-56v-48" stroke="#CBD5E1" stroke-width="10" stroke-linecap="round"/><path d="M-154-128h68M-34 128h68M86-128h68" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round"/></g>
+  </g>
+  <text x="720" y="704" text-anchor="middle" fill="#F8FAFC" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700">皇帝年表</text>
+  <text x="720" y="750" text-anchor="middle" fill="#CBD5E1" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">Timeline</text>
 </svg>

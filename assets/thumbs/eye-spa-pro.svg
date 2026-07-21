@@ -1,26 +1,37 @@
 <svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#EEF3F9"/>
-      <stop offset="1" stop-color="#DDE6F1"/>
+    <linearGradient id="bg-eye-spa-pro" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FB"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
     </linearGradient>
-    <linearGradient id="card" x1="230" y1="150" x2="1210" y2="760" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FBFDFF"/>
-      <stop offset="1" stop-color="#EEF3F8"/>
+    <linearGradient id="panel-eye-spa-pro" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1F2937"/>
     </linearGradient>
+    <filter id="shadow-eye-spa-pro" x="-80" y="-80" width="1600" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#64748B" flood-opacity="0.2"/>
+    </filter>
   </defs>
-  <rect width="1440" height="900" fill="url(#bg)"/>
-  <rect x="160" y="132" width="1120" height="636" rx="44" fill="url(#card)"/>
-  <rect x="230" y="206" width="312" height="18" rx="9" fill="#D2DDE9"/>
-  <rect x="230" y="244" width="190" height="18" rx="9" fill="#DEE7F0"/>
-  <rect x="230" y="318" width="356" height="290" rx="30" fill="#F2F7FB" stroke="#DDE6EF"/>
-  <rect x="626" y="318" width="210" height="132" rx="28" fill="#F4F8FC" stroke="#DEE7F1"/>
-  <rect x="872" y="318" width="210" height="132" rx="28" fill="#F4F8FC" stroke="#DEE7F1"/>
-  <rect x="626" y="476" width="456" height="132" rx="28" fill="#F4F8FC" stroke="#DEE7F1"/>
-  <path d="M524 462C524 462 596 382 720 382C844 382 916 462 916 462C916 462 844 542 720 542C596 542 524 462 524 462Z" fill="#E6EEF6" stroke="#8AA3BC" stroke-width="10"/>
-  <circle cx="720" cy="462" r="72" fill="#B7C8DA"/>
-  <circle cx="720" cy="462" r="34" fill="#5E7894"/>
-  <circle cx="744" cy="438" r="14" fill="#F7FBFF" fill-opacity="0.85"/>
-  <rect x="662" y="658" width="116" height="18" rx="9" fill="#D3DFEA"/>
-  <rect x="690" y="694" width="60" height="18" rx="9" fill="#DEE7F0"/>
+  <rect width="1440" height="900" fill="url(#panel-eye-spa-pro)"/>
+  <circle cx="320" cy="430" r="360" fill="#14B8A6" opacity="0.12"/>
+  <circle cx="1040" cy="390" r="330" fill="#84CC16" opacity="0.1"/>
+  <path d="M0 690C236 610 438 622 636 690C862 768 1094 780 1440 656V900H0V690Z" fill="#0F172A" opacity="0.34"/>
+  <g filter="url(#shadow-eye-spa-pro)">
+    <rect x="150" y="118" width="1140" height="664" rx="42" fill="#111827" opacity="0.72"/>
+    <rect x="214" y="174" width="1012" height="58" rx="29" fill="#263244"/>
+    <circle cx="254" cy="203" r="9" fill="#14B8A6"/>
+    <circle cx="288" cy="203" r="9" fill="#84CC16"/>
+    <rect x="342" y="194" width="272" height="17" rx="8.5" fill="#475569"/>
+    <rect x="646" y="194" width="412" height="17" rx="8.5" fill="#334155"/>
+    <rect x="214" y="652" width="1012" height="58" rx="29" fill="#0F172A" opacity="0.84"/>
+    <rect x="278" y="677" width="308" height="11" rx="5.5" fill="#14B8A6" opacity="0.9"/>
+    <rect x="648" y="677" width="512" height="11" rx="5.5" fill="#475569"/>
+  </g>
+  <g transform="translate(720 430) scale(1.42)">
+    <circle r="230" fill="#14B8A6" opacity="0.12"/>
+    <circle r="180" fill="#84CC16" opacity="0.1"/>
+    <g><path d="M-172 0s62-92 172-92S172 0 172 0 110 92 0 92-172-92-172-92z" fill="#F8FAFC"/><circle r="58" fill="#14B8A6"/><circle r="26" fill="#111827"/><path d="M-96 118c58 34 134 34 192 0" stroke="#84CC16" stroke-width="12" stroke-linecap="round"/></g>
+  </g>
+  <text x="720" y="704" text-anchor="middle" fill="#F8FAFC" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700">护眼空间</text>
+  <text x="720" y="750" text-anchor="middle" fill="#CBD5E1" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">Eye Spa Pro</text>
 </svg>

@@ -1,0 +1,37 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-mortgage-advisor" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FB"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="panel-mortgage-advisor" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1F2937"/>
+    </linearGradient>
+    <filter id="shadow-mortgage-advisor" x="-80" y="-80" width="1600" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#64748B" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#panel-mortgage-advisor)"/>
+  <circle cx="320" cy="430" r="360" fill="#0EA5E9" opacity="0.12"/>
+  <circle cx="1040" cy="390" r="330" fill="#84CC16" opacity="0.1"/>
+  <path d="M0 690C236 610 438 622 636 690C862 768 1094 780 1440 656V900H0V690Z" fill="#0F172A" opacity="0.34"/>
+  <g filter="url(#shadow-mortgage-advisor)">
+    <rect x="150" y="118" width="1140" height="664" rx="42" fill="#111827" opacity="0.72"/>
+    <rect x="214" y="174" width="1012" height="58" rx="29" fill="#263244"/>
+    <circle cx="254" cy="203" r="9" fill="#0EA5E9"/>
+    <circle cx="288" cy="203" r="9" fill="#84CC16"/>
+    <rect x="342" y="194" width="272" height="17" rx="8.5" fill="#475569"/>
+    <rect x="646" y="194" width="412" height="17" rx="8.5" fill="#334155"/>
+    <rect x="214" y="652" width="1012" height="58" rx="29" fill="#0F172A" opacity="0.84"/>
+    <rect x="278" y="677" width="308" height="11" rx="5.5" fill="#0EA5E9" opacity="0.9"/>
+    <rect x="648" y="677" width="512" height="11" rx="5.5" fill="#475569"/>
+  </g>
+  <g transform="translate(720 430) scale(1.42)">
+    <circle r="230" fill="#0EA5E9" opacity="0.12"/>
+    <circle r="180" fill="#84CC16" opacity="0.1"/>
+    <g><path d="M-150-8L0-126L150-8" stroke="#0EA5E9" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><rect x="-108" y="-8" width="216" height="132" rx="18" fill="#F8FAFC"/><path d="M-64 82l42-46 44 28 56-78" stroke="#84CC16" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M-28 124h56V52h-56z" fill="#CBD5E1"/></g>
+  </g>
+  <text x="720" y="704" text-anchor="middle" fill="#F8FAFC" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700">房贷参谋</text>
+  <text x="720" y="750" text-anchor="middle" fill="#CBD5E1" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">Mortgage Advisor</text>
+</svg>

@@ -1,33 +1,37 @@
 <svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#EEF2F7"/>
-      <stop offset="1" stop-color="#DCE4EE"/>
+    <linearGradient id="bg-moto-agent" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FB"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
     </linearGradient>
-    <linearGradient id="panel" x1="364" y1="180" x2="1076" y2="720" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0f2027"/>
-      <stop offset="1" stop-color="#203a43"/>
+    <linearGradient id="panel-moto-agent" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1F2937"/>
     </linearGradient>
-    <filter id="shadow" x="290" y="122" width="860" height="656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="30" stdDeviation="28" flood-color="#7A8798" flood-opacity="0.18"/>
+    <filter id="shadow-moto-agent" x="-80" y="-80" width="1600" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#64748B" flood-opacity="0.2"/>
     </filter>
   </defs>
-  <rect width="1440" height="900" fill="url(#bg)"/>
-  <g opacity="0.55">
-    <rect x="120" y="110" width="1200" height="680" rx="44" fill="#F5F8FB"/>
-    <rect x="156" y="146" width="1128" height="608" rx="36" stroke="#D9E0E8" stroke-width="2"/>
+  <rect width="1440" height="900" fill="url(#panel-moto-agent)"/>
+  <circle cx="320" cy="430" r="360" fill="#39A0FF" opacity="0.12"/>
+  <circle cx="1040" cy="390" r="330" fill="#5EEAD4" opacity="0.1"/>
+  <path d="M0 690C236 610 438 622 636 690C862 768 1094 780 1440 656V900H0V690Z" fill="#0F172A" opacity="0.34"/>
+  <g filter="url(#shadow-moto-agent)">
+    <rect x="150" y="118" width="1140" height="664" rx="42" fill="#111827" opacity="0.72"/>
+    <rect x="214" y="174" width="1012" height="58" rx="29" fill="#263244"/>
+    <circle cx="254" cy="203" r="9" fill="#39A0FF"/>
+    <circle cx="288" cy="203" r="9" fill="#5EEAD4"/>
+    <rect x="342" y="194" width="272" height="17" rx="8.5" fill="#475569"/>
+    <rect x="646" y="194" width="412" height="17" rx="8.5" fill="#334155"/>
+    <rect x="214" y="652" width="1012" height="58" rx="29" fill="#0F172A" opacity="0.84"/>
+    <rect x="278" y="677" width="308" height="11" rx="5.5" fill="#39A0FF" opacity="0.9"/>
+    <rect x="648" y="677" width="512" height="11" rx="5.5" fill="#475569"/>
   </g>
-  <g filter="url(#shadow)">
-    <rect x="364" y="180" width="712" height="540" rx="40" fill="url(#panel)"/>
+  <g transform="translate(720 430) scale(1.42)">
+    <circle r="230" fill="#39A0FF" opacity="0.12"/>
+    <circle r="180" fill="#5EEAD4" opacity="0.1"/>
+    <g color="#39A0FF"><circle cx="-118" cy="78" r="44" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="118" cy="78" r="44" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M-118 78l44-92h88l56 92M-28-14l-54 92M-10-14l128 92" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="72" y="-98" width="76" height="54" rx="18" fill="#5EEAD4"/><path d="M82-72h56" stroke="#0F172A" stroke-width="7" stroke-linecap="round"/></g>
   </g>
-  <g transform="translate(720, 390)">
-    <!-- Motorcycle icon simplified -->
-    <circle cx="-60" cy="30" r="24" fill="none" stroke="#4a90e2" stroke-width="3"/>
-    <circle cx="60" cy="30" r="24" fill="none" stroke="#4a90e2" stroke-width="3"/>
-    <path d="M-60 30 L-70 10 L-30 -10 L10 -20 L60 30" stroke="#50c878" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M-30 -10 L-10 -40 L10 -20" stroke="#50c878" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- Bot indicator -->
-    <rect x="30" y="-50" width="16" height="16" rx="4" fill="#4a90e2" opacity="0.8"/>
-    <text x="720" y="110" text-anchor="middle" fill="#526170" font-family="monospace" font-size="24" opacity="0.7">弼马温 · Telegram Bot</text>
-  </g>
+  <text x="720" y="704" text-anchor="middle" fill="#F8FAFC" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700">弼马温</text>
+  <text x="720" y="750" text-anchor="middle" fill="#CBD5E1" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">Moto Agent</text>
 </svg>

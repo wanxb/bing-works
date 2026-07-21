@@ -1,43 +1,37 @@
 <svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="720" y1="96" x2="720" y2="792" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#071827"/>
-      <stop offset="0.55" stop-color="#0B2440"/>
-      <stop offset="1" stop-color="#08121C"/>
+    <linearGradient id="bg-cyber-ocean" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FB"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(730 428) rotate(90) scale(220 340)">
-      <stop stop-color="#7BD7FF" stop-opacity="0.42"/>
-      <stop offset="1" stop-color="#7BD7FF" stop-opacity="0"/>
-    </radialGradient>
+    <linearGradient id="panel-cyber-ocean" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1F2937"/>
+    </linearGradient>
+    <filter id="shadow-cyber-ocean" x="-80" y="-80" width="1600" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#64748B" flood-opacity="0.2"/>
+    </filter>
   </defs>
-  <rect width="1440" height="900" fill="url(#bg)"/>
-  <rect x="120" y="118" width="1200" height="664" rx="40" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <rect x="120" y="118" width="1200" height="664" rx="40" fill="url(#glow)"/>
-  <path d="M160 546C286 516 364 602 482 572C580 546 652 450 758 460C884 472 944 606 1048 598C1146 592 1216 520 1280 530" stroke="#7BD7FF" stroke-opacity="0.48" stroke-width="3" stroke-linecap="round"/>
-  <path d="M158 590C268 576 352 652 474 630C600 608 648 520 760 518C892 514 964 650 1088 646C1162 642 1224 602 1280 598" stroke="#A38BFF" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round"/>
-  <g>
-    <circle cx="420" cy="454" r="10" fill="#7BD7FF"/>
-    <circle cx="474" cy="420" r="14" fill="#7BD7FF" fill-opacity="0.92"/>
-    <circle cx="552" cy="392" r="12" fill="#7BD7FF" fill-opacity="0.88"/>
-    <circle cx="642" cy="428" r="18" fill="#7BD7FF" fill-opacity="0.82"/>
-    <circle cx="734" cy="404" r="26" fill="#7BD7FF" fill-opacity="0.76"/>
-    <circle cx="828" cy="438" r="16" fill="#7BD7FF" fill-opacity="0.74"/>
-    <circle cx="904" cy="410" r="12" fill="#7BD7FF" fill-opacity="0.72"/>
-    <circle cx="980" cy="432" r="10" fill="#7BD7FF" fill-opacity="0.68"/>
+  <rect width="1440" height="900" fill="url(#panel-cyber-ocean)"/>
+  <circle cx="320" cy="430" r="360" fill="#06B6D4" opacity="0.12"/>
+  <circle cx="1040" cy="390" r="330" fill="#A855F7" opacity="0.1"/>
+  <path d="M0 690C236 610 438 622 636 690C862 768 1094 780 1440 656V900H0V690Z" fill="#0F172A" opacity="0.34"/>
+  <g filter="url(#shadow-cyber-ocean)">
+    <rect x="150" y="118" width="1140" height="664" rx="42" fill="#111827" opacity="0.72"/>
+    <rect x="214" y="174" width="1012" height="58" rx="29" fill="#263244"/>
+    <circle cx="254" cy="203" r="9" fill="#06B6D4"/>
+    <circle cx="288" cy="203" r="9" fill="#A855F7"/>
+    <rect x="342" y="194" width="272" height="17" rx="8.5" fill="#475569"/>
+    <rect x="646" y="194" width="412" height="17" rx="8.5" fill="#334155"/>
+    <rect x="214" y="652" width="1012" height="58" rx="29" fill="#0F172A" opacity="0.84"/>
+    <rect x="278" y="677" width="308" height="11" rx="5.5" fill="#06B6D4" opacity="0.9"/>
+    <rect x="648" y="677" width="512" height="11" rx="5.5" fill="#475569"/>
   </g>
-  <g opacity="0.3">
-    <circle cx="420" cy="454" r="28" fill="#7BD7FF"/>
-    <circle cx="474" cy="420" r="38" fill="#7BD7FF"/>
-    <circle cx="552" cy="392" r="34" fill="#7BD7FF"/>
-    <circle cx="642" cy="428" r="46" fill="#7BD7FF"/>
-    <circle cx="734" cy="404" r="58" fill="#7BD7FF"/>
-    <circle cx="828" cy="438" r="40" fill="#7BD7FF"/>
+  <g transform="translate(720 430) scale(1.42)">
+    <circle r="230" fill="#06B6D4" opacity="0.12"/>
+    <circle r="180" fill="#A855F7" opacity="0.1"/>
+    <g><path d="M-180 38c42-44 84-44 126 0s84 44 126 0 84-44 126 0" stroke="#06B6D4" stroke-width="16" stroke-linecap="round"/><path d="M-180 92c42-38 84-38 126 0s84 38 126 0 84-38 126 0" stroke="#A855F7" stroke-width="16" stroke-linecap="round"/><circle cx="-74" cy="-78" r="18" fill="#A855F7"/><circle cx="70" cy="-112" r="12" fill="#06B6D4"/><circle cx="122" cy="-34" r="10" fill="#F8FAFC"/></g>
   </g>
-  <g opacity="0.14">
-    <path d="M240 206H1200" stroke="white" stroke-width="1"/>
-    <path d="M240 262H1200" stroke="white" stroke-width="1"/>
-    <path d="M240 318H1200" stroke="white" stroke-width="1"/>
-    <path d="M240 374H1200" stroke="white" stroke-width="1"/>
-    <path d="M240 430H1200" stroke="white" stroke-width="1"/>
-  </g>
+  <text x="720" y="704" text-anchor="middle" fill="#F8FAFC" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700">赛博海洋</text>
+  <text x="720" y="750" text-anchor="middle" fill="#CBD5E1" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">Cyber Ocean</text>
 </svg>

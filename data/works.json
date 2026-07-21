@@ -107,7 +107,7 @@
       {
         "id": "screen-time",
         "tags": ["bing", "tool", "wellness"],
-        "thumb": "./assets/thumbs/screen-time.png",
+        "thumb": "./assets/thumbs/screen-time.svg",
         "author": "Bing",
         "category": "健康体验",
         "title": "屏幕时间",
@@ -123,7 +123,7 @@
       {
         "id": "mortgage-advisor",
         "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/mortgage-advisor.png",
+        "thumb": "./assets/thumbs/mortgage-advisor.svg",
         "author": "Bing",
         "category": "工具效率",
         "title": "房贷参谋",
@@ -139,7 +139,7 @@
        {
         "id": "c-drive-cleaner",
         "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/c-drive-cleaner.png",
+        "thumb": "./assets/thumbs/c-drive-cleaner.svg",
         "author": "Bing",
         "category": "工具效率",
         "title": "C 盘清理器",
@@ -327,7 +327,7 @@
        {
         "id": "letters-longing",
         "tags": ["bing", "tool"],
-        "thumb": "./assets/thumbs/letters-longing.png",
+        "thumb": "./assets/thumbs/letters-longing.svg",
         "author": "Bing",
         "category": "知识表达",
         "title": "尺素",
@@ -355,13 +355,29 @@
           "demo": "https://vocab.bbing.xyz/",
           "source": "https://github.com/wanxb/tech-vocab-trainer"
         }
+      },
+      {
+        "id": "shuangshoujian",
+        "tags": ["bing", "visual"],
+        "thumb": "./assets/thumbs/shuangshoujian.svg",
+        "author": "Bing",
+        "category": "互动视觉",
+        "title": "双手剑",
+        "subtitle": "双手剑自学教学网站",
+        "description": "面向双手剑爱好者的自学教学网站，系统整理基础持剑、步法移动、攻防动作与训练路径，帮助用户循序渐进学习和复盘练习。",
+        "sort": 22,
+        "delay": 2,
+        "links": {
+          "demo": "https://ssj.bbing.xyz/",
+          "source": "https://github.com/wanxb/shuangshoujian"
+        }
       }
     ],
     "阿罗德斯": [
       {
         "id": "memory-garden",
         "tags": ["arodes", "visual"],
-        "thumb": "./assets/thumbs/memory-garden.png",
+        "thumb": "./assets/thumbs/memory-garden.svg",
         "author": "阿罗德斯",
         "category": "互动视觉",
         "title": "记忆花园",
@@ -377,7 +393,7 @@
       {
         "id": "zen-stones",
         "tags": ["arodes", "visual", "wellness"],
-        "thumb": "./assets/thumbs/zen-stones.png",
+        "thumb": "./assets/thumbs/zen-stones.svg",
         "author": "阿罗德斯",
         "category": "健康体验",
         "title": "禅石排布",
@@ -393,7 +409,7 @@
       {
         "id": "signal-museum",
         "tags": ["arodes", "visual", "knowledge"],
-        "thumb": "./assets/thumbs/signal-museum.png",
+        "thumb": "./assets/thumbs/signal-museum.svg",
         "author": "阿罗德斯",
         "category": "知识表达",
         "title": "旧信号博物馆",
