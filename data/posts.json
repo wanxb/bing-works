@@ -22,7 +22,7 @@
       "title": "IssuePilot 实战：多 Agent Workflow 协作的 GitHub Issue 自动化开发流水线",
       "date": "2026-06-26",
       "tags": ["ai", "tutorial"],
-      "excerpt": "从 Issue 发现、价值评估、代码开发到 PR 提交的全自动流水线——4 个 Agent + 1 个分类器如何协作完成完整的软件开发生命周期。",
+      "excerpt": "以真实研发链路拆解角色分工、状态机、人工 Gate 与隔离执行，说明如何把多 Agent 协作推进为可观察、可恢复的交付系统。",
       "filename": "issuepilot-practice.md",
       "author": "Bing"
     },
@@ -31,7 +31,7 @@
       "title": "Prompt Engineering 体系化方法",
       "date": "2025-01-15",
       "tags": ["ai", "tutorial"],
-      "excerpt": "从基础结构、推理增强到系统化设计——三级能力模型拆解提示工程的完整方法论。",
+      "excerpt": "从任务建模、上下文组织到评估迭代，建立 Prompt Engineering 的三级能力模型，把提示词从表达技巧升级为可测试的工程资产。",
       "filename": "prompt-engineering-systematic.md",
       "author": "Bing"
     },
@@ -40,7 +40,7 @@
       "title": "知识密集型行业的 AI Agent 落地陷阱",
       "date": "2026-06-30",
       "tags": ["ai"],
-      "excerpt": "法律、医疗、金融等知识密集型行业的 Agent 落地六大陷阱——幻觉责任归属、知识时效性、数据隔离、监管合规等。",
+      "excerpt": "从责任边界、知识治理、数据隔离与监管合规出发，分析高风险行业如何控制 Agent 幻觉、权限和决策风险。",
       "filename": "knowledge-intensive-agent-traps.md",
       "author": "Bing"
     },
@@ -49,7 +49,7 @@
       "title": "AI Agent 的边界：哪些问题值得用 Agent，哪些不需要",
       "date": "2026-06-24",
       "tags": ["ai"],
-      "excerpt": "一个二维决策框架帮你判断：规则引擎、传统代码还是 AI Agent？以及 5 种不值得用 Agent 的场景。",
+      "excerpt": "用任务不确定性与环境动态性建立选型框架，判断何时采用规则、传统代码或 Agent，并识别不该交给模型的系统边界。",
       "filename": "agent-boundary.md",
       "author": "Bing"
     },
@@ -58,7 +58,7 @@
       "title": "大模型 + 机器人：MCP 如何连接数字智能与物理世界",
       "date": "2026-05-27",
       "tags": ["ai"],
-      "excerpt": "从工业机械臂、巡检机器人到无人机协同——MCP 作为 LLM 与物理世界的标准接口，让自然语言控制机器人成为现实。",
+      "excerpt": "以 MCP 连接大模型与物理设备，拆解工具抽象、状态反馈、权限控制与安全回退，建立机器人 Agent 的可靠交互边界。",
       "filename": "llm-robotics-mcp.md",
       "author": "Bing"
     },
@@ -67,7 +67,7 @@
       "title": "软件升级项目中的 AI Agent 全流程实践",
       "date": "2026-04-15",
       "tags": ["ai", "tutorial"],
-      "excerpt": "从需求分析、影响评估、代码迁移到灰度切换——AI Agent 在软件升级项目每个阶段的介入点与实践方法。",
+      "excerpt": "把 Agent 嵌入需求分析、影响评估、代码迁移与灰度切换，说明如何用评估点和人工确认控制大型升级项目的自动化风险。",
       "filename": "software-upgrade-agent-practice.md",
       "author": "Bing"
     },
@@ -76,7 +76,7 @@
       "title": "AI Agent 在 ToB SaaS 中的重构实践",
       "date": "2026-03-11",
       "tags": ["ai", "architecture"],
-      "excerpt": "从 UI 操作到意图驱动——ToB SaaS 产品用 Agent 重构交互方式的适配层设计和配置实践。",
+      "excerpt": "从界面操作转向意图驱动，拆解 ToB SaaS 的 Agent 适配层、权限继承与配置机制，保留存量系统的稳定业务边界。",
       "filename": "tob-saas-agent-refactor.md",
       "author": "Bing"
     },
@@ -85,7 +85,7 @@
       "title": "AI Agent 行业落地全景：金融、医疗、制造、电商",
       "date": "2026-02-18",
       "tags": ["ai"],
-      "excerpt": "四个行业的 AI Agent 落地场景与关键切入点——从信息聚合到辅助决策再到自动执行的渐进路径。",
+      "excerpt": "比较金融、医疗、制造与电商的 Agent 落地路径，提炼从信息辅助到受控执行的能力分级、风险边界与演进策略。",
       "filename": "agent-industry-landscape.md",
       "author": "Bing"
     },
@@ -94,7 +94,7 @@
       "title": "微服务架构下的 Agent 可观测性与治理",
       "date": "2026-01-21",
       "tags": ["ai", "architecture"],
-      "excerpt": "Agent 调用链追踪、质量指标、告警配置、灰度发布与成本治理——把 Agent 当微服务一样管理的完整方法论。",
+      "excerpt": "建立覆盖调用链、质量、成本与安全的 Agent 治理体系，让模型行为可以观测、评估、告警、灰度和回退。",
       "filename": "agent-observability-governance.md",
       "author": "Bing"
     },
@@ -103,7 +103,7 @@
       "title": "企业系统接入 AI Agent 的架构演进路径",
       "date": "2025-12-29",
       "tags": ["ai", "architecture"],
-      "excerpt": "旁路 Agent → 嵌入 Agent → 协同 Agent 三阶段渐进式演进策略，避免大爆炸改造。",
+      "excerpt": "以旁路、嵌入、协同三阶段规划企业 Agent 演进，在复用存量能力的同时逐步建立权限、治理与组织协作机制。",
       "filename": "enterprise-agent-path.md",
       "author": "Bing"
     },
@@ -112,7 +112,7 @@
       "title": "AI Agent 与企业微服务的融合之道",
       "date": "2025-12-10",
       "tags": ["ai", "architecture"],
-      "excerpt": "Agent 作为智能编排层如何与存量微服务体系握手——Agent Router、适配层、权限继承、事务补偿、灰度与熔断。",
+      "excerpt": "把 Agent 作为智能编排层接入存量微服务，系统处理路由、适配、权限、事务补偿、熔断与灰度发布。",
       "filename": "agent-microservice-integration.md",
       "author": "Bing"
     },
@@ -121,7 +121,7 @@
       "title": "Multi-Agent 编排模式：架构选型与生产实践",
       "date": "2025-11-19",
       "tags": ["ai", "architecture"],
-      "excerpt": "Supervisor / Pipeline / Debate / Tool 分发四种 Multi-Agent 模式的选型与混合策略，从单 Agent 到多 Agent 的演进路径。",
+      "excerpt": "比较 Supervisor、Pipeline、Debate 与工具分发模式，建立基于任务结构、协作成本和失败恢复的 Multi-Agent 选型方法。",
       "filename": "multi-agent-patterns.md",
       "author": "Bing"
     },
@@ -130,7 +130,7 @@
       "title": "Agent Workflow 实战：从零构建一个全栈智能助手",
       "date": "2025-10-29",
       "tags": ["ai", "tutorial"],
-      "excerpt": "路由 Workflow → 编排 Workflow → 记忆 Workflow → 安全 Workflow——四阶段 Agent Workflow 的完整设计与代码骨架。",
+      "excerpt": "从路由、编排、记忆到安全控制，逐步构建全栈 Agent Workflow，并给出可扩展的状态、工具与评估代码骨架。",
       "filename": "fullstack-ai-assistant.md",
       "author": "Bing"
     },
@@ -139,7 +139,7 @@
       "title": "存量系统 AI 化改造：从「能用」到「智能」",
       "date": "2025-10-08",
       "tags": ["ai", "architecture"],
-      "excerpt": "不改存量系统也能接入 AI——数据库直连、API 封装、屏幕抓取三种模式的选择与组合策略。",
+      "excerpt": "比较数据库、API 与界面自动化三种 AI 接入方式，帮助存量系统在控制改造成本和风险的前提下逐步获得智能能力。",
       "filename": "legacy-system-ai-upgrade.md",
       "author": "Bing"
     },
@@ -148,7 +148,7 @@
       "title": "MCP 协议详解：让 AI 与万物互联的标准接口",
       "date": "2025-09-10",
       "tags": ["ai", "tutorial"],
-      "excerpt": "MCP 架构设计、Tools/Resources/Prompts 三大概念、传输方式与技术对比——从原理到动手写一个 MCP Server。",
+      "excerpt": "从协议架构、能力抽象到 Server 实现，说明 MCP 如何标准化模型与工具、数据和提示资源之间的连接。",
       "filename": "mcp-protocol-guide.md",
       "author": "Bing"
     },
@@ -157,7 +157,7 @@
       "title": "LLM 应用的可观测性与评估体系",
       "date": "2025-08-14",
       "tags": ["ai"],
-      "excerpt": "Trace / Evaluation / Guardrails——LLM 应用独有的性能、质量和安全三维观测体系。",
+      "excerpt": "以 Trace、Evaluation 与 Guardrails 建立 LLM 应用的生产反馈闭环，同时观测性能、回答质量、安全风险与模型成本。",
       "filename": "llm-observability-evaluation.md",
       "author": "Bing"
     },
@@ -166,7 +166,7 @@
       "title": "AI Agent 系统设计：从 ReAct 到 Multi-Agent",
       "date": "2025-07-16",
       "tags": ["ai"],
-      "excerpt": "Planning / Memory / Tool Use 三大件拆解，四种主流 Agent 架构模式对比与选型指南。",
+      "excerpt": "从 Planning、Memory 与 Tool Use 拆解 Agent 核心能力，比较 ReAct 到 Multi-Agent 的架构边界、适用场景与工程代价。",
       "filename": "ai-agent-system-design.md",
       "author": "Bing"
     },
@@ -175,7 +175,7 @@
       "title": "RAG 进阶：从 Naive RAG 到 Agentic RAG",
       "date": "2025-06-18",
       "tags": ["ai", "tutorial"],
-      "excerpt": "Query Rewriting、HyDE、Reranker、Hybrid Search、Self-RAG、Graph RAG——三代 RAG 技术的完整梳理与选型指南。",
+      "excerpt": "从检索增强、重排到自适应决策梳理三代 RAG 架构，建立面向召回质量、延迟、成本与复杂度的选型方法。",
       "filename": "rag-advanced.md",
       "author": "Bing"
     },
@@ -184,7 +184,7 @@
       "title": "LLM 推理原理与优化：KV Cache、Speculative Decoding 与 Continuous Batching",
       "date": "2025-05-20",
       "tags": ["ai"],
-      "excerpt": "Prefill/Decode 区别、KV Cache 显存管理、PagedAttention、Continuous Batching、Speculative Decoding 等推理优化技术详解。",
+      "excerpt": "从 Prefill/Decode 与 KV Cache 出发，解释批处理、显存管理和推测解码如何共同影响大模型服务的吞吐、延迟与成本。",
       "filename": "llm-inference-optimization.md",
       "author": "Bing"
     },
@@ -193,7 +193,7 @@
       "title": "Function Calling 机制：LLM 如何学会用工具",
       "date": "2025-04-10",
       "tags": ["ai"],
-      "excerpt": "Function Calling 的本质原理、工具描述优化、并行调用、错误处理与生产级实践。",
+      "excerpt": "从模型生成工具参数的机制出发，建立工具契约、并行调用、异常恢复与权限校验的生产级 Function Calling 设计。",
       "filename": "function-calling-mechanism.md",
       "author": "Bing"
     },
@@ -202,7 +202,7 @@
       "title": "大模型训练全景：从预训练到 RLHF",
       "date": "2025-03-12",
       "tags": ["ai"],
-      "excerpt": "预训练、SFT、RLHF——完整梳理大模型训练的三个阶段，理解 Base/Instruct/Chat 模型的区别。",
+      "excerpt": "串联预训练、SFT 与 RLHF 的目标和数据变化，建立从 Base Model 到可对话模型的完整训练认知框架。",
       "filename": "llm-training-full-picture.md",
       "author": "Bing"
     },
@@ -211,16 +211,16 @@
       "title": "模型量化与本地部署实战：从 GGUF 到 vLLM",
       "date": "2025-02-18",
       "tags": ["ai", "tutorial"],
-      "excerpt": "Ollama / llama.cpp / vLLM 三种方案全对比，消费级硬件跑开源模型的坑和技巧。",
+      "excerpt": "围绕量化格式、推理引擎与服务方式比较本地部署方案，说明如何在硬件约束下平衡模型质量、吞吐和运维成本。",
       "filename": "local-model-deployment.md",
       "author": "Bing"
     },
     {
       "slug": "moto-agent-practice",
-      "title": "弼马温实战：从零构建一个 Telegram AI Agent 摩托车油耗管家",
+      "title": "弼马温实战：从零构建一个 AI Agent 摩托车油耗管家",
       "date": "2026-07-01",
       "tags": ["ai", "tutorial"],
-      "excerpt": "自研 Agent Loop、分级模型路由、六边形架构——一个生产级 Telegram Bot 从 0 到 1 的完整技术拆解。",
+      "excerpt": "以弼马温为案例，拆解 Agent Loop、工具契约、分级模型路由与六边形架构，说明如何把自然语言能力交付为可控的生产系统。",
       "filename": "moto-agent-practice.md",
       "author": "Bing"
     },
@@ -229,7 +229,7 @@
       "title": "Transformer 详解：从注意力机制到 GPT",
       "date": "2025-04-25",
       "tags": ["ai"],
-      "excerpt": "从 Self-Attention 出发推导 Transformer 架构设计逻辑，理解 GPT 系列模型背后的核心原理。",
+      "excerpt": "从 Self-Attention 的计算过程推导 Transformer 架构，理解上下文建模、并行训练与 GPT 生成能力的基础机制。",
       "filename": "transformer-deep-dive.md",
       "author": "Bing"
     },
@@ -256,7 +256,7 @@
       "title": "RAG 实战：构建一个私有知识库问答系统",
       "date": "2024-08-18",
       "tags": ["ai", "tutorial"],
-      "excerpt": "基于向量检索 + 大模型的 RAG 方案设计，涵盖文档切割、向量库选型与 Prompt 模板优化。",
+      "excerpt": "从文档切分、向量检索到回答生成构建私有知识库，重点处理召回质量、来源可追溯与知识更新机制。",
       "filename": "rag-knowledge-base.md",
       "author": "Bing"
     },
@@ -292,7 +292,7 @@
       "title": "机器学习入门：从线性回归到神经网络",
       "date": "2023-11-15",
       "tags": ["ai", "tutorial"],
-      "excerpt": "从线性回归、梯度下降到激活函数与神经网络，零基础理解机器学习的核心概念。",
+      "excerpt": "从线性回归和梯度下降建立学习目标，再连接激活函数与神经网络，形成理解现代 AI 模型的基础框架。",
       "filename": "ml-basics.md",
       "author": "Bing"
     },
@@ -319,7 +319,7 @@
       "title": "用 Semantic Kernel 给你的应用加上 AI 大脑",
       "date": "2023-05-10",
       "tags": ["dotnet", "ai"],
-      "excerpt": "微软 Semantic Kernel 初探：Prompt Template、Native Function 与 Planner 自动编排。",
+      "excerpt": "通过 Prompt、原生函数与 Planner 的协作，理解 Semantic Kernel 如何把模型能力嵌入应用并组织可扩展的工具编排。",
       "filename": "semantic-kernel-intro.md",
       "author": "Bing"
     },

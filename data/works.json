@@ -34,7 +34,7 @@
         "category": "工具效率",
         "title": "弼马温",
         "subtitle": "Moto Agent",
-        "description": "基于 Telegram 的摩托车油耗管理机器人，支持自然语言记录、多车油耗追踪和定时提醒，后台基于 Cloudflare Workers + D1。",
+        "description": "以自然语言驱动车辆数据管理的 AI Agent，围绕意图理解、工具调用、模型路由与确定性规则构建可控的生产架构。",
         "sort": 1,
         "delay": 1,
         "links": {
@@ -42,7 +42,7 @@
           "source": "https://github.com/wanxb/moto_agent"
         },
         "year": 2026,
-        "focus": ["Agent Loop", "模型路由", "Cloudflare Workers"],
+        "focus": ["Agent 架构", "工具调用", "模型路由"],
         "relatedPosts": ["moto-agent-practice"],
         "schemaType": "SoftwareApplication",
         "caseStudy": {
@@ -75,7 +75,7 @@
         "category": "工具效率",
         "title": "Token 用量面板",
         "subtitle": "Token Usage Dashboard",
-        "description": "本地 Web 仪表盘，通过解析日志文件追踪 Claude Code 和 Codex 的 token 使用情况，支持多源聚合和按项目分组。",
+        "description": "面向 AI 编程工作流的成本观测工具，统一聚合 Claude Code 与 Codex 用量，按项目追踪消耗趋势与资源结构。",
         "sort": 2,
         "delay": 1,
         "links": {
@@ -90,7 +90,7 @@
         "category": "工具效率",
         "title": "IssuePilot",
         "subtitle": "Multi-Agent Workflow",
-        "description": "多智能体 GitHub Issue 自动化开发流水线，自动抓取 Issue、AI 评估价值、多 Agent 协作完成开发自测评审，自动提交 PR。",
+        "description": "面向软件研发全流程的多 Agent 协作系统，以角色分工、状态机、人工 Gate 与隔离执行实现从 Issue 评估到 PR 交付的可控自动化。",
         "sort": 3,
         "delay": 1,
         "links": {
@@ -130,7 +130,7 @@
         "category": "知识表达",
         "title": "AI 资讯",
         "subtitle": "AI News Timeline",
-        "description": "每日 AI 新闻时间线聚合，自动抓取 Anthropic、OpenAI、Google Gemini / DeepMind 四大源，零后端部署。",
+        "description": "面向 AI 从业者的可信信息聚合系统，以官方来源筛选、自动化采集与结构化时间线降低持续跟踪行业动态的成本。",
         "sort": 4,
         "delay": 1,
         "links": {
@@ -171,7 +171,7 @@
         "category": "互动视觉",
         "title": "Luminote",
         "subtitle": "Photography Portfolio",
-        "description": "摄影作品与视觉手记的轻盈归档，用留白与画面组织温和的浏览体验。",
+        "description": "围绕摄影作品与视觉手记设计的内容归档，以克制的信息层级和沉浸式画面建立连贯的浏览叙事。",
         "sort": 5,
         "delay": 1,
         "links": {
@@ -187,7 +187,7 @@
         "category": "健康体验",
         "title": "屏幕时间",
         "subtitle": "Screen Time",
-        "description": "轻量的 Windows 屏幕时间工具，统计本机软件使用时长，并在连续使用过久时温和提醒休息。",
+        "description": "以本地数据和低干扰提醒帮助用户理解软件使用节奏，在隐私、准确统计与健康反馈之间取得平衡。",
         "sort": 6,
         "delay": 1,
         "links": {
@@ -203,7 +203,7 @@
         "category": "工具效率",
         "title": "房贷参谋",
         "subtitle": "Mortgage Advisor",
-        "description": "房贷全周期计算与决策工具，支持贷款规划、提前还款、利率调整和方案对比。",
+        "description": "把贷款规划、利率变化与提前还款统一为可比较的现金流模型，帮助用户看清长期成本与关键决策节点。",
         "sort": 7,
         "delay": 1,
         "links": {
@@ -219,7 +219,7 @@
         "category": "工具效率",
         "title": "C 盘清理器",
         "subtitle": "C Drive Cleaner",
-        "description": "面向 Windows 的交互式缓存清理工具，自动发现缓存目录并按风险分级，方便先扫描再清理。",
+        "description": "面向 Windows 的安全清理工具，通过自动发现、风险分级与执行确认，让磁盘治理过程可理解、可选择、可回退。",
         "sort": 8,
         "delay": 1,
         "links": {
@@ -235,7 +235,7 @@
         "category": "工具效率",
         "title": "AlphaRadar",
         "subtitle": "Alpha Event Radar",
-        "description": "基于 Cloudflare Workers 的 Alpha 事件雷达，抓取多源数据、识别交易信号并推送到 Telegram。",
+        "description": "面向高时效信息的事件雷达，将多源采集、规则识别、信号去重与主动通知组织成持续运行的自动化链路。",
         "sort": 9,
         "delay": 2,
         "links": {
@@ -250,7 +250,7 @@
         "category": "工具效率",
         "title": "AI 聊天切片",
         "subtitle": "AIChatSlice",
-        "description": "浏览器扩展，快速选择 AI 聊天消息并导出为 Markdown。",
+        "description": "面向 AI 对话知识沉淀的浏览器扩展，把零散消息选择、上下文整理与 Markdown 导出收敛为轻量工作流。",
         "sort": 10,
         "delay": 3,
         "links": {
@@ -265,7 +265,7 @@
         "category": "工具效率",
         "title": "极简时钟",
         "subtitle": "Time Clock",
-        "description": "用克制的布局和清晰的数字表达时间本身。",
+        "description": "以稳定的视觉层级、响应式排版和低干扰交互，探索时间信息在不同屏幕上的清晰表达。",
         "sort": 11,
         "delay": 2,
         "links": {
@@ -281,7 +281,7 @@
         "category": "知识表达",
         "title": "皇帝年表",
         "subtitle": "Chinese Emperors Timeline",
-        "description": "把历史信息整理成更易浏览的时间结构，方便查看、比较和理解。",
+        "description": "把跨朝代人物与年代关系组织成可浏览、可比较的时间结构，降低复杂历史信息的理解成本。",
         "sort": 12,
         "delay": 2,
         "links": {
@@ -297,7 +297,7 @@
         "category": "互动视觉",
         "title": "地图拼块",
         "subtitle": "China Map Puzzle",
-        "description": "把地图认知变成轻量互动，通过拼接重新认识地理信息。",
+        "description": "将省级行政区识别转化为可操作的拼图反馈，在空间关系、即时校验与重复练习中建立地理认知。",
         "sort": 13,
         "delay": 3,
         "links": {
@@ -313,7 +313,7 @@
         "category": "互动视觉",
         "title": "赛博海洋",
         "subtitle": "Cyber Ocean",
-        "description": "用光点、深色与漂浮感构成一个带赛博气质的在线场景。",
+        "description": "通过粒子系统、空间层次与实时交互构建沉浸式数字海洋，验证浏览器端动态视觉的表现力。",
         "sort": 14,
         "delay": 3,
         "links": {
@@ -329,7 +329,7 @@
         "category": "健康体验",
         "title": "护眼空间",
         "subtitle": "Eye Spa Pro",
-        "description": "围绕护眼与屏幕使用节奏组织体验，让功能与舒适感同时存在。",
+        "description": "把护眼训练、休息节奏与低刺激视觉反馈整合为连续体验，让健康提醒真正融入日常屏幕使用。",
         "sort": 15,
         "delay": 3,
         "links": {
@@ -346,7 +346,7 @@
         "category": "工具效率",
         "title": "停车计时机器人",
         "subtitle": "ParkTimerBot",
-        "description": "Telegram 机器人，帮用户记录停车时间并提醒。",
+        "description": "围绕停车计时、到期提醒与状态恢复设计的对话式工具，用最短操作链路解决移动场景中的临时记忆问题。",
         "sort": 16,
         "delay": 3,
         "links": {
@@ -361,7 +361,7 @@
         "category": "工具效率",
         "title": "ClipBox",
         "subtitle": "Clipboard Manager",
-        "description": "轻量级剪贴板管理工具，提升复制粘贴效率。",
+        "description": "面向高频复制粘贴场景的本地效率工具，通过历史检索、快速调用与轻量常驻减少重复操作。",
         "sort": 17,
         "delay": 4,
         "links": {
@@ -376,7 +376,7 @@
         "category": "工具效率",
         "title": "BeatCLI",
         "subtitle": "CLI Music Player",
-        "description": "通过命令行控制台播放音乐，简洁高效的音乐体验。",
+        "description": "以命令行交互重构音乐检索、播放与队列控制，为键盘优先的工作流提供低打扰播放体验。",
         "sort": 18,
         "delay": 4,
         "links": {
@@ -391,7 +391,7 @@
         "category": "工具效率",
         "title": "SpoonForce",
         "subtitle": "iPhone Kitchen Scale",
-        "description": "使用 iPhone 实现厨房秤功能，通过触摸进行称重。",
+        "description": "利用移动设备压力感知能力探索临时称重方案，把传感器数据、校准反馈与触控交互组合成可用工具。",
         "sort": 19,
         "delay": 4,
         "links": {
@@ -407,7 +407,7 @@
         "category": "知识表达",
         "title": "尺素",
         "subtitle": "书信美学资料库",
-        "description": "一个书信美学资料库，用精选内容、清晰来源和优雅阅读体验，帮助用户找到合适的书信表达",
+        "description": "以主题分类、可靠出处与阅读语境组织书信内容，帮助用户理解表达方式并快速找到可借鉴的文字。",
         "sort": 20,
         "delay": 4,
         "links": {
@@ -423,7 +423,7 @@
         "category": "知识表达",
         "title": "技术词汇训练",
         "subtitle": "Tech Vocab Trainer",
-        "description": "面向技术人员的英语词汇闪卡应用，基于 SM-2 间隔重复算法，涵盖 12 个技术类别 440+ 词汇。",
+        "description": "围绕技术英语建立可持续的记忆训练系统，以间隔重复、分类词库与学习反馈提升长期掌握效率。",
         "sort": 21,
         "delay": 1,
         "links": {
@@ -439,7 +439,7 @@
         "category": "互动视觉",
         "title": "双手剑",
         "subtitle": "双手剑自学教学网站",
-        "description": "面向双手剑爱好者的自学教学网站，系统整理基础持剑、步法移动、攻防动作与训练路径，帮助用户循序渐进学习和复盘练习。",
+        "description": "为双手剑自学者建立从基础持剑、步法到攻防组合的结构化课程，并用训练路径与复盘要点支持循序进阶。",
         "sort": 22,
         "delay": 2,
         "links": {
@@ -459,7 +459,7 @@
         "category": "互动视觉",
         "title": "记忆花园",
         "subtitle": "Digital Memory Landscape",
-        "description": "用发光节点与静谧氛围组织记忆，像在数字空间里散步。",
+        "description": "由 AI 助手自主完成的互动视觉实验，以节点关系、空间漫游与细微动效探索数字记忆的组织方式。",
         "sort": 1,
         "delay": 1,
         "links": {
@@ -475,7 +475,7 @@
         "category": "健康体验",
         "title": "禅石排布",
         "subtitle": "Calm Interaction",
-        "description": "以石子、留白和细微动态组织出安静的浏览体验。",
+        "description": "由 AI 助手自主完成的平静交互实验，通过可控排布、微动效与即时反馈建立低压力的专注体验。",
         "sort": 2,
         "delay": 2,
         "links": {
@@ -491,7 +491,7 @@
         "category": "知识表达",
         "title": "旧信号博物馆",
         "subtitle": "Archive of Electronic Signals",
-        "description": "把信号、频率与展陈感做成一间可以在线浏览的小型电子博物馆。",
+        "description": "由 AI 助手自主完成的知识视觉化实验，把信号、频率与历史材料组织成可探索的线上展陈结构。",
         "sort": 3,
         "delay": 3,
         "links": {

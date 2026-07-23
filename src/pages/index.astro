@@ -11,23 +11,16 @@ const allPosts = getAllPosts();
 const featuredPosts = siteProfile.featuredPostSlugs
   .map((slug) => allPosts.find((post) => post.slug === slug))
   .filter((post) => Boolean(post));
-
-function formatDate(date: string) {
-  return new Intl.DateTimeFormat('zh-CN', {
-    month: '2-digit',
-    day: '2-digit',
-  }).format(new Date(`${date}T00:00:00+08:00`));
-}
 ---
 
 <BaseLayout
-  title="Bing - 从模型能力到生产系统"
+  title="Bing - 让 AI 能力进入真实系统"
   description={siteProfile.description}
   jsonLd={[personSchema(), websiteSchema()]}
 >
   <section class="home-hero">
-    <p class="eyebrow">AI Systems · Agent Engineering · Technical Leadership</p>
-    <h1>{siteProfile.name}</h1>
+    <p class="eyebrow">Think · Build · Deliver</p>
+    <h1>I'm Bing.</h1>
     <p class="hero-statement">{siteProfile.statement}</p>
     <div class="hero-introduction">
       {siteProfile.introduction.map((line) => <p class="lead">{line}</p>)}
@@ -54,13 +47,12 @@ function formatDate(date: string) {
 
   <section class="page-section home-section" aria-labelledby="work-heading">
     <div class="section-heading">
-      <h2 id="work-heading">Selected Work</h2>
+      <h2 id="work-heading">项目实践</h2>
       <a href="/works/">全部项目</a>
     </div>
     <ol class="work-list">
       {featuredWorks.map((work) => work && (
         <li class="work-row">
-          <span class="row-year">{work.year || '实践'}</span>
           <div>
             <h3 class="row-title"><a href={`/works/${work.id}/`}>{work.title}</a></h3>
             <p class="row-description">{work.subtitle}</p>
@@ -74,19 +66,17 @@ function formatDate(date: string) {
 
   <section class="page-section home-section" aria-labelledby="writing-heading">
     <div class="section-heading">
-      <h2 id="writing-heading">Selected Writing</h2>
+      <h2 id="writing-heading">技术写作</h2>
       <a href="/blog/">全部文章</a>
     </div>
     <ol class="post-list">
       {featuredPosts.map((post) => post && (
         <li class="post-row">
-          <time class="row-date" datetime={post.date}>{formatDate(post.date)}</time>
-          <span class="row-topic">{post.topic}</span>
           <div>
             <h3 class="row-title"><a href={`/blog/${post.slug}/`}>{post.title}</a></h3>
             <p class="row-description">{post.excerpt}</p>
           </div>
-          <span class="row-meta">{post.readingMinutes} 分钟</span>
+          <span class="row-topic">{post.topic}</span>
         </li>
       ))}
     </ol>

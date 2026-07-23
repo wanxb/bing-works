@@ -40,10 +40,14 @@ function formatDate(date: string) {
       data-post-topic-value={interactive ? post.topic : undefined}
       data-post-search-value={interactive ? `${post.title} ${post.excerpt}`.toLowerCase() : undefined}
     >
-      <time class="row-date" datetime={post.date}>{formatDate(post.date)}</time>
-      <span class="row-topic">{post.topic}</span>
-      <div>
-        <h2 class="row-title"><a href={`/blog/${post.slug}/`}>{post.title}</a></h2>
+      <div class="post-row__content">
+        <div class="post-row__heading">
+          <h2 class="row-title"><a href={`/blog/${post.slug}/`}>{post.title}</a></h2>
+          <div class="post-row__info">
+            <time class="row-date" datetime={post.date}>{formatDate(post.date)}</time>
+            <span class="row-topic">{post.topic}</span>
+          </div>
+        </div>
         <p class="row-description">{post.excerpt}</p>
       </div>
       <span class="row-meta">{post.readingMinutes} 分钟</span>

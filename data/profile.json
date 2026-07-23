@@ -1,7 +1,7 @@
 {
   "name": "Bing",
   "siteName": "Bing's Works",
-  "statement": "从模型能力到生产系统",
+  "statement": "让 AI 能力进入真实系统。",
   "introduction": [
     "专注 AI Agent、大模型应用架构与工程化交付。",
     "关注系统边界、技术取舍、团队协作与长期演进。"
@@ -17,8 +17,8 @@
       "description": "让 Agent 具备可评估、可观测、可控制和可持续演进的能力。"
     },
     {
-      "title": "技术领导力",
-      "description": "连接业务目标、技术路线与团队交付，在复杂约束中作出判断。"
+      "title": "技术决策与交付",
+      "description": "连接业务目标、技术路线与团队协作，把复杂问题推进为可验证、可持续的交付结果。"
     }
   ],
   "principles": [
