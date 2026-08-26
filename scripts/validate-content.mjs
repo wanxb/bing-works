@@ -37,7 +37,8 @@ const postSlugs = posts.map((post) => post.slug);
 const knownTags = new Set(postsData.tags.map((tag) => tag.id));
 
 assert(works.length === 25, `项目数量应为 25，当前为 ${works.length}`);
-assert(posts.length === 58, `文章数量应为 58，当前为 ${posts.length}`);
+// The explicit catalog size prevents accidental content loss during bulk metadata edits.
+assert(posts.length === 59, `文章数量应为 59，当前为 ${posts.length}`);
 assert(findDuplicates(workIds).length === 0, `存在重复项目 ID: ${findDuplicates(workIds).join(', ')}`);
 assert(findDuplicates(postSlugs).length === 0, `存在重复文章 slug: ${findDuplicates(postSlugs).join(', ')}`);
 

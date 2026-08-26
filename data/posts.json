@@ -18,6 +18,15 @@
   ],
   "posts": [
     {
+      "slug": "microsoft-agent-framework-practice",
+      "title": "Microsoft Agent Framework 学习与实战：把企业只读查询做成可控 Agent",
+      "date": "2026-08-26",
+      "tags": ["ai", "dotnet", "tutorial"],
+      "excerpt": "以法大大认证信息查询工程为主线，拆解 ChatClientAgent、严格 Function Tools、参数来源证明、证据模型、审计门禁与离线 Eval 的完整落地过程。",
+      "filename": "microsoft-agent-framework-practice.md",
+      "author": "Bing"
+    },
+    {
       "slug": "issuepilot-practice",
       "title": "IssuePilot 实战：多 Agent Workflow 协作的 GitHub Issue 自动化开发流水线",
       "date": "2026-06-26",
