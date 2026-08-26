@@ -1,4 +1,4 @@
-# Microsoft Agent Framework 学习与实战：把企业只读查询做成可控 Agent
+# Microsoft Agent Framework 企业级实战：构建安全、可审计的查询 Agent 系统
 
 如果只是学习 Agent Framework，写一个天气查询 Demo 并不难：注册一个函数，把它交给模型，等待 Function Calling 返回结果。
 

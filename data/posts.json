@@ -19,7 +19,7 @@
   "posts": [
     {
       "slug": "microsoft-agent-framework-practice",
-      "title": "Microsoft Agent Framework 学习与实战：把企业只读查询做成可控 Agent",
+      "title": "Microsoft Agent Framework 企业级实战：构建安全、可审计的查询 Agent 系统",
       "date": "2026-08-26",
       "tags": ["ai", "dotnet", "tutorial"],
       "excerpt": "以法大大认证信息查询工程为主线，拆解 ChatClientAgent、严格 Function Tools、参数来源证明、证据模型、审计门禁与离线 Eval 的完整落地过程。",
