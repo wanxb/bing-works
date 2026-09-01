@@ -16,6 +16,7 @@ const publishedDate = new Intl.DateTimeFormat('zh-CN', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
+  timeZone: 'Asia/Shanghai',
 }).format(new Date(`${post.date}T00:00:00+08:00`));
 ---
 
