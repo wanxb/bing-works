@@ -18,6 +18,15 @@
   ],
   "posts": [
     {
+      "slug": "codex-samsung-tv-region",
+      "title": "我让 Codex 接管一台三星电视：从国区到港区的真实改造记录",
+      "date": "2026-09-01",
+      "tags": ["ai", "tutorial", "life"],
+      "excerpt": "记录 Codex 如何接管局域网内的三星电视，配置 Mac 网关、定位切区错误、辅助修改工程菜单，并用真实视频流量验证港区应用。",
+      "filename": "codex-samsung-tv-region.md",
+      "author": "Bing"
+    },
+    {
       "slug": "microsoft-agent-framework-practice",
       "title": "Microsoft Agent Framework 企业级实战：构建安全、可审计的查询 Agent 系统",
       "date": "2026-08-26",

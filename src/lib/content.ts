@@ -112,7 +112,9 @@ const topicSlugSets: Record<Topic, Set<string>> = {
     'tob-saas-agent-refactor',
     'agent-industry-landscape',
   ]),
-  '工程实践': new Set(),
+  '工程实践': new Set([
+    'codex-samsung-tv-region',
+  ]),
   '随笔': new Set(),
 };
 
@@ -213,4 +215,3 @@ export function getAdjacentPosts(slug: string) {
 export function getTagLabel(id: string) {
   return postsData.tags.find((tag) => tag.id === id)?.label || id;
 }
-
