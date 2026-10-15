@@ -357,8 +357,16 @@ h3 {
   padding: 18px 0;
 }
 
-.home-section .work-row {
+.home-section .work-list {
+  /* 全部项目行共享列宽，避免右侧标签长度改变各行描述的起点。 */
+  display: grid;
   grid-template-columns: minmax(160px, 0.8fr) minmax(0, 1.5fr) auto;
+  column-gap: 24px;
+}
+
+.home-section .work-row {
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
 }
 
 .home-section .post-row {
@@ -1192,6 +1200,8 @@ html[data-theme='dark'] .hljs-type {
     grid-column: 2;
   }
 
+  /* 窄屏同步收起父网格，保留项目内容的单列阅读顺序。 */
+  .home-section .work-list,
   .home-section .work-row,
   .home-section .post-row {
     grid-template-columns: 1fr;
