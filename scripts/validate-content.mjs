@@ -27,7 +27,6 @@ function publicPathForAsset(assetPath) {
   return path.join(root, 'public', assetPath.replace(/^\.?\/?/, '').replaceAll('/', path.sep));
 }
 
-const profile = readJson('data/profile.json');
 const worksData = readJson('data/works.json');
 const postsData = readJson('data/posts.json');
 const works = Object.values(worksData.works).flat();
@@ -74,14 +73,6 @@ for (const post of posts) {
       .replace(/^images\//, 'posts/images/');
     assert(fs.existsSync(path.join(root, 'public', normalized)), `文章图片不存在: ${post.filename} -> ${imageUrl}`);
   }
-}
-
-for (const id of profile.featuredWorkIds) {
-  assert(workIds.includes(id), `首页精选项目不存在: ${id}`);
-}
-
-for (const slug of profile.featuredPostSlugs) {
-  assert(postSlugs.includes(slug), `首页精选文章不存在: ${slug}`);
 }
 
 if (failures.length > 0) {

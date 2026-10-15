@@ -1,16 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteProfile } from '../config/site';
-import { getAllPosts, getWorkById } from '../lib/content';
+import { getAllPosts, getAllWorks } from '../lib/content';
 import { personSchema, websiteSchema } from '../lib/schema';
 
-const featuredWorks = siteProfile.featuredWorkIds
-  .map((id) => getWorkById(id))
-  .filter((work) => Boolean(work));
-const allPosts = getAllPosts();
-const featuredPosts = siteProfile.featuredPostSlugs
-  .map((slug) => allPosts.find((post) => post.slug === slug))
-  .filter((post) => Boolean(post));
+// 构建时复用完整列表的排序，内容更新后首页自动展示各自前 3 条。
+const featuredWorks = getAllWorks().slice(0, 3);
+const featuredPosts = getAllPosts().slice(0, 3);
 ---
 
 <BaseLayout
@@ -52,7 +48,7 @@ const featuredPosts = siteProfile.featuredPostSlugs
       <a href="/works/">全部项目</a>
     </div>
     <ol class="work-list">
-      {featuredWorks.map((work) => work && (
+      {featuredWorks.map((work) => (
         <li class="work-row">
           <div>
             <h3 class="row-title"><a href={`/works/${work.id}/`}>{work.title}</a></h3>
@@ -72,7 +68,7 @@ const featuredPosts = siteProfile.featuredPostSlugs
       <a href="/blog/">全部文章</a>
     </div>
     <ol class="post-list">
-      {featuredPosts.map((post) => post && (
+      {featuredPosts.map((post) => (
         <li class="post-row">
           <div>
             <h3 class="row-title"><a href={`/blog/${post.slug}/`}>{post.title}</a></h3>

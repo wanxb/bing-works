@@ -26,13 +26,6 @@
     "系统的可控性和可观测性，通常比自动化程度更重要。",
     "架构的价值，是帮助团队持续作出更好的技术决策。"
   ],
-  "featuredWorkIds": ["moto-agent", "issuepilot", "ai-news"],
-  "featuredPostSlugs": [
-    "moto-agent-practice",
-    "knowledge-intensive-agent-traps",
-    "agent-boundary",
-    "enterprise-agent-path"
-  ],
   "navigation": [
     { "label": "Work", "href": "/works/" },
     { "label": "Writing", "href": "/blog/" },
